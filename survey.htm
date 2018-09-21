@@ -1,0 +1,45 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+
+<!DOCTYPE html>
+<html>
+  <style>
+  </style>
+  <head>
+    <h1 id="title">Survey Form</h1>
+  </head>
+  <main id="main">
+    <body>
+      <p id="description">A form for collecting information.</p>
+    <form id="survey-form">
+      <label for="name-label" id="name-label">Your name:</label><br>
+        <input type="text" id="name" label="name-label" placeholder="Firstname Lastname" required><br><p>
+      <label for="email-label" id="email-label">Your email address:</label><br>
+        <input type="email" id="email" label="email-label" placeholder="you@example.com" required><br><p>
+      <label for="number-label" id="number-label">The answer to the ultimate question of life, the universe, and everything:</label><br>
+        <input type="number" id="number" label="number-label" min="42" max="42" placeholder="Google it."><br><p>
+      <label for="">Your favourite Beatle:</label><br>
+        <select id="dropdown">
+          <option value="">- Select one -</option>
+          <option value="paul">Paul</option>
+          <option value="john">John</option>
+          <option value="george">George</option>
+          <option value="ringo">Ringo</option>
+          <option value="yoko">Yoko</option>
+        </select><br><p>
+      <label for"choc">Your favourite chocolate:</label><br>
+        <label for="milk"><input type="radio" id="milk" name="choc" value="milk">Milk</label>
+        <label for="dark"><input type="radio" id="dark" name="choc" value="dark"><label>Dark</label>
+        <label for="white"><input type="radio" id="white" name="choc" value="white"><label>White</label>
+      </label><hr>
+      <label for"tnc">Terms & Conditions:</label><br>
+        <label for="tnc"><input type="checkbox" value="agree">I agree to the Terms & Conditions.</label><p>
+        <label for="tnc"><input type="checkbox" value="havenot">I haven't read the Terms & Conditions.</label><hr>
+      <label>Additional comments:</label><br>
+        <textarea>
+        </textarea><br><p>
+      <button type="submit" id="submit">Submit!</button>
+    </form>
+    </body>
+  </main>
+</html>
