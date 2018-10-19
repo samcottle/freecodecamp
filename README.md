@@ -1,9 +1,7 @@
 # The freecodecamp repo
-Hello, and thanks for dropping by! 
+Hello, 
 
-I'm learning to code, via [freecodecamp](https://www.freecodecamp.org). And you've stumbled upon the repo I use for publishing my freecodecamp project files.
-
-Well, that's it... Have a nice day!
+I'm learning to code, via [freecodecamp](https://www.freecodecamp.org). This is the repo I use for publishing my freecodecamp project files.
 
 Cheers,
 
