@@ -1,0 +1,74 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<!DOCTYPE html>
+<style>
+  @media (max-width: 350px) {
+    .grid {
+      display: grid;
+      grid-template-columns: 200px;
+      grid-template-rows: 150px 150px 150px 150px;
+      grid-gap: 50px;
+    }
+  }
+  ul {
+    list-style-type: none;
+    margin: 15px;
+    padding: 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 150px 150px;
+    grid-gap: 50px;
+  }
+  .project-title {
+    background-color: lightgrey;
+    
+  }
+  .welcome-section {
+    height: 100vh;
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+  }
+  .main {
+    margin-top: 150px;
+  }
+</style>
+<html>
+  <head><title>Sam's portfolio</title></head>
+  <body>
+  <div class="container">
+  <nav id="navbar" class="navbar">
+    <header id="header">Navigation header</header>
+    <ul>
+      <li><a class="nav-link" href="#welcome-section">About</a></li>
+      <li><a class="nav-link" href="#projects">Work</a></li>
+      <li><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="main">
+  <section id="welcome-section" class="welcome-section">
+    <h1>Hi, I'm Sam.</h1>
+    <p>Dun dun dun.</p>
+  </section>
+  
+  <section id="projects">
+    <p>Here's stuff I've made.</p>
+    <div class="grid">
+      <div class="project-title" id="doctemplate"><a href="https://github.com/samcottle/freecodecamp/blob/master/doctemplate.htm">Doc Template</a></div>
+      <div class="project-title" id="product"><a href="https://github.com/samcottle/freecodecamp/blob/master/product.htm">Product</a></div>
+      <div class="project-title" id="survey"><a href="https://github.com/samcottle/freecodecamp/blob/master/survey.htm">Survey</a></div>
+      <div class="project-title" id="tribute"><a href="https://github.com/samcottle/freecodecamp/blob/master/tribute.htm">Tribute</a></div>
+    </div>
+  </section>
+  
+  <section id="contact">
+    <p><a id="profile-link" target="_blank" href="https://github.com/samcottle">My Github profile</a></p>
+  </section>
+  </main>
+  </body>
+</html>
