@@ -77,7 +77,7 @@ The following can be used:
 **Note:** There shouldn't be any spaces around escape sequences.
 
 ### Concatenating strings
-Same as Python: `"My name is " + "Sam"` would print `My name is Sam`.
+`"My name is " + "Sam"` would print `My name is Sam`.
 
 ### Getting a string length
 Get the number of characters in a string using `.length`. So if `varName = "string"` then `varName.length` would output `6`.
@@ -100,7 +100,8 @@ Same as for other programming languages, arrays store several pieces of data in 
 
 Can nest an array within an array, which is referred to as a *multi-dimensional array*. Example: `[["Bulls", 23], ["White Sox", 45]]`
 Can get confusing when trying to access data in this situation. Here's an example:
-> var arr = [
+```
+var arr = [
   [1,2,3],
   [4,5,6],
   [7,8,9],
@@ -109,92 +110,105 @@ Can get confusing when trying to access data in this situation. Here's an exampl
 arr[3]; // equals [[10,11,12], 13, 14]
 arr[3][0]; // equals [10,11,12]
 arr[3][0][1]; // equals 11
-
+```
 Unlike strings, array entries are *mutable* and can be changed freely. In other words, you can change the data at index `0` of ourArray with, for example: 
-`var ourArray = [50,40,30];
-ourArray[0] = 15; // and ourArray now equals [15,40,30]`
-
+```
+var ourArray = [50,40,30];
+ourArray[0] = 15; // and ourArray now equals [15,40,30]
+```
 #### Indexes
 Data within an array is accessed using an index. These are also *zero-based* (i.e. start at `0` rather than `1`).
 Example: 
-> var array = [50,60,70];
+```
+var array = [50,60,70];
 array[0]; // equals 50
 var data = array[1]; // equals 60.
-
+```
 **Note:** As above, don't put any spaces between the array name and the square brackets.
 
 #### Manipulating arrays 
 ##### Appending data
 To append data to the end of an array use `.push()`. Basically pushes parameters to the end of the array. Example:
-> var arr = [1,2,3];
+```
+var arr = [1,2,3];
 arr.push(4); // And arr is now [1,2,3,4].
+```
 
 To append to the beginning of an array, use `unshift()`.
 Example:
-> var myArray = [["John", 23], ["dog", 3]];
+```
+var myArray = [["John", 23], ["dog", 3]];
 myArray.unshift(["Paul", 35]); // Adds an array with ["Paul", 25] to the start of myArray.
-
+```
 ##### Removing data
 `.pop()` takes data element off the end of the array and returns that data element (so it can be used to store that last data element in another variable). 
 Example:
-> var threeArr = [1, 4, 6];
+```
+var threeArr = [1, 4, 6];
 var oneDown = threeArr.pop();
 console.log(oneDown); // Returns 6
 console.log(threeArr); // Now returns [1, 4]
-
+```
 Similarly, `.shift()` takes it from the first data element in an array.
 Example:
-> var myArray = [["John", 23], ["dog", 3]];
+```
+var myArray = [["John", 23], ["dog", 3]];
 var removedFromMyArray = myArray.shift();
-
-This takes `["John", 23]` out of the array and stores it as a variable called `removedFromMyArray.
+```
+This takes `["John", 23]` out of the array and stores it as a variable called `removedFromMyArray`.
 
 ## Functions
 *Functions* are used for dividing up code into usable parts.
 Basic example:
->function functionName() {
-   console.log("Hello World");
+```
+function functionName() {
+  console.log("Hello World");
 }
-
+```
 And then:
-> functionName(); // This is how you call or invoke this function, which would print "Hello World" on the screen.
-
+```
+functionName(); // This is how you call or invoke this function, which would print "Hello World" on the screen.
+```
 ### Using parameters / arguments
 *Parameters* are variables that act as placeholders for values you want to input to a function when it is called. The act of inputting is also referred to as "passing", and the act of calling a function is known as an "argument".
 Example: 
->function testFun(param1, param2) {
+```
+function testFun(param1, param2) {
   console.log(param1, param2);
 } // Sets up testFun with two parameters, and specifies how they should be called.`
 ...and then:
 `testFun("Hello", "World"); // Specifies what the parameters are that are passed to testFun. Basically, this == "Hello World"
-
+```
 Another example:
-> function functionWithArgs(argument1, argument2) {
+```
+function functionWithArgs(argument1, argument2) {
   console.log(argument1 + argument2);
 }
 functionWithArgs(3, 6); // Prints 9 in the console (the sum of 3 and 6).
-
+```
 **Note:** If you don't have a parameter/argument, `undefined` will be returned.
 
 ### Returning a value from a function
 Basically a reverse-argument, `return` sends a value back out of a function (instead of passing it in).
 Example:
-`function plusThree(num) {
+```
+function plusThree(num) {
   return num + 3;
 }
 var answer = plusThree(5); // In this case, 8. So plusThree takes an argument for num, and returns a value equal to num + 3.`
-
+```
 ### Defining the scope for functions
 *Scope* is basically the visibility of variables. Variables defined outside of a function, with `var`, have *global scope* (are visible everywhere in the JavaScript code). Variables defined within a `function` have *local* scope (are only visible to that function).
 Can have local and global variables with the same name, and the local variable will take precedence in this scenario.
 Example:
-> var outerWear = "T-Shirt";
+```
+var outerWear = "T-Shirt";
 function myOutfit() {
   var outerWear = "sweater";
   return outerWear;
 }
 myOutfit();
-
+```
 ### Queues
 A `queue` is a data structure where items are kept in order. Can add new items to the back of the queue, and remove old items from the front of the queue. This section was quite vague, but involved references to `.shift()` and `.push()`, etc.
 
@@ -204,25 +218,27 @@ Either `true` (on) or `false` (off) (and without quotes).
 ### If statements
 Used to make decisions in code. In other words, only execute the code under certain conditions (when it is `true`). 
 Follow the syntax/format of:
-> function ourTrueOrFalse(isItTrue) {
+```
+function ourTrueOrFalse(isItTrue) {
   if (isItTrue) { 
     return "Yes, it's true";
   }
   return "No, it's false";
 }
-
+```
 #### Comparison operators
 
 ##### Equality operators
 Basically the `==` things (not to be confused with a plain old `=`, which is for assigning values to variables, etc). 
 Compares two values, and returns `true` if they're equivalent, or `false` if they're not. Useful for If statements because they can be used to execute code under certain conditions. For example:
-> function equalityTest(myVal) {
+```
+function equalityTest(myVal) {
   if (myVal == 10) {
      return "Equal";
   }
   return "Not Equal";
 }
-
+```
 Would execute the code in curly braces (returning "Equal") if myVal is equal to `10`.
 
 ##### Inequality operators
@@ -238,42 +254,47 @@ Comparison can also be done between integers `5` and strings `"5"`, which is cal
 
 ##### Using multiple operators
 This is often referred to as the *logical and* operator. For JavaScript, this is a `&&`. Useful for scenarios like this, where you want to find the number between 5 and 10, but don't want to write out multiple *if* statements:
-> if (num > 5 && num < 10) {
+```
+if (num > 5 && num < 10) {
   return "Yes";
 }
 return "No";
-
+```
 Similarly, there's the *logical or*, which is `||` (each of these is apparently referred to as a *pipe symbol*):
-> if (num > 10 || num < 5) {
+```
+if (num > 10 || num < 5) {
   return "No";
 }
 return "Yes";
-
+```
 This will return "Yes" only if num is between 5 and 10 (**5 and 10 included**).
 
 #### Else statements
 So if the conditions inside an `if` statement are `false`, then what happens? Use an  `else` statement to take care of this:
-> if (num > 10) {
+```
+if (num > 10) {
   return "Bigger than 10";
 } else {
   return "10 or Less";
 }
-
+```
 #### Else if statements
 Use this when there are multiple conditions that need to be addressed:
-> if (num > 15) {
+```
+if (num > 15) {
   return "Bigger than 15";
 } else if (num < 5) {
   return "Smaller than 5";
 } else {
   return "Between 5 and 15";
 }
-
+```
 Keep in mind that these statements run in order from top to bottom, so be careful which statement goes first, etc.
 
 ##### Switch statements
 Similar to `if`, `else`, and `else if` statements, but good if you have lots of statements. Example:
-> function caseInSwitch(val) {
+```
+function caseInSwitch(val) {
   var answer = "";
   switch(val) {
     case 1:
@@ -291,10 +312,11 @@ Similar to `if`, `else`, and `else if` statements, but good if you have lots of 
   }
   return answer;  
 }
-
+```
 Here, each `case` is a possible statement. Adding `caseInSwitch(3);` to the end, for example, would result in `"gamma"` being logged in the console.
 The code for each `case` is run until a `break;` is encountered.If there's no `break`, all the statements will be run, as a group, until there is a break (if that makes sense). So for:
-> switch(val) {
+```
+switch(val) {
   case 1:
   case 2:
   case 3:
@@ -303,7 +325,7 @@ The code for each `case` is run until a `break;` is encountered.If there's no `b
   case 4:
     result = "4 alone";
 }
-
+```
 `case`s 1, 2, and 3 will produce the same result.
 
 Can also make a `switch` statement default, which effectively makes it the final `else` statement. In other words, if there's no matching `case` then the default is used:
@@ -329,16 +351,20 @@ function switchOfStuff(val) {
 ```
 #### Return
 `return` is used to end a function. As in, control returns to the calling location (WTF?). So for this:
-> function myFun() {
+```
+function myFun() {
   console.log("Hello");
   return "World";
   console.log("byebye")
 }
 myFun();
+```
 
 `"byebye"` will never be logged, because the `return` essentially ends/exits the function.
 
 #### Typeof operators
 Use these to determine what type of data a variable or value is:
-> typeof 3 // returns 'number'
+```
+typeof 3 // returns 'number'
 typeof '3' // returns 'string'
+```
