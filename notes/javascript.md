@@ -3,6 +3,49 @@
 - JavaScript is case-sensitive. `myVar` != `MYVAR` or `myvar`. 
 - Recommend using camelCase.
 
+## Table of contents
+- [Basic JavaScript](#basic-javascript)
+  * [Comments](#comments)
+  * [Variables](#variables)
+    + [Assigning values to variables](#assigning-values-to-variables)
+  * [Working with numbers](#working-with-numbers)
+    + [Adding numbers](#adding-numbers)
+    + [Subtracting numbers](#subtracting-numbers)
+    + [Multiplying numbers](#multiplying-numbers)
+    + [Dividing numbers](#dividing-numbers)
+    + [Increments (adding/subtracting 1 to/from a number)](#increments--adding-subtracting-1-to-from-a-number-)
+    + [Compound assignment](#compound-assignment)
+  * [Strings](#strings)
+    + [Using quotes in strings](#using-quotes-in-strings)
+    + [Escape sequences](#escape-sequences)
+    + [Concatenating strings](#concatenating-strings)
+    + [Getting a string length](#getting-a-string-length)
+    + [Bracket notation](#bracket-notation)
+      - [Using bracket notation to get the last letter of a string](#using-bracket-notation-to-get-the-last-letter-of-a-string)
+    + [Arrays](#arrays)
+      - [Indexes](#indexes)
+      - [Manipulating arrays](#manipulating-arrays)
+        * [Appending data](#appending-data)
+        * [Removing data](#removing-data)
+  * [Functions](#functions)
+    + [Using parameters / arguments](#using-parameters---arguments)
+    + [Returning a value from a function](#returning-a-value-from-a-function)
+    + [Defining the scope for functions](#defining-the-scope-for-functions)
+    + [Queues](#queues)
+  * [Booleans](#booleans)
+    + [If statements](#if-statements)
+      - [Comparison operators](#comparison-operators)
+        * [Equality operators](#equality-operators)
+        * [Inequality operators](#inequality-operators)
+        * [Greater than operators](#greater-than-operators)
+        * [Less than operators](#less-than-operators)
+        * [Using multiple operators](#using-multiple-operators)
+      - [Else statements](#else-statements)
+      - [Else if statements](#else-if-statements)
+        * [Switch statements](#switch-statements)
+      - [Return](#return)
+      - [Typeof operators](#typeof-operators)
+
 ## Comments
 Put `//` before text to make it a comment.
 
@@ -176,7 +219,9 @@ Example:
 function testFun(param1, param2) {
   console.log(param1, param2);
 } // Sets up testFun with two parameters, and specifies how they should be called.`
+```
 ...and then:
+```
 `testFun("Hello", "World"); // Specifies what the parameters are that are passed to testFun. Basically, this == "Hello World"
 ```
 Another example:
@@ -314,7 +359,7 @@ function caseInSwitch(val) {
 }
 ```
 Here, each `case` is a possible statement. Adding `caseInSwitch(3);` to the end, for example, would result in `"gamma"` being logged in the console.
-The code for each `case` is run until a `break;` is encountered.If there's no `break`, all the statements will be run, as a group, until there is a break (if that makes sense). So for:
+The code for each `case` is run until a `break;` is encountered. If there's no `break`, all the statements will be run, as a group, until there is a break (if that makes sense). So for:
 ```
 switch(val) {
   case 1:
@@ -350,7 +395,7 @@ function switchOfStuff(val) {
 }
 ```
 #### Return
-`return` is used to end a function. As in, control returns to the calling location (WTF?). So for this:
+`return` is used to end a function. As in, control returns to the calling location. So for this:
 ```
 function myFun() {
   console.log("Hello");
