@@ -1,10 +1,8 @@
 # Basic JavaScript
 
-- JavaScript is case-sensitive. `myVar` != `MYVAR` or `myvar`. 
-- Recommend using camelCase.
-
 ## Table of contents
 - [Basic JavaScript](#basic-javascript)
+  * [General](#general)
   * [Comments](#comments)
   * [Variables](#variables)
     + [Assigning values to variables](#assigning-values-to-variables)
@@ -13,7 +11,7 @@
     + [Subtracting numbers](#subtracting-numbers)
     + [Multiplying numbers](#multiplying-numbers)
     + [Dividing numbers](#dividing-numbers)
-    + [Increments (adding/subtracting 1 to/from a number)](#increments--adding-subtracting-1-to-from-a-number-)
+    + [Increments (number plus or minus 1)](#increments--adding-subtracting-1-to-from-a-number-)
     + [Compound assignment](#compound-assignment)
   * [Strings](#strings)
     + [Using quotes in strings](#using-quotes-in-strings)
@@ -28,7 +26,7 @@
         * [Appending data](#appending-data)
         * [Removing data](#removing-data)
   * [Functions](#functions)
-    + [Using parameters / arguments](#using-parameters---arguments)
+    + [Using parameters and arguments](#using-parameters---arguments)
     + [Returning a value from a function](#returning-a-value-from-a-function)
     + [Defining the scope for functions](#defining-the-scope-for-functions)
     + [Queues](#queues)
@@ -45,6 +43,10 @@
         * [Switch statements](#switch-statements)
       - [Return](#return)
       - [Typeof operators](#typeof-operators)
+
+## General
+- JavaScript is case-sensitive. `myVar` != `MYVAR` or `myvar`. 
+- Recommend using camelCase.
 
 ## Comments
 Put `//` before text to make it a comment.
