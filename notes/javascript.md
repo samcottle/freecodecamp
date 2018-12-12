@@ -415,3 +415,53 @@ Use these to determine what type of data a variable or value is:
 typeof 3 // returns 'number'
 typeof '3' // returns 'string'
 ```
+
+## Objects
+Similar to *arrays*, but data is accessed using *properties*. They're for storing structured data. For example, this cat (with the properties of the `cat` stored as strings):
+```
+var cat = {
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
+```
+**Note:**
+- For single-word string properties you don't need the quotes (i.e. `~~"name"~~` can be `name`).
+- Use a comma between each property, instead of a semi-colon.
+
+### Accessing properties
+Properties within an array can be accessed with:
+- Dot notation: a `.`
+- Bracket notation: the `[` and `]`, like you would for an array. You'll also need to use this one if the object has a space in it.
+
+##### With dot notation
+
+```
+var testObj = {
+  "hat": "ballcap",
+  "shirt": "jersey",
+  "shoes": "cleats"
+};
+
+var hatValue = testObj.hat;
+var shirtValue = testObj.shirt;
+```
+
+##### With bracket notation
+```
+var testObj = {
+  "an entree": "hamburger",
+  "my side": "veggies",
+  "the drink": "water"
+};
+
+var entreeValue = testObj["an entree"];
+var drinkValue = testObj["the drink"]; 
+```
+
+##### Accessing properties with variables
+Very similar to bracket notation, but with values stored as variables (obviously). This can be really useful for tasks like accessing a lookup table.
+```
+UP TO HERE
+```
