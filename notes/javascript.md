@@ -90,10 +90,10 @@ The following can be used:
 
 Can also do this with `+=` operator. So:
 ```
-var myName = "My name is "
-myName += "Sam"
+var myName = "My name is ";
+myName += "Sam";
 
-console.log(myName) // Prints "My name is Sam"
+console.log(myName); // Prints "My name is Sam"
 ```
 
 ### Getting a string length
@@ -101,15 +101,17 @@ Get the number of characters in a string using `.length`. So if `varName = "stri
 
 ### Bracket notation
 This is how you get a character at a specific index in a string. JavaScript uses *zero-based indexing*, meaning the indexing starts at `0`, not `1`. Square brackets, `[` and `]` , and a number in between which is used to fetch the character you want. Example: 
-> word = "string";
+```
+word = "string";
 firstLetterOfWord = word[0];
-
+```
 #### Using bracket notation to get the last letter of a string
 Easiest way to do this is to combine `.length` and bracket notation. But remember zero-based indexing!
 Example:
-> word = string;
+```
+word = string;
 var lastLetterOfString = word[word.length - 1];
-
+```
 Similar logic can be used to get the second/third/fourth/nth to last character of a string.
 
 ### Arrays
