@@ -10,12 +10,14 @@ Put `//` before text to make it a comment.
 For multi-line comments, put the text like this `/* This is a
 multi-line comment */`.
 
-## Variables
+## Working with variables
 These are how computers store and manipulate data dynamically. Basically, you use a label to point to some specific data, rather than use the data itself. Can think of them as being similar to x and y values in algebra, but also capable of representing more than just numbers.
 
-Creating a variable is referred to as "declaring" a variable. To declare a variable, put `var` in front of it, and a `;` after it.
+Creating a variable is referred to as "declaring" a variable. To declare a variable, you'd usually put `var` in front of it, and a `;` after it. Variables can also be preceded with:
+- `let`: to declare a variable within a very specific scope.
+- `const`: to declare a variable that will never be changed.
 
-For example, `var ourName;` creates/declares a variable called ourName.
+So, for example, `var ourName;` declares a variable called ourName.
 
 Variable names can be made up of numbers, letters, and `$` or `_`, but can't contain spaces or start with a number.
 
@@ -42,7 +44,11 @@ Can also multiply decimals: `var product = 2.0 * 2.5;` would give a `product` of
 ### Dividing numbers
 `var quotient = 66 / 33;` gives a `quotient` of `2`.
 Can also divide decimals: `var quotient = 4.4 / 2.0;` gives a `quotient` of `2.2`.
+
+#### Remainders
 Remainders operator is `%`. Unsurprisingly, it gives you the remainder. Basically, whatever is left over after dividing two numbers. Example: `5 % 2 = 1` (because it's what's left over afterwards).
+
+This is often used to determine whether a number is even or odd (because if a `number % 2` has a remainder of `0` then that `number` is even).
 
 ### Increments (adding/subtracting 1 to/from a number)
 Use `++` at the end of the number is basically n+1. But you don't even need to specify it in full, for example:
@@ -56,13 +62,15 @@ Compounds are when you'd use, for example, `myVar += 5` in place of `myVar = myV
 Can be used for `+`, `-`, `*`, and `/`.
 
 ## Strings 
-A *literal string* is another name for a bog standard string.
+A *literal string* is another name for your bog standard string.
 
 ### Using quotes in strings
-Use a `\"` within the string to specify where quotes start and finish. Example: `var sampleStr = "Alan said, \"Peter is learning JavaScript\".";`
+The simplest way to do this is to use both single quotes (`'`) and double quotes (`"`). If you use `"`s for the string then use `'`s for the quotes within it.
+
+Alternatively, you can use a `\"` within the string to specify where quotes start and finish. Example: `var sampleStr = "Alan said, \"Peter is learning JavaScript\".";`
 Which would `print` as `"Alan said, "Peter is learning JavaScript"."`
 
-The `\` is referred to as an *escape string*, *escape sequences*, or *escapes*.
+The `\` is referred to as an *escape string*, *escape sequences*, or *escapes*. Here's some more...
 
 ### Escape sequences
 The following can be used:
@@ -78,7 +86,15 @@ The following can be used:
 **Note:** There shouldn't be any spaces around escape sequences.
 
 ### Concatenating strings
-`"My name is " + "Sam"` would print `My name is Sam`.
+`"My name is " + "Sam"` is the same as `My name is Sam`.
+
+Can also do this with `+=` operator. So:
+```
+var myName = "My name is "
+myName += "Sam"
+
+console.log(myName) // Prints "My name is Sam"
+```
 
 ### Getting a string length
 Get the number of characters in a string using `.length`. So if `varName = "string"` then `varName.length` would output `6`.
@@ -158,17 +174,17 @@ var removedFromMyArray = myArray.shift();
 ```
 This takes `["John", 23]` out of the array and stores it as a variable called `removedFromMyArray`.
 
-## Functions
+## Working with functions
 *Functions* are used for dividing up code into usable parts.
-Basic example:
+Basic example for storing a function:
 ```
 function functionName() {
   console.log("Hello World");
 }
 ```
-And then:
+And then to use, or *invoke* it:
 ```
-functionName(); // This is how you call or invoke this function, which would print "Hello World" on the screen.
+functionName(); // This would print "Hello World" in the console.
 ```
 ### Using parameters / arguments
 *Parameters* are variables that act as placeholders for values you want to input to a function when it is called. The act of inputting is also referred to as "passing", and the act of calling a function is known as an "argument".
@@ -215,7 +231,7 @@ myOutfit();
 ### Queues
 A `queue` is a data structure where items are kept in order. Can add new items to the back of the queue, and remove old items from the front of the queue. This section was quite vague, but involved references to `.shift()` and `.push()`, etc.
 
-## Booleans
+## Working with booleans
 Either `true` (on) or `false` (off) (and without quotes).
 
 ### If statements
@@ -372,7 +388,7 @@ typeof 3 // returns 'number'
 typeof '3' // returns 'string'
 ```
 
-## Objects
+## Working with objects
 Similar to *arrays*, but data is accessed using *properties*. They're for storing structured data. For example, this cat (with the properties of the `cat` stored as strings):
 ```
 var cat = {
@@ -392,7 +408,6 @@ Properties within an array can be accessed with:
 - Bracket notation: the `[` and `]`, like you would for an array. You'll also need to use this one if the object has a space in it.
 
 ##### With dot notation
-
 ```
 var testObj = {
   "hat": "ballcap",
@@ -417,7 +432,12 @@ var drinkValue = testObj["the drink"];
 ```
 
 ##### Accessing properties with variables
-Very similar to bracket notation, but with values stored as variables (obviously). This can be really useful for tasks like accessing a lookup table.
+Very similar to bracket notation, but with values stored as variables. This can be really useful for tasks like accessing a lookup table.
 ```
-UP TO HERE
+var dogs = {
+  Fido: "Mutt", Hunter: "Doberman", Snoopie: "Beagle"
+};
+var myDog = "Hunter";
+var myBreed = dogs[myDog];
+console.log(myBreed); // "Doberman"
 ```
