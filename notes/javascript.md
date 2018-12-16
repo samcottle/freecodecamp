@@ -115,10 +115,10 @@ var lastLetterOfString = word[word.length - 1];
 Similar logic can be used to get the second/third/fourth/nth to last character of a string.
 
 ### Arrays
-Same as for other programming languages, arrays store several pieces of data in one place. Arrays fit between square brackets `[` and `]`. Example: `var sandwich = ["peanut butter", "jelly", "bread"]`.
+Arrays store several pieces of data in one place. Arrays fit between square brackets `[` and `]`. Example: `var sandwich = ["peanut butter", "jelly", "bread"]`.
 
 Can nest an array within an array, which is referred to as a *multi-dimensional array*. Example: `[["Bulls", 23], ["White Sox", 45]]`
-Can get confusing when trying to access data in this situation. Here's an example:
+Accessing data in this situation can get a bit messy, for example:
 ```
 var arr = [
   [1,2,3],
@@ -146,6 +146,8 @@ var data = array[1]; // equals 60.
 **Note:** As above, don't put any spaces between the array name and the square brackets.
 
 #### Manipulating arrays 
+Data can be both added or removed from an array.
+
 ##### Appending data
 To append data to the end of an array use `.push()`. Basically pushes parameters to the end of the array. Example:
 ```
