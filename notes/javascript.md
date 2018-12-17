@@ -255,11 +255,10 @@ console.log(nextInLine(testArr, 6)) // This would log 1 to the console, and test
 ```
 
 ## Working with booleans
-Either `true` (on) or `false` (off) (and without quotes).
+Either `true` (on) or `false` (off) (and without quotes). Here's how booleans become really useful...
 
 ### If statements
-Used to make decisions in code. In other words, only execute the code under certain conditions (when it is `true`). 
-Follow the syntax/format of:
+Used to make decisions in code, and act a bit like a switch. `if` statements will only execute the code under certain conditions (for example, when a statement is `true`). 
 ```
 function ourTrueOrFalse(isItTrue) {
   if (isItTrue) { 
@@ -267,6 +266,8 @@ function ourTrueOrFalse(isItTrue) {
   }
   return "No, it's false";
 }
+
+console.log(ourTrueOrFalse(true)); // This would log "Yes, it's true" in the console.
 ```
 #### Comparison operators
 
@@ -311,7 +312,7 @@ return "Yes";
 ```
 This will return "Yes" only if num is between 5 and 10 (**5 and 10 included**).
 
-#### Else statements
+### Else statements
 So if the conditions inside an `if` statement are `false`, then what happens? Use an  `else` statement to take care of this:
 ```
 if (num > 10) {
@@ -320,7 +321,7 @@ if (num > 10) {
   return "10 or Less";
 }
 ```
-#### Else if statements
+### Else if statements
 Use this when there are multiple conditions that need to be addressed:
 ```
 if (num > 15) {
@@ -333,7 +334,7 @@ if (num > 15) {
 ```
 Keep in mind that these statements run in order from top to bottom, so be careful which statement goes first, etc.
 
-##### Switch statements
+#### Switch statements
 Similar to `if`, `else`, and `else if` statements, but good if you have lots of statements. Example:
 ```
 function caseInSwitch(val) {
@@ -392,7 +393,7 @@ function switchOfStuff(val) {
 }
 ```
 #### Return
-`return` is used to end a function. As in, control returns to the calling location. So for this:
+`return` is used to end a function. So for this:
 ```
 function myFun() {
   console.log("Hello");
