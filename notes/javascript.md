@@ -179,19 +179,19 @@ var removedFromMyArray = myArray.shift();
 This takes `["John", 23]` out of the array and stores it as a variable called `removedFromMyArray`.
 
 ## Working with functions
-*Functions* are used for dividing up code into usable parts.
+*Functions* are used for dividing up code into usable parts. You can spot a function because of the `()`s at the end, followed by the `{}`s. Whatever is stored in the `{}`s is *called* (also referred to as *invoked*) when when you use the function.
 Basic example for storing a function:
 ```
 function functionName() {
   console.log("Hello World");
 }
 ```
-And then to use, or *invoke* it:
+And then to use, or *invoke*/*call* it:
 ```
 functionName(); // This would print "Hello World" in the console.
 ```
 ### Using parameters / arguments
-*Parameters* are variables that act as placeholders for values you want to input to a function when it is called. The act of inputting is also referred to as "passing", and the act of calling a function is known as an "argument".
+*Parameters* are variables that act as placeholders for values you want to input to a function when it is called. The act of inputting is also referred to as *passing*, and the act of calling a function is known as an *argument*.
 Example: 
 ```
 function testFun(param1, param2) {
@@ -220,6 +220,8 @@ function plusThree(num) {
 }
 var answer = plusThree(5); // In this case, 8. So plusThree takes an argument for num, and returns a value equal to num + 3.`
 ```
+Without *returning* a value you'll end up with *undefined* in the `console.log`.
+
 ### Defining the scope for functions
 *Scope* is basically the visibility of variables. Variables defined outside of a function, with `var`, have *global scope* (are visible everywhere in the JavaScript code). Variables defined within a `function` have *local* scope (are only visible to that function).
 Can have local and global variables with the same name, and the local variable will take precedence in this scenario.
@@ -233,7 +235,24 @@ function myOutfit() {
 myOutfit();
 ```
 ### Queues
-A `queue` is a data structure where items are kept in order. Can add new items to the back of the queue, and remove old items from the front of the queue. This section was quite vague, but involved references to `.shift()` and `.push()`, etc.
+A `queue` is a data structure (i.e. array) where items are kept in order. Can add new items to the back of the queue, and remove old items from the front of the queue. 
+
+#### Shifting items in a queue
+Removes the first item from the queue and returns it.
+
+#### Pushing items in a queue
+Adds a new item to the back of the queue. Here's an example of both:
+
+```
+function nextInLine(arr, item) {
+  arr.push(item);
+  return arr.shift();
+}
+
+var testArr = [1,2,3,4,5];
+
+console.log(nextInLine(testArr, 6)) // This would log 1 to the console, and testArr would then be 2,3,4,5,6.
+```
 
 ## Working with booleans
 Either `true` (on) or `false` (off) (and without quotes).
