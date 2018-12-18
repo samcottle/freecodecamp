@@ -259,16 +259,7 @@ Either `true` (on) or `false` (off) (and without quotes). Here's how booleans be
 
 ### If statements
 Used to make decisions in code, and act a bit like a switch. `if` statements will only execute the code under certain conditions (for example, when a statement is `true`). 
-```
-function ourTrueOrFalse(isItTrue) {
-  if (isItTrue) { 
-    return "Yes, it's true";
-  }
-  return "No, it's false";
-}
 
-console.log(ourTrueOrFalse(true)); // This would log "Yes, it's true" in the console.
-```
 #### Comparison operators
 
 ##### Equality operators
@@ -281,6 +272,8 @@ function equalityTest(myVal) {
   }
   return "Not Equal";
 }
+
+console.log(equalityTest(10)) // Would log "Equal" in the console.
 ```
 Would execute the code in curly braces (returning "Equal") if myVal is equal to `10`.
 
@@ -431,7 +424,7 @@ Properties within an array can be accessed with:
 - Dot notation: a `.`
 - Bracket notation: the `[` and `]`, like you would for an array. You'll also need to use this one if the object has a space in it.
 
-##### With dot notation
+#### With dot notation
 ```
 var testObj = {
   "hat": "ballcap",
@@ -443,7 +436,7 @@ var hatValue = testObj.hat;
 var shirtValue = testObj.shirt;
 ```
 
-##### With bracket notation
+#### With bracket notation
 ```
 var testObj = {
   "an entree": "hamburger",
@@ -455,7 +448,7 @@ var entreeValue = testObj["an entree"];
 var drinkValue = testObj["the drink"]; 
 ```
 
-##### Accessing properties with variables
+#### Accessing properties with variables
 Very similar to bracket notation, but with values stored as variables. This can be really useful for tasks like accessing a lookup table.
 ```
 var dogs = {
@@ -465,3 +458,70 @@ var myDog = "Hunter";
 var myBreed = dogs[myDog];
 console.log(myBreed); // "Doberman"
 ```
+#### Updating an object property
+Take an object like `ourDog`:
+```
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+```
+Properties, such as the `name`, can be updated using either:
+- Dot notation: `ourDog.name = "Doggy";`
+- Bracket notation: `ourDog["name"] = "Doggy";`
+
+So now if we accessed `ourDog.name`, it will have changed from `"Camper"` to `"Doggy"`.
+
+#### Adding properties to an object
+Take an object like `ourDog`:
+```
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+```
+We can add a property, such as `bark`, to the object using either:
+- Dot notation: `ourDog.bark = "Bow-wow";`
+- Bracket notation: `ourDog["bark"] = "Bow-wow";`
+
+So now we can access `ourDog.bark`, which has a value of `"Bow-wow"`.
+
+#### Deleting properties from an object
+Take an object like `ourDog`:
+```
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"],
+  "bark": "Woof"
+};
+```
+To delete the `bark` property, we would use `delete ourDog.bark;`.
+
+### Object lookups
+Objects work a bit like an index, using keys:values to store data. Here's an example of a lookup:
+```
+var alpha = {
+  1:"Z",
+  2:"Y",
+  3:"X",
+  4:"W",
+  ...
+  24:"C",
+  25:"B",
+  26:"A"
+};
+alpha[2]; // "Y"
+alpha[24]; // "C"
+
+var value = 2;
+alpha[value]; // "Y"
+```
+
+### Checking an object for a property
+To check whether a property exists within an object you can use the `.hasOwnProperty(propertyname)` method. This returns either `true` or `false`, depending on whether the property was found.
