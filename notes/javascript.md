@@ -89,7 +89,7 @@ The following can be used:
 `"My name is " + "Sam"` is the same as `My name is Sam`.
 
 Can also do this with `+=` operator. So:
-```javascript
+```js
 var myName = "My name is ";
 myName += "Sam";
 
@@ -101,14 +101,14 @@ Get the number of characters in a string using `.length`. So if `varName = "stri
 
 ### Bracket notation
 This is how you get a character at a specific index in a string. JavaScript uses *zero-based indexing*, meaning the indexing starts at `0`, not `1`. Square brackets, `[` and `]` , and a number in between which is used to fetch the character you want. Example: 
-```javascript
+```js
 word = "string";
 firstLetterOfWord = word[0];
 ```
 #### Using bracket notation to get the last letter of a string
 Easiest way to do this is to combine `.length` and bracket notation. But remember zero-based indexing!
 Example:
-```javascript
+```js
 word = string;
 var lastLetterOfString = word[word.length - 1];
 ```
@@ -119,7 +119,7 @@ Arrays store several pieces of data in one place. Arrays fit between square brac
 
 Can nest an array within an array, which is referred to as a *multi-dimensional array*. Example: `[["Bulls", 23], ["White Sox", 45]]`
 Accessing data in this situation can get a bit messy, for example:
-```javascript
+```js
 var arr = [
   [1,2,3],
   [4,5,6],
@@ -131,14 +131,14 @@ arr[3][0]; // equals [10,11,12]
 arr[3][0][1]; // equals 11
 ```
 Unlike strings, array entries are *mutable* and can be changed freely. In other words, you can change the data at index `0` of ourArray with, for example: 
-```javascript
+```js
 var ourArray = [50,40,30];
 ourArray[0] = 15; // and ourArray now equals [15,40,30]
 ```
 #### Indexes
 Data within an array is accessed using an index. These are also *zero-based* (i.e. start at `0` rather than `1`).
 Example: 
-```javascript
+```js
 var array = [50,60,70];
 array[0]; // equals 50
 var data = array[1]; // equals 60.
@@ -150,21 +150,21 @@ Data can be both added or removed from an array.
 
 ##### Appending data
 To append data to the end of an array use `.push()`. Basically pushes parameters to the end of the array. Example:
-```javascript
+```js
 var arr = [1,2,3];
 arr.push(4); // And arr is now [1,2,3,4].
 ```
 
 To append to the beginning of an array, use `unshift()`.
 Example:
-```javascript
+```js
 var myArray = [["John", 23], ["dog", 3]];
 myArray.unshift(["Paul", 35]); // Adds an array with ["Paul", 25] to the start of myArray.
 ```
 ##### Removing data
 `.pop()` takes data element off the end of the array and returns that data element (so it can be used to store that last data element in another variable). 
 Example:
-```javascript
+```js
 var threeArr = [1, 4, 6];
 var oneDown = threeArr.pop();
 console.log(oneDown); // Returns 6
@@ -172,7 +172,7 @@ console.log(threeArr); // Now returns [1, 4]
 ```
 Similarly, `.shift()` takes it from the first data element in an array.
 Example:
-```javascript
+```js
 var myArray = [["John", 23], ["dog", 3]];
 var removedFromMyArray = myArray.shift();
 ```
@@ -181,29 +181,29 @@ This takes `["John", 23]` out of the array and stores it as a variable called `r
 ## Working with functions
 *Functions* are used for dividing up code into usable parts. You can spot a function because of the `()`s at the end, followed by the `{}`s. Whatever is stored in the `{}`s is *called* (also referred to as *invoked*) when when you use the function.
 Basic example for storing a function:
-```javascript
+```js
 function functionName() {
   console.log("Hello World");
 }
 ```
 And then to use, or *invoke*/*call* it:
-```javascript
+```js
 functionName(); // This would print "Hello World" in the console.
 ```
 ### Using parameters / arguments
 *Parameters* are variables that act as placeholders for values you want to input to a function when it is called. The act of inputting is also referred to as *passing*, and the act of calling a function is known as an *argument*.
 Example: 
-```javascript
+```js
 function testFun(param1, param2) {
   console.log(param1, param2);
 } // Sets up testFun with two parameters, and specifies how they should be called.`
 ```
 ...and then:
-```javascript
+```js
 `testFun("Hello", "World"); // Specifies what the parameters are that are passed to testFun. Basically, this == "Hello World"
 ```
 Another example:
-```javascript
+```js
 function functionWithArgs(argument1, argument2) {
   console.log(argument1 + argument2);
 }
@@ -214,7 +214,7 @@ functionWithArgs(3, 6); // Prints 9 in the console (the sum of 3 and 6).
 ### Returning a value from a function
 Basically a reverse-argument, `return` sends a value back out of a function (instead of passing it in).
 Example:
-```javascript
+```js
 function plusThree(num) {
   return num + 3;
 }
@@ -226,7 +226,7 @@ Without *returning* a value you'll end up with *undefined* in the `console.log`.
 *Scope* is basically the visibility of variables. Variables defined outside of a function, with `var`, have *global scope* (are visible everywhere in the JavaScript code). Variables defined within a `function` have *local* scope (are only visible to that function).
 Can have local and global variables with the same name, and the local variable will take precedence in this scenario.
 Example:
-```javascript
+```js
 var outerWear = "T-Shirt";
 function myOutfit() {
   var outerWear = "sweater";
@@ -242,7 +242,7 @@ Removes the first item from the queue and returns it.
 
 #### Pushing items in a queue
 Adds a new item to the back of the queue. Here's an example of both:
-```javascript
+```js
 function nextInLine(arr, item) {
   arr.push(item);
   return arr.shift();
@@ -264,7 +264,7 @@ Used to make decisions in code, and act a bit like a switch. `if` statements wil
 ##### Equality operators
 Basically the `==` things (not to be confused with a plain old `=`, which is for assigning values to variables, etc). 
 Compares two values, and returns `true` if they're equivalent, or `false` if they're not. Useful for If statements because they can be used to execute code under certain conditions. For example:
-```javascript
+```js
 function equalityTest(myVal) {
   if (myVal == 10) {
      return "Equal";
@@ -289,14 +289,14 @@ Comparison can also be done between integers `5` and strings `"5"`, which is cal
 
 ##### Using multiple operators
 This is often referred to as the *logical and* operator. For JavaScript, this is a `&&`. Useful for scenarios like this, where you want to find the number between 5 and 10, but don't want to write out multiple *if* statements:
-```javascript
+```js
 if (num > 5 && num < 10) {
   return "Yes";
 }
 return "No";
 ```
 Similarly, there's the *logical or*, which is `||` (each of these is apparently referred to as a *pipe symbol*):
-```javascript
+```js
 if (num > 10 || num < 5) {
   return "No";
 }
@@ -306,7 +306,7 @@ This will return "Yes" only if num is between 5 and 10 (**5 and 10 included**).
 
 ### Else statements
 So if the conditions inside an `if` statement are `false`, then what happens? Use an  `else` statement to take care of this:
-```javascript
+```js
 if (num > 10) {
   return "Bigger than 10";
 } else {
@@ -315,7 +315,7 @@ if (num > 10) {
 ```
 ### Else if statements
 Use this when there are multiple conditions that need to be addressed:
-```javascript
+```js
 if (num > 15) {
   return "Bigger than 15";
 } else if (num < 5) {
@@ -328,7 +328,7 @@ Keep in mind that these statements run in order from top to bottom, so be carefu
 
 #### Switch statements
 Similar to `if`, `else`, and `else if` statements, but good if you have lots of statements. Example:
-```javascript
+```js
 function caseInSwitch(val) {
   var answer = "";
   switch(val) {
@@ -350,7 +350,7 @@ function caseInSwitch(val) {
 ```
 Here, each `case` is a possible statement. Adding `caseInSwitch(3);` to the end, for example, would result in `"gamma"` being logged in the console.
 The code for each `case` is run until a `break;` is encountered. If there's no `break`, all the statements will be run, as a group, until there is a break (if that makes sense). So for:
-```javascript
+```js
 switch(val) {
   case 1:
   case 2:
@@ -364,7 +364,7 @@ switch(val) {
 `case`s 1, 2, and 3 will produce the same result.
 
 Can also make a `switch` statement default, which effectively makes it the final `else` statement. In other words, if there's no matching `case` then the default is used:
-```javascript
+```js
 function switchOfStuff(val) {
   var answer = "";
   switch(val) {
@@ -386,7 +386,7 @@ function switchOfStuff(val) {
 ```
 #### Return
 `return` is used to end a function. So for this:
-```javascript
+```js
 function myFun() {
   console.log("Hello");
   return "World";
@@ -406,7 +406,7 @@ typeof '3' // returns 'string'
 
 ## Working with objects
 Similar to *arrays*, but data is accessed using *properties*. They're for storing structured data. For example, this cat (with the properties of the `cat` stored as strings):
-```javascript
+```js
 var cat = {
   "name": "Whiskers",
   "legs": 4,
@@ -424,7 +424,7 @@ Properties within an array can be accessed with:
 - Bracket notation: the `[` and `]`, like you would for an array. You'll also need to use this one if the object has a space in it.
 
 #### With dot notation
-```javascript
+```js
 var testObj = {
   "hat": "ballcap",
   "shirt": "jersey",
@@ -436,7 +436,7 @@ var shirtValue = testObj.shirt;
 ```
 
 #### With bracket notation
-```javascript
+```js
 var testObj = {
   "an entree": "hamburger",
   "my side": "veggies",
@@ -449,7 +449,7 @@ var drinkValue = testObj["the drink"];
 
 #### Accessing properties with variables
 Very similar to bracket notation, but with values stored as variables. This can be really useful for tasks like accessing a lookup table.
-```javascript
+```js
 var dogs = {
   Fido: "Mutt", Hunter: "Doberman", Snoopie: "Beagle"
 };
@@ -459,7 +459,7 @@ console.log(myBreed); // "Doberman"
 ```
 #### Updating an object property
 Take an object like `ourDog`:
-```javascript
+```js
 var ourDog = {
   "name": "Camper",
   "legs": 4,
@@ -475,7 +475,7 @@ So now if we accessed `ourDog.name`, it will have changed from `"Camper"` to `"D
 
 #### Adding properties to an object
 Take an object like `ourDog`:
-```javascript
+```js
 var ourDog = {
   "name": "Camper",
   "legs": 4,
@@ -491,7 +491,7 @@ So now we can access `ourDog.bark`, which has a value of `"Bow-wow"`.
 
 #### Deleting properties from an object
 Take an object like `ourDog`:
-```javascript
+```js
 var ourDog = {
   "name": "Camper",
   "legs": 4,
@@ -504,7 +504,7 @@ To delete the `bark` property, we would use `delete ourDog.bark;`.
 
 ### Object lookups
 Objects work a bit like an index, using keys:values to store data. Here's an example of a lookup:
-```javascript
+```js
 var alpha = {
   1:"Z",
   2:"Y",
@@ -523,4 +523,12 @@ alpha[value]; // "Y"
 ```
 
 ### Checking an object for a property
-To check whether a property exists within an object you can use the `.hasOwnProperty(propertyname)` method. This returns either `true` or `false`, depending on whether the property was found.
+To check whether a property exists within an object you can use the `.hasOwnProperty(propertyname)` method. This returns either `true` or `false`, depending on whether the property was found. For example:
+```js
+var myObj = {
+  top: "hat",
+  bottom: "pants"
+};
+myObj.hasOwnProperty("top"); // true
+myObj.hasOwnProperty("middle"); // false
+```
