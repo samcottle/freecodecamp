@@ -532,3 +532,65 @@ var myObj = {
 myObj.hasOwnProperty("top"); // true
 myObj.hasOwnProperty("middle"); // false
 ```
+
+### Handling complex objects
+JavaScript Object Notation (JSON) is often used to handle more complex data objects, where you can nest arrays within arrays, such as the `formats` here:
+```js
+{
+  "artist": "Daft Punk",
+  "title": "Homework",
+  "release_year": 1997,
+  "formats": [
+    "CD",
+    "Cassette",
+    "LP"
+  ],
+  "gold": true
+}
+```
+When using JSON, a comma needs to be placed after each object in the array, except the last one.
+
+#### Accessing nested objects
+This can be done with either dot or bracket notation, as shown below:
+```js
+var ourStorage = {
+  "desk": {
+    "drawer": "stapler"
+  },
+  "cabinet": {
+    "top drawer": {
+      "folder1": "a file",
+      "folder2": "secrets"
+    },
+    "bottom drawer": "soda"
+  }
+};
+ourStorage.cabinet["top drawer"].folder2; // "secrets"
+ourStorage.desk.drawer; // "stapler"
+```
+**Note:** If the object has a space in the name, use bracket notation.
+
+#### Accessing nested arrays
+Array bracket notation can be used to access objects in nested arrays:
+```js
+var myPlants = [
+  { 
+    type: "flowers",
+    list: [
+      "rose",
+      "tulip",
+      "dandelion"
+    ]
+  },
+  {
+    type: "trees",
+    list: [
+      "fir",
+      "pine",
+      "birch"
+    ]
+  }  
+];
+
+var secondTree = myPlants[1].list[1]; // "pine"
+```
