@@ -179,28 +179,47 @@ var removedFromMyArray = myArray.shift();
 This takes `["John", 23]` out of the array and stores it as a variable called `removedFromMyArray`.
 
 ## Working with functions
-*Functions* are used for dividing up code into usable parts. You can spot a function because of the `()`s at the end, followed by the `{}`s. Whatever is stored in the `{}`s is *called* (also referred to as *invoked*) when when you use the function.
-Basic example for storing a function:
+*Functions* are used for dividing up code into usable parts (like a mini-program within the script). 
+
+They're usually used to: 
+- Section off pieces of code, making it easier to manage.
+- Run repeated operations.
+- Or both.
+
+They wrap around code blocks that contain *statements*, which will be run. They usually involve a combination of variables, operations, and conditions.
+
+When run, a function will either:
+- Give you an immediate result.
+- Provide an output, a *return value* that can be used by other functions. 
+
+### Building a function
+Functions follow a standard structure:
+1. The word `function`. 
+2. A name, such as `myFunction`.
+3. Parentheses `()`
+4. Curly brackets, `{}`, that wrap around the code that will be run. Whatever is stored here is *called* (or *invoked*) when the function is used.
+
+Basic example for defining (or *storing*) a function:
 ```js
 function functionName() {
   console.log("Hello World");
 }
 ```
-And then to use, or *invoke*/*call* it:
+They're usually defined just before they're called, which makes it easier for other people to read. To use (or *invoke* or *call*) a function:
 ```js
 functionName(); // This would print "Hello World" in the console.
 ```
-### Using parameters / arguments
+### Using parameters, for *arguments* sake
 *Parameters* are variables that act as placeholders for values you want to input to a function when it is called. The act of inputting is also referred to as *passing*, and the act of calling a function is known as an *argument*.
 Example: 
 ```js
 function testFun(param1, param2) {
   console.log(param1, param2);
-} // Sets up testFun with two parameters, and specifies how they should be called.`
+} // Sets up testFun with two parameters, and specifies how they should be called.
 ```
 ...and then:
 ```js
-`testFun("Hello", "World"); // Specifies what the parameters are that are passed to testFun. Basically, this == "Hello World"
+testFun("Hello", "World"); // Specifies what the parameters are that are passed to testFun. So this would log "Hello World" to the console.
 ```
 Another example:
 ```js
