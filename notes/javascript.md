@@ -196,7 +196,7 @@ When run, a function will either:
 Functions follow a standard structure:
 1. The word `function`. 
 2. A name, such as `myFunction`.
-3. Parentheses `()`
+3. Parentheses `()`, that define the parameters that will be used in the function.
 4. Curly brackets, `{}`, that wrap around the code that will be run. Whatever is stored here is *called* (or *invoked*) when the function is used.
 
 Basic example for defining (or *storing*) a function:
@@ -210,23 +210,16 @@ They're usually defined just before they're called, which makes it easier for ot
 functionName(); // This would print "Hello World" in the console.
 ```
 ### Using parameters, for *arguments* sake
-*Parameters* are variables that act as placeholders for values you want to input to a function when it is called. The act of inputting is also referred to as *passing*, and the act of calling a function is known as an *argument*.
-Example: 
+*Parameters* are variables that act as placeholders for values you want to input to a function when it is called. The act of inputting is also referred to as *passing*, and the act of calling a function is known as an *argument*. They're great for making functions reusable.
+
+Here's an example, showing a function that is defined, which is then re-used a few times by calling additional arguments:
 ```js
-function testFun(param1, param2) {
-  console.log(param1, param2);
-} // Sets up testFun with two parameters, and specifies how they should be called.
-```
-...and then:
-```js
-testFun("Hello", "World"); // Specifies what the parameters are that are passed to testFun. So this would log "Hello World" to the console.
-```
-Another example:
-```js
-function functionWithArgs(argument1, argument2) {
-  console.log(argument1 + argument2);
+function functionWithArgs(arg1, arg2) {
+  console.log(arg1 + arg2);
 }
 functionWithArgs(3, 6); // Prints 9 in the console (the sum of 3 and 6).
+functionWithArgs(7, 2); // Prints 14 in the console.
+functionWithArgs(3, 7); //Prints 21 in the console.
 ```
 **Note:** If you don't have a parameter/argument, `undefined` will be returned.
 
