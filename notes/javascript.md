@@ -115,7 +115,7 @@ var lastLetterOfString = word[word.length - 1];
 Similar logic can be used to get the second/third/fourth/nth to last character of a string.
 
 ### Arrays
-Arrays store several pieces of data in one place. Arrays fit between square brackets `[` and `]`. Example: `var sandwich = ["peanut butter", "jelly", "bread"]`.
+Arrays store several pieces of data (known as *elements*) in one place. Arrays fit between square brackets `[` and `]`. Example: `var sandwich = ["peanut butter", "jelly", "bread"]`.
 
 Can nest an array within an array, which is referred to as a *multi-dimensional array*. Example: `[["Bulls", 23], ["White Sox", 45]]`
 Accessing data in this situation can get a bit messy, for example:
@@ -627,9 +627,9 @@ So here, a `while` loop will keep `push`ing the incremental values `0` through `
 These run the same code `for` a specified number of times, and consist of three semicolon-separated statements:
 `for(initialization; condition; final-expression)`
 Where:
-- `initialization`: Defines and sets up the loop variable. Sets the starting point.
-- `condition`: This is evaluated at the beginning of each loop, and the loop will execute so long as it results in `true` (and repeats until it results in `false`).
-- `final-expression`: Defines what is executed for each loop.
+- **initialization**: Defines and sets up the loop variable; the starting point.
+- **condition**: This is evaluated at the beginning of each loop, and the loop will continue to execute so long as it results in `true` (and repeats until it results in `false`).
+- **final-expression**: Defines what is executed for each loop.
 
 So the same example we have in the `while` loop above can also be expressed with a `for` loop:
 ```js
@@ -638,3 +638,30 @@ for (var i = 0; i < 5; i++) {
   myArray.push(i);
 }
 ```
+You can combine this with *compound assignment* to have the loop create an array with, say, even numbers only using `i += 2` as the **final-expression**.
+
+#### Iterating through values using for loops
+This is a relatively common JavaScript task. Here's an example for an array called `myArr`:
+```js
+var myArr = [ 2, 3, 4, 5, 6];
+
+var total = 0;
+for (var i = 0; i < myArr.length; i++) {
+  total += myArr[i];
+}
+```
+Here, the `for` loop will start at position `0`, and will continue running as many times as there are elements in the array (**Note:** The reason this is `i < myArr.length` is because we start at position `0` of the array. So the element at the second position is actually `1`, or `<2`). Finally, the `i++` is another way of saying `i = i + 1`, or "move on to the next element".
+
+#### Loops and nesting
+For each level of nesting, you're creating another `for` loop inside the existing `for` loop. So here we're creating a `for` loop `j` inside of `for` loop `i`:
+```js
+var arr = [
+  [1,2], [3,4,5], [6,7]
+];
+for (var i = 0; i < arr.length; i++) {
+  for (var j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
+```
+**Note:** The reason that the **condition** for the nested array is `j < arr[i].length` I HAVE NO IDEA!!!
