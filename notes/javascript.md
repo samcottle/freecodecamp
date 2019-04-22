@@ -1,7 +1,7 @@
 # Basic JavaScript
 
 ## General
-- JavaScript is case-sensitive. `myVar` != `MYVAR` or `myvar`. 
+- JavaScript is case-sensitive. `myVar` != `MYVAR` or `myvar`.
 - Recommend using camelCase.
 
 ## Comments
@@ -29,7 +29,7 @@ Example: `var myVar = 5;` creates a variable called `myVar` and assigns a value 
 *Note:* when you get `NaN` (Not a Number) as an error code, this means you've forgotten to declare a variable, and it's tried to initialize... nothing. Similarly, `"undefined"` means that you've tried to concatenate a string that hasn't been defined.
 
 ## Working with numbers
-The `number` data type represents numeric data. 
+The `number` data type represents numeric data.
 
 ### Adding numbers
 You can probably guess: `var sum = 10 + 10;` gives you a `sum` of `20`.
@@ -61,7 +61,7 @@ Compounds are when you'd use, for example, `myVar += 5` in place of `myVar = myV
 
 Can be used for `+`, `-`, `*`, and `/`.
 
-## Strings 
+## Strings
 A *literal string* is another name for your bog standard string.
 
 ### Using quotes in strings
@@ -100,7 +100,7 @@ console.log(myName); // Prints "My name is Sam"
 Get the number of characters in a string using `.length`. So if `varName = "string"` then `varName.length` would output `6`.
 
 ### Bracket notation
-This is how you get a character at a specific index in a string. JavaScript uses *zero-based indexing*, meaning the indexing starts at `0`, not `1`. Square brackets, `[` and `]` , and a number in between which is used to fetch the character you want. Example: 
+This is how you get a character at a specific index in a string. JavaScript uses *zero-based indexing*, meaning the indexing starts at `0`, not `1`. Square brackets, `[` and `]` , and a number in between which is used to fetch the character you want. Example:
 ```js
 word = "string";
 firstLetterOfWord = word[0];
@@ -130,14 +130,14 @@ arr[3]; // equals [[10,11,12], 13, 14]
 arr[3][0]; // equals [10,11,12]
 arr[3][0][1]; // equals 11
 ```
-Unlike strings, array entries are *mutable* and can be changed freely. In other words, you can change the data at index `0` of ourArray with, for example: 
+Unlike strings, array entries are *mutable* and can be changed freely. In other words, you can change the data at index `0` of ourArray with, for example:
 ```js
 var ourArray = [50,40,30];
 ourArray[0] = 15; // and ourArray now equals [15,40,30]
 ```
 #### Indexes
 Data within an array is accessed using an index. These are also *zero-based* (i.e. start at `0` rather than `1`).
-Example: 
+Example:
 ```js
 var array = [50,60,70];
 array[0]; // equals 50
@@ -145,7 +145,7 @@ var data = array[1]; // equals 60.
 ```
 **Note:** As above, don't put any spaces between the array name and the square brackets.
 
-#### Manipulating arrays 
+#### Manipulating arrays
 Data can be both added or removed from an array.
 
 ##### Appending data
@@ -162,7 +162,7 @@ var myArray = [["John", 23], ["dog", 3]];
 myArray.unshift(["Paul", 35]); // Adds an array with ["Paul", 25] to the start of myArray.
 ```
 ##### Removing data
-`.pop()` takes data element off the end of the array and returns that data element (so it can be used to store that last data element in another variable). 
+`.pop()` takes data element off the end of the array and returns that data element (so it can be used to store that last data element in another variable).
 Example:
 ```js
 var threeArr = [1, 4, 6];
@@ -179,9 +179,9 @@ var removedFromMyArray = myArray.shift();
 This takes `["John", 23]` out of the array and stores it as a variable called `removedFromMyArray`.
 
 ## Working with functions
-*Functions* are used for dividing up code into usable parts (like a mini-program within the script). 
+*Functions* are used for dividing up code into usable parts (like a mini-program within the script).
 
-They're usually used to: 
+They're usually used to:
 - Section off pieces of code, making it easier to manage.
 - Run repeated operations.
 - Or both.
@@ -190,11 +190,11 @@ They wrap around code blocks that contain *statements*, which will be run. They 
 
 When run, a function will either:
 - Give you an immediate result.
-- Provide an output, a *return value* that can be used by other functions. 
+- Provide an output, a *return value* that can be used by other functions.
 
 ### Building a function
 Functions follow a standard structure:
-1. The word `function`. 
+1. The word `function`.
 2. A name, such as `myFunction`.
 3. Parentheses `()`, that define the parameters that will be used in the function.
 4. Curly brackets, `{}`, that wrap around the code that will be run. Whatever is stored here is *called* (or *invoked*) when the function is used.
@@ -247,7 +247,7 @@ function myOutfit() {
 myOutfit();
 ```
 ### Queues
-A `queue` is a data structure (i.e. array) where items are kept in order. Can add new items to the back of the queue, and remove old items from the front of the queue. 
+A `queue` is a data structure (i.e. array) where items are kept in order. Can add new items to the back of the queue, and remove old items from the front of the queue.
 
 #### Shifting items in a queue
 Removes the first item from the queue and returns it.
@@ -269,12 +269,12 @@ console.log(nextInLine(testArr, 6)) // This would log 1 to the console, and test
 Either `true` (on) or `false` (off) (and without quotes). Here's how booleans become really useful...
 
 ### If statements
-Used to make decisions in code, and act a bit like a switch. `if` statements will only execute the code under certain conditions (for example, when a statement is `true`). 
+Used to make decisions in code, and act a bit like a switch. `if` statements will only execute the code under certain conditions (for example, when a statement is `true`).
 
 #### Comparison operators
 
 ##### Equality operators
-Basically the `==` things (not to be confused with a plain old `=`, which is for assigning values to variables, etc). 
+Basically the `==` things (not to be confused with a plain old `=`, which is for assigning values to variables, etc).
 Compares two values, and returns `true` if they're equivalent, or `false` if they're not. Useful for If statements because they can be used to execute code under certain conditions. For example:
 ```js
 function equalityTest(myVal) {
@@ -295,7 +295,7 @@ Basically, the `!=` (not equal) thing. There's also a *strict inequality* operat
 It's the `>` thing. Can also use `>=` for *greater than or equal to*.
 
 ##### Less than operators
-It's the `<` thing. Can also use `<=` for *less than or equal to*. 
+It's the `<` thing. Can also use `<=` for *less than or equal to*.
 
 Comparison can also be done between integers `5` and strings `"5"`, which is called *type conversion*. There's also strict equality (`===`), which means the two have to be exactly the same (i.e. both integers, or both strings).
 
@@ -456,7 +456,7 @@ var testObj = {
 };
 
 var entreeValue = testObj["an entree"];
-var drinkValue = testObj["the drink"]; 
+var drinkValue = testObj["the drink"];
 ```
 
 #### Accessing properties with variables
@@ -586,7 +586,7 @@ ourStorage.desk.drawer; // "stapler"
 Array bracket notation can be used to access objects in nested arrays:
 ```js
 var myPlants = [
-  { 
+  {
     type: "flowers",
     list: [
       "rose",
@@ -621,4 +621,20 @@ while(i < 5) {
   i++;
 }
 ```
-So here, a `while` loop will keep `push`ing the incremental values `0` through `4` into `myArray`. It stops at `4` because the loop is set to run until `i < 5`. 
+So here, a `while` loop will keep `push`ing the incremental values `0` through `4` into `myArray`. It stops at `4` because the loop is set to run until `i < 5`.
+
+### For loops
+These run the same code `for` a specified number of times, and consist of three semicolon-separated statements:
+`for(initialization; condition; final-expression)`
+Where:
+- `initialization`: Defines and sets up the loop variable. Sets the starting point.
+- `condition`: This is evaluated at the beginning of each loop, and the loop will execute so long as it results in `true` (and repeats until it results in `false`).
+- `final-expression`: Defines what is executed for each loop.
+
+So the same example we have in the `while` loop above can also be expressed with a `for` loop:
+```js
+var myArray = [];
+for (var i = 0; i < 5; i++) {
+  myArray.push(i);
+}
+```
