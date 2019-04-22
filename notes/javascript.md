@@ -606,3 +606,19 @@ var myPlants = [
 
 var secondTree = myPlants[1].list[1]; // "pine"
 ```
+
+## Loops
+These are used to run the same code multiple times.
+
+### While loops
+This runs a loop `while` a specified condition is true. Here's an example:
+```js
+var myArray = [];
+
+var i = 0;
+while(i < 5) {
+  myArray.push(i);
+  i++;
+}
+```
+So here, a `while` loop will keep `push`ing the incremental values `0` through `4` into `myArray`. It stops at `4` because the loop is set to run until `i < 5`. 
