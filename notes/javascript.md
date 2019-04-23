@@ -665,3 +665,19 @@ for (var i = 0; i < arr.length; i++) {
 }
 ```
 **Note:** The **condition** for the nested array is `j < arr[i].length`.
+
+### Do...while loops
+Basically, a `do...while `loop will run (`do`) at least once, and continue to run until a condition (`while`) has been met.
+
+So in the following example:
+```js
+var myArray = [];
+var i = 10;
+
+do {
+  myArray.push(i);
+  i++;
+} while (i < 15);
+```
+
+This `for...while` loop will `push` the value `i` (`10`) onto the array, and then continue `push`ing values into the array until `14`. It will then stop as the condition has been met (i.e. `= 15`).
