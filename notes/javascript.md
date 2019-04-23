@@ -647,7 +647,7 @@ var myArr = [ 2, 3, 4, 5, 6];
 
 var total = 0;
 for (var i = 0; i < myArr.length; i++) {
-  total += myArr[i];
+  total += myArr[i]; // 20
 }
 ```
 Here, the `for` loop will start at position `0`, and will continue running as many times as there are elements in the array (**Note:** The reason this is `i < myArr.length` is because we start at position `0` of the array. So the element at the second position is actually `1`, or `<2`). Finally, the `i++` is another way of saying `i = i + 1`, or "move on to the next element".
@@ -664,4 +664,4 @@ for (var i = 0; i < arr.length; i++) {
   }
 }
 ```
-**Note:** The reason that the **condition** for the nested array is `j < arr[i].length` I HAVE NO IDEA!!!
+**Note:** The **condition** for the nested array is `j < arr[i].length`.
