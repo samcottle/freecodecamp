@@ -427,7 +427,7 @@ var cat = {
 };
 ```
 **Note:**
-- For single-word string properties you don't need the quotes (i.e. `~~"name"~~` can be `name`).
+- For single-word string properties you don't need the quotes (i.e. `"name"` can be `name`).
 - Use a comma between each property, instead of a semi-colon.
 
 ### Accessing properties
@@ -681,3 +681,85 @@ do {
 ```
 
 This `for...while` loop will `push` the value `i` (`10`) onto the array, and then continue `push`ing values into the array until `14`. It will then stop as the condition has been met (i.e. `= 15`).
+
+## Working with random numbers
+There are several built-in JavaScript functions that you can use to work with random numbers:
+- `Math.random()`: Generates a random decimal between `0` and (almost) `1`.
+- `Math.floor()`: Rounds down to the nearest whole number.
+
+### Generating a random number whole number (between 0 and x)
+Here's how you could generate a random number between `0` and `19`:
+```js
+var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
+```
+Breaking this down, we are:
+1. Using `Math.random()` to generate a random number between `0` and (almost) `1`.
+2. Multiplying this by `20`, which generates a random number between `0` and (almost) `20`.
+3. Using `Math.floor()` to round the result down.
+**Note**: Because `Math.random()` will never quite generate `1`, this means that `Math.random() * 20` will never quite generate `20`. Because `Math.floor()` always rounds down, the highest number you can generate is `19`.
+
+### Generating a random whole number between x and y
+Here's how you could generate a random number between `20` and `29`:
+```js
+function randomRange(myMin, myMax) {
+  return Math.floor(Math.random() * (myMax - myMin +1) + myMin);
+}
+
+console.log(randomRange(20, 29));
+```
+
+## Converting to an integer
+To convert a string to an integer, use the built-in `parseInt` function. By passing in a string (for example, `var a = parseInt("007");`) you'll convert this string (`"007"`) into an integer (`007`).
+
+You can also pass a radix into `parseInt` (for example `parseInt(string, radix)`), so `var a = parseInt("11", 2);` returns the `"11"` in the binary system (base 2), which is an integer with the value `3`.
+
+**Note:** If `parseInt` returns `NaN` (not a number) it means that the string contains values that couldn't be converted, for example `parseInt("hello");`.
+
+## Ternary Operators
+Also known as a Conditional Operator, the Ternary Operator is a single line `if`/`else` expression with the following syntax:
+```js
+condition ? statement-if-true : statement-if-false
+```
+So instead of:
+```js
+function checkEqual(a, b) {
+  if (a===b) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+checkEqual(1, 2);
+```
+You can use the Ternary Operator:
+```js
+function checkEqual(a, b) {
+    return a===b ? true : false;
+}
+
+checkEqual(1, 2);
+```
+
+The same logic works if there are more conditions. So the following `if`/`else if`/`else` statement:
+```js
+function checkSign(num) {
+  if (num > 0) {
+    return "positive";
+  } else if (num < 0) {
+      return "negative";
+  } else {
+      return "zero";
+  }
+}
+
+checkSign(3);
+```
+Can be expressed with the Ternary Operator:
+```js
+function checkSign(num) {
+  return (num > 0) ? "positive" : (num < 0) ? "negative" : "zero";
+}
+
+checkSign(3);
+```
