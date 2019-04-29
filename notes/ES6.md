@@ -1,5 +1,5 @@
-# ECMAscript 6
-JavaScript is based on ECMAScript (or ES). This is constantly evolving, with the latest version (ES6) being released in 2015.
+# ECMA Script 6
+JavaScript is based on ECMA Script (or ES). This is constantly evolving, with the latest version (ES6) being released in 2015.
 
 This new version allows for some additional functionality, such as:
 - Arrow functions
