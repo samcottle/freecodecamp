@@ -10,10 +10,42 @@ Put `//` before text to make it a comment.
 For multi-line comments, put the text like this `/* This is a
 multi-line comment */`.
 
+## Values and types
+JavaScript has the following types of values:
+- string (`"hello"`)
+- number (`6`)
+- boolean (`true`)
+- `null` and `undefined`
+- object (`a = { b: "c" };`)
+- symbol (as of ECMAScript 6)
+
+The `typeof` operator can be used to find the type of a particular variable:
+```js
+var a = "hello";
+
+console.log(typeof a); // Logs "hello" to the console.
+```
+
+### Built-in methods
+In addition to `typeof`, there are several built-in methods that can be useful:
+- `.length`: Returns the number of characters of a variable.
+- `.toUpperCase()`: If the variable is a string, returns the string in upper case.
+- `.toFixed()`: If the variable is an integer, returns the integer to the number of decimals specified.
+
+For example:
+```js
+var a = "hello";
+var b = 3.14159;
+
+console.log(a.length); // 5
+console.log(a.toUpperCase()); // HELLO
+console.log(b.toFixed(4)); // 3.1416
+```
+
 ## Working with variables
 These are how computers store and manipulate data dynamically. Basically, you use a label to point to some specific data, rather than use the data itself. Can think of them as being similar to x and y values in algebra, but also capable of representing more than just numbers.
 
-Creating a variable is referred to as "declaring" a variable. To declare a variable, you'd usually put `var` in front of it, and a `;` after it. Variables can also be preceded with:
+Creating a variable is referred to as "declaring" a variable. To declare a variable, you'd usually put `var` in front of it, and a `;` after it. In ECMAScript 6, a variable can instead be preceded with:
 - `let`: to declare a variable within a very specific scope.
 - `const`: to declare a variable that will never be changed.
 
@@ -113,70 +145,6 @@ word = string;
 var lastLetterOfString = word[word.length - 1];
 ```
 Similar logic can be used to get the second/third/fourth/nth to last character of a string.
-
-### Arrays
-Arrays store several pieces of data (known as *elements*) in one place. Arrays fit between square brackets `[` and `]`. Example: `var sandwich = ["peanut butter", "jelly", "bread"]`.
-
-Can nest an array within an array, which is referred to as a *multi-dimensional array*. Example: `[["Bulls", 23], ["White Sox", 45]]`
-Accessing data in this situation can get a bit messy, for example:
-```js
-var arr = [
-  [1,2,3],
-  [4,5,6],
-  [7,8,9],
-  [[10,11,12], 13, 14]
-];
-arr[3]; // equals [[10,11,12], 13, 14]
-arr[3][0]; // equals [10,11,12]
-arr[3][0][1]; // equals 11
-```
-Unlike strings, array entries are *mutable* and can be changed freely. In other words, you can change the data at index `0` of ourArray with, for example:
-```js
-var ourArray = [50,40,30];
-ourArray[0] = 15; // and ourArray now equals [15,40,30]
-```
-#### Indexes
-Data within an array is accessed using an index. These are also *zero-based* (i.e. start at `0` rather than `1`).
-Example:
-```js
-var array = [50,60,70];
-array[0]; // equals 50
-var data = array[1]; // equals 60.
-```
-**Note:** As above, don't put any spaces between the array name and the square brackets.
-
-#### Manipulating arrays
-Data can be both added or removed from an array.
-
-##### Appending data
-To append data to the end of an array use `.push()`. Basically pushes parameters to the end of the array. Example:
-```js
-var arr = [1,2,3];
-arr.push(4); // And arr is now [1,2,3,4].
-```
-
-To append to the beginning of an array, use `unshift()`.
-Example:
-```js
-var myArray = [["John", 23], ["dog", 3]];
-myArray.unshift(["Paul", 35]); // Adds an array with ["Paul", 25] to the start of myArray.
-```
-##### Removing data
-`.pop()` takes data element off the end of the array and returns that data element (so it can be used to store that last data element in another variable).
-Example:
-```js
-var threeArr = [1, 4, 6];
-var oneDown = threeArr.pop();
-console.log(oneDown); // Returns 6
-console.log(threeArr); // Now returns [1, 4]
-```
-Similarly, `.shift()` takes it from the first data element in an array.
-Example:
-```js
-var myArray = [["John", 23], ["dog", 3]];
-var removedFromMyArray = myArray.shift();
-```
-This takes `["John", 23]` out of the array and stores it as a variable called `removedFromMyArray`.
 
 ## Working with functions
 *Functions* are used for dividing up code into usable parts (like a mini-program within the script).
@@ -409,15 +377,73 @@ myFun();
 
 `"byebye"` will never be logged, because the `return` essentially ends/exits the function.
 
-#### Typeof operators
-Use these to determine what type of data a variable or value is:
+## Working with arrays
+An array is a special type of *object*, which stores data (known as *elements*) in one place. Arrays fit between square brackets `[` and `]`. Example: `var sandwich = ["peanut butter", "jelly", "bread"]`.
+
+Unlike other objects, the elements in an array are accessible using a numerically indexed position. Arrays can be nested inside other arrays, which is referred to as a *multi-dimensional array*. Example: `[["Bulls", 23], ["White Sox", 45]]`.
+
+Accessing the data in an array is done with bracket notation, for example:
+```js
+var arr = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9],
+  [[10,11,12], 13, 14]
+];
+arr[3]; // equals [[10,11,12], 13, 14]
+arr[3][0]; // equals [10,11,12]
+arr[3][0][1]; // equals 11
 ```
-typeof 3 // returns 'number'
-typeof '3' // returns 'string'
+Unlike strings, array entries are *mutable* and can be changed freely. In other words, you can change the data at index `0` of ourArray with, for example:
+```js
+var ourArray = [50,40,30];
+ourArray[0] = 15; // and ourArray now equals [15,40,30]
+```
+### Indexes
+Data within an array is accessed using an index. These are also *zero-based* (i.e. start at `0` rather than `1`).
+Example:
+```js
+var array = [50,60,70];
+array[0]; // equals 50
+var data = array[1]; // equals 60.
+```
+**Note:** As above, don't put any spaces between the array name and the square brackets.
+
+### Manipulating arrays
+Data can be both added or removed from an array.
+
+#### Appending data
+To append data to the end of an array use `.push()`. Basically pushes parameters to the end of the array. Example:
+```js
+var arr = [1,2,3];
+arr.push(4); // And arr is now [1,2,3,4].
 ```
 
+To append to the beginning of an array, use `unshift()`.
+Example:
+```js
+var myArray = [["John", 23], ["dog", 3]];
+myArray.unshift(["Paul", 35]); // Adds an array with ["Paul", 25] to the start of myArray.
+```
+#### Removing data
+`.pop()` takes data element off the end of the array and returns that data element (so it can be used to store that last data element in another variable).
+Example:
+```js
+var threeArr = [1, 4, 6];
+var oneDown = threeArr.pop();
+console.log(oneDown); // Returns 6
+console.log(threeArr); // Now returns [1, 4]
+```
+Similarly, `.shift()` takes it from the first data element in an array.
+Example:
+```js
+var myArray = [["John", 23], ["dog", 3]];
+var removedFromMyArray = myArray.shift();
+```
+This takes `["John", 23]` out of the array and stores it as a variable called `removedFromMyArray`.
+
 ## Working with objects
-Similar to *arrays*, but data is accessed using *properties*. They're for storing structured data. For example, this cat (with the properties of the `cat` stored as strings):
+An *object* is a compound value, similar to an *array*, but data is accessed using *properties* (or *locations*). They're for storing structured data. For example, this cat (with the properties of the `cat` stored as strings):
 ```js
 var cat = {
   "name": "Whiskers",
@@ -432,7 +458,7 @@ var cat = {
 
 ### Accessing properties
 Properties within an array can be accessed with:
-- Dot notation: a `.`
+- Dot notation: a `.` (this is shorter, and more human readable).
 - Bracket notation: the `[` and `]`, like you would for an array. You'll also need to use this one if the object has a space in it.
 
 #### With dot notation

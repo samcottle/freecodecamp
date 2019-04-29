@@ -12,7 +12,9 @@ This new version allows for some additional functionality, such as:
 **Note:** Even though it was released back in 2015, not all browsers support ES6 yet.
 
 ## `let` and `const`
-ES6 introduces two new types `var`: `let` and `const`.
+In ES6, variables can instead be preceded with:
+- `let`: to declare a variable within a very specific scope.
+- `const`: to declare a variable that will never be changed.
 
 ### `let`
 In many ways `var` and `let` work identically. But with `var`, you can overwrite a variable with the same name that you declared previously. This can cause issues, especially in larger code bases, where you may do this accidentally. By using `let`, any attempt to overwrite will throw an error in the console.
