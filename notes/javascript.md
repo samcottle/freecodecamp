@@ -26,22 +26,6 @@ var a = "hello";
 console.log(typeof a); // Logs "hello" to the console.
 ```
 
-### Built-in methods
-In addition to `typeof`, there are several built-in methods that can be useful:
-- `.length`: Returns the number of characters of a variable.
-- `.toUpperCase()`: If the variable is a string, returns the string in upper case.
-- `.toFixed()`: If the variable is an integer, returns the integer to the number of decimals specified.
-
-For example:
-```js
-var a = "hello";
-var b = 3.14159;
-
-console.log(a.length); // 5
-console.log(a.toUpperCase()); // HELLO
-console.log(b.toFixed(4)); // 3.1416
-```
-
 ## Working with variables
 These are how computers store and manipulate data dynamically. Basically, you use a label to point to some specific data, rather than use the data itself. Can think of them as being similar to x and y values in algebra, but also capable of representing more than just numbers.
 
@@ -59,6 +43,22 @@ Values are stored with an *assignment* operator. Basically an `=`. So `myVar = 5
 Example: `var myVar = 5;` creates a variable called `myVar` and assigns a value of `5` to it. This is also referred to as *initializing* the variable.
 
 *Note:* when you get `NaN` (Not a Number) as an error code, this means you've forgotten to declare a variable, and it's tried to initialize... nothing. Similarly, `"undefined"` means that you've tried to concatenate a string that hasn't been defined.
+
+### Built-in methods
+In addition to `typeof`, there are several built-in methods that can be used to manipulate variables:
+- `.length`: Returns the number of characters of a variable.
+- `.toUpperCase()`: If the variable is a string, returns the string in upper case.
+- `.toFixed()`: If the variable is an integer, returns the integer to the number of decimals specified.
+
+For example:
+```js
+var a = "hello";
+var b = 3.14159;
+
+console.log(a.length); // 5
+console.log(a.toUpperCase()); // HELLO
+console.log(b.toFixed(4)); // 3.1416
+```
 
 ## Working with numbers
 The `number` data type represents numeric data.
