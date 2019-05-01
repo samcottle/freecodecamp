@@ -1,13 +1,13 @@
-# ECMA Script 6
-JavaScript is based on ECMA Script (or ES). This is constantly evolving, with the latest version (ES6) being released in 2015.
+# ECMAScript 6
+JavaScript is based on ECMAScript (or ES). This is constantly evolving, with the latest version (ES6) being released in 2015.
 
 This new version allows for some additional functionality, such as:
+- New ways to express variables: `let` and `const`
 - Arrow functions
 - Classes
 - Modules
 - Promises
 - Generators
-- `let` and `const`
 
 **Note:** Even though it was released back in 2015, not all browsers support ES6 yet.
 
@@ -33,7 +33,7 @@ S[2] = 45;
 console.log(S);
 ```
 This will log `[5, 6, 45]`, not `[5, 6, 7]`.
-an
+
 ### Preventing mutation
 By declaring an array as a `const` it is still mutable. But if you *really* don't want properties added, deleted, or update you can use the `Object.freeze` function. For example:
 ```js
