@@ -87,3 +87,40 @@ const myConcat = (arr1, arr2) => arr1.concat(arr2);
 
 console.log(myConcat([1, 2], [3, 4, 5])); // Logs 1, 2, 3, 4, 5
 ```
+
+## Higher-order functions
+These are functions that take an array, run some logic on each item in the array, and returns a new array.
+
+The most frequently used are:
+- `map()`: Loops through every element in an array and executes some logic (a function that you specify) on it. It then returns a new array with the function you performed.
+- `filter()`: Loops through every element in an array and performs a test (a function that you specify) on it. It then returns a new array containing only the values that pass the test.
+- `reduce()`: Executes a reducer function on each member of the array, resulting in a single output value.
+They can also be chained together as needed.
+
+### `map()`
+To take each item in an array and square it (i.e. multiplying it by itself) you would use, for example:
+```js
+let arr = [1, 2, 3, 4, 5];
+const squareArr = arr.map(num => num ** 2);
+
+console.log(squareArr); // [ 1, 4, 9, 16, 25 ]
+```
+
+### `filter()`
+To filter out the even numbers in an array (we only want the odd numbers) we could use, for example:
+```js
+let arr = [1, 2, 3, 4, 5];
+const oddNums = arr.filter(num => num % 2 !== 0);
+
+console.log(oddNums); // [ 1, 3, 5 ]
+```
+
+### `reduce()`
+To reduce the array to one value you could, for example, add them together:
+```js
+let arr = [1, 2, 3, 4];
+const sumReducer = (accumulator, currentValue) => accumulator + currentValue; // Sets up the logic for adding each value in the array together.
+const sum = arr.reduce(sumReducer); // Performs the logic (1 + 2 + 3 + 4), reducing the array down to a single value.
+
+console.log(sum);
+```
