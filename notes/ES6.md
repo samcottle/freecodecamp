@@ -51,3 +51,39 @@ console.log(obj); // { name: "Sam", site:"Github.com"}
 
 ### Strict Mode
 By declaring `"use strict"`, you'll enable strict mode. This catches a bunch of common coding mistakes, such as variables not being declared correctly (with error messages like `ReferenceError`).
+
+## Arrow functions
+When writing anonymous functions (i.e. functions that aren't named, because they won't be reused), arrow functions can be used to vastly simply the syntax.
+
+These can be used for functions that:
+- Have no function body.
+- Only has a return value.
+
+For example, this:
+```js
+const myFunc = function() {
+  const myVar = "value";
+  return myVar;
+}
+```
+Becomes:
+```js
+const myFunc = () => "value"
+```
+
+Here's another example, this time with parameters:
+```js
+const myConcat = function(arr1, arr2) {
+  "use strict";
+  return arr1.concat(arr2);
+};
+
+console.log(myConcat([1, 2], [3, 4, 5])); // Logs 1, 2, 3, 4, 5
+```
+Becomes:
+```js
+"use strict";
+const myConcat = (arr1, arr2) => arr1.concat(arr2);
+
+console.log(myConcat([1, 2], [3, 4, 5])); // Logs 1, 2, 3, 4, 5
+```
