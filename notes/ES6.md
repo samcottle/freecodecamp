@@ -124,3 +124,18 @@ const sum = arr.reduce(sumReducer); // Performs the logic (1 + 2 + 3 + 4), reduc
 
 console.log(sum);
 ```
+### Chaining them together
+If you wanted to take all the even numbers in an array, and multiply these by `2`:
+```js
+const numbers = [1, 2, 4, 5, 6, 7, 7, 9, 11, 14, 43, 56, 89]
+
+function isEven(x) {
+  return x % 2 === 0
+}
+
+function addTwo(x) {
+  return x * 2
+}
+
+const result = numbers.filter(isEven).map(addTwo) // [4, 8, 12, 28, 112]
+```
