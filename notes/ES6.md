@@ -125,7 +125,7 @@ const sum = arr.reduce(sumReducer); // Performs the logic (1 + 2 + 3 + 4), reduc
 console.log(sum);
 ```
 ### Chaining them together
-If you wanted to take all the even numbers in an array, and multiply these by `2`:
+These functions can also be chained together. For example, if you wanted to take all the even numbers in an array, and multiply these by `2`:
 ```js
 const numbers = [1, 2, 4, 5, 6, 7, 7, 9, 11, 14, 43, 56, 89]
 
@@ -138,4 +138,61 @@ function addTwo(x) {
 }
 
 const result = numbers.filter(isEven).map(addTwo) // [4, 8, 12, 28, 112]
+```
+Here's another example, demonstrating how you can chain two high-order functions together to:
+1. `filter()` the array for positive, whole numbers (i.e. that have a remainder of `0` when divided by themselves).
+2. Square the remaining values in the array with `map()`.
+```js
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+
+const squareList = (arr) => {
+  "use strict";
+  const squaredIntegers = arr.filter(num => num > 0 && num % 1 === 0).map(num => num * num);
+  return squaredIntegers;
+};
+
+const squaredIntegers = squareList (realNumberArray);
+console.log(squaredIntegers);
+```
+## Using default parameters
+ES6 introduces default parameters as a way of specifying that a certain parameter should be used when an argument is undefined.
+For example, if you wanted to add a default value of `4` to `number` when a value wasn't specified:
+```js
+const increment = (function() {
+  "use strict";
+  return function increment(number, value = 4) {
+    return number + value;
+  };
+})();
+
+console.log(increment(5, 2)); // 7
+console.log(increment(5)); // 9
+```
+
+## Using rest operators
+A rest operator is a way of creating more flexible functions, that take a variable number of arguments (indefinite, in fact).
+For example, the following function:
+```js
+const sum = (function() {
+  "use strict";
+  return function sum(x, y, z) {
+    const args = [ x, y, z ];
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+console.log(sum(1, 2, 3)); // 6
+```
+Can be rewritten so that it will work the same way with any number of arguments (`args`) passed into it:
+```js
+// Modify the function sum so that it uses the rest operator and it works in the same way with any number of parameters.
+
+const sum = (function() {
+  "use strict";
+  return function sum(...args) {
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+
+console.log(sum(1, 2, 3)); // 6
+console.log(sum(1, 2, 3, 4)); // 10
 ```
