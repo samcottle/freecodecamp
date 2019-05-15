@@ -170,7 +170,7 @@ console.log(increment(5)); // 9
 ```
 
 ## Using rest operators
-A rest operator is a way of creating more flexible functions, that take a variable number of arguments (indefinite, in fact).
+A rest operator (`...`) is a way of creating more flexible functions, which can take an indefinite number of arguments.
 For example, the following function:
 ```js
 const sum = (function() {
@@ -182,7 +182,7 @@ const sum = (function() {
 })();
 console.log(sum(1, 2, 3)); // 6
 ```
-Can be rewritten so that it will work the same way with any number of arguments (`args`) passed into it:
+Can be rewritten so that it will work the same way with any number of arguments (`...args`) passed into it:
 ```js
 // Modify the function sum so that it uses the rest operator and it works in the same way with any number of parameters.
 
