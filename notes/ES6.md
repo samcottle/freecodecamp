@@ -196,3 +196,80 @@ const sum = (function() {
 console.log(sum(1, 2, 3)); // 6
 console.log(sum(1, 2, 3, 4)); // 10
 ```
+
+## Using spread operators
+A spread operator (`...arr`) can be used to unpack (or *spread*) an array.
+
+It only works in-place (i.e. in an argument to a function, or in an array literal: `[...arr]`).
+
+For example, the following way of getting the maximum value from an array (using `apply()`):
+```js
+var arr = [6, 89, 3, 45];
+var maximus = Math.max.apply(null, arr); // Returns 89
+```
+Can be simplified to:
+```js
+const arr = [6, 89, 3, 45];
+const maximus = Math.max(...arr); // Also returns 89
+```
+
+## Destructuring assignment
+This is new in ES6, and is a way of simplifying the syntax when you want to assign variables from:
+- An object.
+- A nested object.
+- An array.
+
+### Destructuring assignment with objects
+To destructure an object when you want to assign values from it.
+
+For example, to assign values `x`, `y`, and `z`:
+```js
+var voxel = {x: 3.6, y: 7.4, z: 6.54 };
+var x = voxel.x; // x = 3.6
+var y = voxel.y; // y = 7.4
+var z = voxel.z; // z = 6.54
+```
+In ES6, this can be simplified to:
+```js
+var voxel = {x: 3.6, y: 7.4, z: 6.54 };
+const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54
+```
+### Destructuring assignment with nested objects
+This can also be used for nested objects. For example, here is how you would use destructuring assignment to get the `max` of `forecast.tomorrow` (assigning it to `maxOfTomorrow` along the way):
+```js
+const LOCAL_FORECAST = {
+  today: {min: 72, max: 83},
+  tomorrow: {min: 73.3, max: 84.6}
+};
+
+function getMaxOfTmrw(forecast) {
+  "use strict";
+  const {tomorrow: {max: maxOfTomorrow}} = forecast;
+  return maxOfTomorrow;
+}
+
+console.log(getMaxOfTmrw(LOCAL_FORECAST)); // 84.6
+```
+
+### Destructuring assignment with arrays
+Destructuring can also be used for arrays. This is similar to using a spread operator, but unlike a spread operator (which only lets you unpack an array as a bunch of comma separated values) you can choose which elements you want to assign to variables.
+
+When using a destructuring assignment for an array you can use commas (`,`) to reach your desired index within an array.
+
+For example, here is how you would use destructuring to assign the values at index `0`, `1`, and `4` of an array to `a`, `b`, and `c`:
+```js
+const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, c); // 1, 2, 5
+```
+Destructuring can also be used to swap values in an array. For example, to swap the values of `a` and `b`:
+```js
+let a = 8, b = 6;
+
+(() => {
+  "use strict";
+  [a, b] = [b, a];
+})();
+
+console.log(a); // 6
+console.log(b); // 8
+```
