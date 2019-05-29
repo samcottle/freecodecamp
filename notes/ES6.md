@@ -234,6 +234,60 @@ In ES6, this can be simplified to:
 var voxel = {x: 3.6, y: 7.4, z: 6.54 };
 const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54
 ```
+
+#### Destructuring assignment into an object
+Useful for making tidier code.
+
+Also good for API calls, when you often get a complex response, and want to get this down to just the values you want to work with.
+
+For example, this pseudocode:
+```js
+const profileUpdate = (profileData) => {
+  const { name, age, nationality, location } = profileData;
+  // do something with these variables
+}
+```
+Could also be written as:
+```js
+const profileUpdate = ({ name, age, nationality, location }) => {
+  // do something with these fields
+}
+```
+Here's another example. With our `const stats` object:
+```js
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+```
+Instead of using:
+```js
+const half = (function() {
+  "use strict";
+  return function half(stats) {
+    return (stats.max + stats.min) / 2.0;
+  };
+})();
+```
+We could use this tidier code, passing in *only* the values we need:
+```js
+const half = (function() {
+  "use strict";
+  return function half({max, min}) {
+    return (max + min) / 2.0;
+  };
+})();
+```
+And for both:
+```js
+console.log(stats); // The whole object
+console.log(half(stats)); // 28.015
+```
+
 ### Destructuring assignment with nested objects
 This can also be used for nested objects. For example, here is how you would use destructuring assignment to get the `max` of `forecast.tomorrow` (assigning it to `maxOfTomorrow` along the way):
 ```js
@@ -248,6 +302,8 @@ function getMaxOfTmrw(forecast) {
   return maxOfTomorrow;
 }
 
+#### Reassigning array elements
+In some situations involving array destructuring, you may want to collect remaining elements and put them in a separate array. For this, you can combine destructuring assignment and the Rest Operator (`...`)
 console.log(getMaxOfTmrw(LOCAL_FORECAST)); // 84.6
 ```
 
@@ -272,4 +328,68 @@ let a = 8, b = 6;
 
 console.log(a); // 6
 console.log(b); // 8
+```
+
+#### Reassigning array elements
+In some situations involving array destructuring, you may want to collect remaining elements and put them in a separate array. For this, you can combine destructuring assignment and the Rest Operator (`...`).
+
+This works when you put the Rest Operator as the last variable in the list, and is effectively the same as using the `.slice()` method.
+
+For example, to store the the first two values from the `source` array, and store them in a new array `arr`:
+```js
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function removeFirstTwo(list) {
+  "use strict";
+  const [a, b, ...arr] = list;
+  return arr;
+}
+const arr = removeFirstTwo(source);
+console.log(arr);
+console.log(source);
+```
+
+## Template literals
+These allow you to create complex strings that are:
+- Multi-line, by wrapping the string in backticks.
+- Interpolation. Using placeholders (such as `${variable}` or `S{concatenated + variables}`).
+
+Here's a simple example:
+```js
+const me = {
+  name: "Sam C",
+  age: 36
+};
+
+// Template literal with multi-line and string interpolation
+const greeting = `Hello, my name is ${me.name}!
+I am ${me.age} years old.`;
+
+console.log(greeting); // prints
+// Hello, my name is Sam C!
+// I am 36 years old.
+```
+
+You can use template literals to, for example, generate some HTML from a JavaScript `const`:
+```js
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["id-blacklist", "no-dup-keys"]
+};
+function makeList(arr) {
+  "use strict";
+  const resultDisplayArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    resultDisplayArray.push(`<li class="text-warning">${result.failure[i]}</li>`);
+  }
+  return resultDisplayArray;
+}
+const resultDisplayArray = makeList(result.failure);
+
+// Pushes the following HTML to the resultDisplayArray:
+/*  [ `<li class="text-warning">no-var</li>`,
+      `<li class="text-warning">var-on-top</li>`,
+      `<li class="text-warning">linebreak</li>` ]
+ */
 ```
