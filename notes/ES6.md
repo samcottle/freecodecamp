@@ -381,7 +381,7 @@ function makeList(arr) {
   "use strict";
   const resultDisplayArray = [];
   for (let i = 0; i < arr.length; i++) {
-    resultDisplayArray.push(`<li class="text-warning">${result.failure[i]}</li>`);
+    resultDisplayArray.push(`<li class="text-warning">${arr[i]}</li>`);
   }
   return resultDisplayArray;
 }
