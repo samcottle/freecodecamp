@@ -352,7 +352,7 @@ console.log(source);
 ## Template literals
 These allow you to create complex strings that are:
 - Multi-line, by wrapping the string in backticks.
-- Interpolation. Using placeholders (such as `${variable}` or `S{concatenated + variables}`).
+- Interpolation. Using placeholders (such as `${variable}` or `${multiple + concatenated + variables}`).
 
 Here's a simple example:
 ```js
