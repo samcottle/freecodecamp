@@ -537,6 +537,22 @@ import { function } from "./file_path_goes_here"
 ```
 Variables can be imported, in the same way.
 
+### Importing everything from a file
+To import all of the contents from a file you can use the `import *` syntax (basically, you use the `*` wildcard).
+
+Here's an example, using pseudocode:
+```js
+import * as object_with_name_of_your_choice from "file_path_goes_here"
+object_with_name_of_your_choice.imported_function
+```
+And a slightly more realistic example:
+```js
+import * as myMathModule from "math_functions";
+myMathModule.add(2, 3);
+myMathModule.subtract(5, 3);
+```
+This would import `"math_functions"`, using the name `myMathModule`. Then, `.add` and `.subtract` from this file are executed.
+
 ## Using `export`
 Similar to `import`, if we want code from one file to be usable in another we first need to `export` it. Can be used to export both variables and functions.
 
