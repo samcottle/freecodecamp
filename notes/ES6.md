@@ -535,6 +535,19 @@ There are multiple ways to use `import()`, but the most common is probably:
 ```js
 import { function } from "./file_path_goes_here"
 ```
-Variables can be imported in the same way.
+Variables can be imported, in the same way.
 
 ## Using `export`
+Similar to `import`, if we want code from one file to be usable in another we first need to `export` it. Can be used to export both variables and functions.
+
+Here's an example of a variable:
+```js
+export const sam = "cool!";
+```
+And a function:
+```js
+const capitalizeString = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+export { capitalizeString }
+```
