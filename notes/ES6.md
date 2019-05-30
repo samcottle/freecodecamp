@@ -414,3 +414,31 @@ const createPerson = (name, age, gender) => ({name, age, gender});
 
 console.log(createPerson("Sam C", 36, "Male"));
 ```
+
+## Writing concise declarative functions
+With ES5, you have to use the keyword `function` when defining a function within an object. With ES6, this is not required. So for example, in ES5:
+```js
+const bicycle = {
+  gear: 2,
+  setGear: function(newGear) {
+    "use strict";
+    this.gear = newGear;
+  }
+};
+
+bicycle.setGear(3);
+console.log(bicycle.gear);
+```
+Can be refactored to this, in ES6:
+```js
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    "use strict";
+    this.gear = newGear;
+  }
+};
+
+bicycle.setGear(3);
+console.log(bicycle.gear);
+```
