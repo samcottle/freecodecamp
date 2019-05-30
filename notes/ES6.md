@@ -393,3 +393,24 @@ const resultDisplayArray = makeList(result.failure);
       `<li class="text-warning">linebreak</li>` ]
  */
 ```
+
+## Using simple fields for object literal declarations
+As of ES6, there's a much simpler way of defining object literals. Instead of using:
+```js
+const createPerson = (name, age, gender) => {
+  "use strict";
+  return {
+    name: name,
+    age: age,
+    gender: gender
+  };
+}
+
+console.log(createPerson("Sam C", 36, "Male"));
+```
+To avoid the redundancy of having to write `name: name`, you can write `name` once and it is converted automatically. Here's the same thing, using a syntactically simpler format:
+```js
+const createPerson = (name, age, gender) => ({name, age, gender});
+
+console.log(createPerson("Sam C", 36, "Male"));
+```
