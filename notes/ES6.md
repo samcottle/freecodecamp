@@ -445,6 +445,7 @@ console.log(bicycle.gear);
 
 ## Constructor functions
 A constructor function allows you to create a template, and then *construct* as multiple objects using this template. You do this by defining a `class`:
+
 **Note:** `class` is in no way comparable to a full-fledged `class` from Java or Python.
 ```js
 function makeClass() {
@@ -462,10 +463,63 @@ console.log(carrot.name); // carrot
 ```
 Inside the template, the thing called `this` is the object that 'owns' the code. The value of `this`, when used in an object is the object itself (i.e. `this.name = name`).
 
+`new` is used each time you want to create a new instance of an object.
+
 We can create other `Vegetable`s as we want using this constructor function.
 
 Best practice for constructor functions is to use Pascal notation (where the first letter of each word is uppercase).
 
-```js
+## Controlling access to an object with *getters* and *setters*
+Getters and setters are used to interact with private variables (where you want to hide internal implementation details, for example an API):
+- A `get` function is a way of getting a private variable within a function without the user accessing the private variable directly.
+- A `set` function is how you can modify the value of an object's private variable
 
+And even though `get` and `set` are functions, their syntax used to invoke them is quite different (for example, `_temp`). This signifies to the human reading it that it's not intended to be accessed outside of a `class`. They also don't use `()`.
+
+Here's an example of how a user can indirectly interact with a private variable `author` (using `writer` instead):
+```js
+class Book {
+  constructor(author) {
+    this._author = author; // _author is the private variable that is set when the object is constructed
+  }
+  // getter
+  get writer(){
+    return this._author; // Gets the author. So the user never directly interacts with the author.
+  }
+  // setter
+  set writer(updatedAuthor){
+    this._author = updatedAuthor; // Updates the author, without directly interacting with the author. You can add some other logic here too
+  }
+}
+const lol = new Book('anonymous');
+console.log(lol.writer);  // anonymous
+lol.writer = 'wut';
+console.log(lol.writer);  // wut
+```
+And here's another example. It passes the freecodecamp test, but I really don't understand what a human would achieve by running this (the ES6 module on freecodecamp is really rough):
+```js
+function makeClass() {
+  "use strict";
+  class Thermostat {
+    constructor(temp) {
+      this._temp = 5/9 * (temp - 32); // Converts the passed in value to C
+    }
+    // getter
+    get temperature() {
+      return this._temp; // The temp in C
+    }
+    // setter
+    set temperature(updatedTemp) {
+      this._temp = updatedTemp;
+    }
+  }
+  return Thermostat;
+}
+const Thermostat = makeClass(); // Runs the function that returns the Thermostat object
+const thermos = new Thermostat(76); // Instantiates Thermostat, passing in a temp of 76
+let temp = thermos.temperature; // Uses the getter (24.44 in C)
+thermos.temperature = 26; // Uses the setter, and sets it with the updated temperature
+temp = thermos.temperature; // 26 in C
+
+console.log(temp); // 26
 ```
