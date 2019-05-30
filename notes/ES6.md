@@ -523,3 +523,18 @@ temp = thermos.temperature; // 26 in C
 
 console.log(temp); // 26
 ```
+
+## Using `import` and `require`
+`require()` is a way of importing functions and code from external files and modules. But some of these files can be large, and most of their contents not needed.
+
+`import()`, in ES6, is similar but allows you to only take the parts of the module you need. For example, to only take 1 function (`countItems`) of the 20 functions in `math_array_functions`:
+```js
+import { countItems } from "math_array_functions"
+```
+There are multiple ways to use `import()`, but the most common is probably:
+```js
+import { function } from "./file_path_goes_here"
+```
+Variables can be imported in the same way.
+
+## Using `export`
