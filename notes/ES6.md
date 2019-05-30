@@ -442,3 +442,30 @@ const bicycle = {
 bicycle.setGear(3);
 console.log(bicycle.gear);
 ```
+
+## Constructor functions
+A constructor function allows you to create a template, and then *construct* as multiple objects using this template. You do this by defining a `class`:
+**Note:** `class` is in no way comparable to a full-fledged `class` from Java or Python.
+```js
+function makeClass() {
+  "use strict";
+  class Vegetable {
+    constructor(name){
+      this.name = name;
+    }
+  }
+  return Vegetable;
+}
+const Vegetable = makeClass();
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // carrot
+```
+Inside the template, the thing called `this` is the object that 'owns' the code. The value of `this`, when used in an object is the object itself (i.e. `this.name = name`).
+
+We can create other `Vegetable`s as we want using this constructor function.
+
+Best practice for constructor functions is to use Pascal notation (where the first letter of each word is uppercase).
+
+```js
+
+```
