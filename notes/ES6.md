@@ -567,3 +567,21 @@ const capitalizeString = (string) => {
 }
 export { capitalizeString }
 ```
+**Note:** This is referred to as a *named export*.
+
+### Export defaults
+`export default` is usually used when only one value is being exported from a file, but can also be used to create a fallback value for a file or module.
+
+Here's an example:
+```js
+export default function add (x,y) {
+  return x + y;
+}
+```
+You can only use one `export default` per module or file. You also can't use `export default` with `var`, `let`, or `const`.
+
+When importing a `default export`, the syntax is slightly different (you don't need to put `{}` around the imported value): For example, to import the above `default`:
+```js
+import add from "math_functions";
+add(5,4); // Returns 9
+```
