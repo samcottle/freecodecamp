@@ -52,7 +52,7 @@ let result = vengaSong.match(vengaRegex);
 
 console.log(result); // ["boom", "boom", "boom"]
 ```
-But wait, what happened to the first `"Boom"`? Without the `i` flag, `match()` is case sensitive. But you can combine flags (for example, `gi` combines the *multiple* and the *non-literal* flags):
+But wait, what happened to the first `"Boom"`? Without the `i` flag, `match()` is case sensitive. But you can combine flags (for example, `gi` combines the *multiple* (`g`) and the *non-literal* (`i`) flags):
 ```js
 let vengaSong = "Boom, boom, boom, boom...";
 let vengaRegex = /boom/gi;
