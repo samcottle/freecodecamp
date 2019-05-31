@@ -32,3 +32,5 @@ let result = testRegex.test(testStr);
 
 console.log(result); // true. As would "Code" or "coDE"
 ```
+
+### Extracting matches
