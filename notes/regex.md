@@ -34,3 +34,39 @@ console.log(result); // true. As would "Code" or "coDE"
 ```
 
 ### Extracting matches
+If you need more than a simple `true` or `false`, you can `extract()` the match too. For example:
+```js
+let extractStr = "Extract the word 'coding' from this string.";
+let codingRegex = /coding/;
+let result = extractStr.match(codingRegex);
+
+console.log(result); // "coding"
+```
+
+#### Extracting multiple matches
+For strings like `"Boom, boom, boom, boom!"`, using `match()` will only give you the first result. To find all instances of a match, use the `g` flag. For example:
+```js
+let vengaSong = "Boom, boom, boom, boom...";
+let vengaRegex = /boom/g;
+let result = vengaSong.match(vengaRegex);
+
+console.log(result); // ["boom", "boom", "boom"]
+```
+But wait, what happened to the first `"Boom"`? Without the `i` flag, `match()` is case sensitive. But you can combine flags (`gi`):
+```js
+let vengaSong = "Boom, boom, boom, boom...";
+let vengaRegex = /boom/gi;
+let result = vengaSong.match(vengaRegex);
+
+console.log(result); // ["Boom", "boom", "boom", "boom"]
+```
+
+#### Using wildcards
+When you don't know the exact match in a pattern, and writing regex to cover all possible options would be time consuming (as well as being inflexible), you can use a wildcard (`.`). This is also referred to as a *dot* or a *period*, and you use it like this:
+```js
+let exampleStr = "Let's have fun with regular expressions!";
+let unRegex = /.un/;
+let result = unRegex.test(exampleStr);
+
+console.log(result); // true
+```
