@@ -1,7 +1,7 @@
 # Regular expressions
-Regular expressions (also known as *regex* or *regexp*) help you match, search, and replace text by using symbols and text.
+Regular expressions (also known as *regex* or *regexp*) are widely used in programming. They help you match, search, and replace text by using a combination of symbols and text.
 
-These are widely used in programming. Here is how you can use them in JavaScript.
+Here is how you can use them in JavaScript.
 
 ## Matching
 The `test()` method is used to match part of a string. For example, if I wanted to find the word `"the"` in the string `"The dog chased the cat"` I could use the regex `/the/`.
@@ -52,7 +52,7 @@ let result = vengaSong.match(vengaRegex);
 
 console.log(result); // ["boom", "boom", "boom"]
 ```
-But wait, what happened to the first `"Boom"`? Without the `i` flag, `match()` is case sensitive. But you can combine flags (`gi`):
+But wait, what happened to the first `"Boom"`? Without the `i` flag, `match()` is case sensitive. But you can combine flags (for example, `gi` combines the *multiple* and the *non-literal* flags):
 ```js
 let vengaSong = "Boom, boom, boom, boom...";
 let vengaRegex = /boom/gi;
