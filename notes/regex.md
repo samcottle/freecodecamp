@@ -80,9 +80,35 @@ let bagStr = "bag";
 let bigStr = "big";
 let bugStr = "bug";
 let bogStr = "bog";
-let RegEx = /b[aiu]g/;
-bagStr.match(RegEx); // "bag"
-bigStr.match(RegEx); // "big"
-bugStr.match(RegEx); // "bug"
-bogStr.match(RegEx); // null
+let regEx = /b[aiu]g/;
+bagStr.match(regEx); // "bag"
+bigStr.match(regEx); // "big"
+bugStr.match(regEx); // "bug"
+bogStr.match(regEx); // null
+```
+
+You can also match a range of characters, with a hyphen. Such as `[a-z]`, `[0-9]`, or `[a-r3-7]`. For example:
+```js
+let catStr = "cat";
+let catStr = "bat";
+let catStr = "mat";
+let reGex = /[a-e]at/;
+catStr.match(regEx); // "cat"
+batStr.match(regEx); // "bat"
+matStr.match(regEx); // null
+```
+
+##### Excluding characters
+If you, instead, want to exclude characters, you can use *negated character sets*. Any characters placed inside `[^squarebrackets]` would be excluded. For example, if you wanted to find all characters except vowels you could use:
+```js
+/[^aeiou]/
+```
+
+##### Consecutive characters
+To group characters that appear consecutively you can use the `+` character. For example:
+```js
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/ig; // Change this line
+let result = difficultSpelling.match(myRegex);
+console.log(result); // "ss", "ss", not "s", "s", "s", "s",
 ```
