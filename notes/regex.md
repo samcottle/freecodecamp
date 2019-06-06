@@ -70,3 +70,19 @@ let result = unRegex.test(exampleStr);
 
 console.log(result); // true
 ```
+
+#### Using character classes
+When you want to search for a range of characters that match, you can use *character classes*. Any characters placed inside `[squarebrackets]` will match.
+
+For example, if you wanted to search for "bag", "big", and "bug", but *not* "bog" you could use:
+```js
+let bagStr = "bag";
+let bigStr = "big";
+let bugStr = "bug";
+let bogStr = "bog";
+let RegEx = /b[aiu]g/;
+bagStr.match(RegEx); // "bag"
+bigStr.match(RegEx); // "big"
+bugStr.match(RegEx); // "bug"
+bogStr.match(RegEx); // null
+```
