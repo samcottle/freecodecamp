@@ -104,6 +104,15 @@ If you, instead, want to exclude characters, you can use *negated character sets
 /[^aeiou]/
 ```
 
+##### Matching characters that do not occur
+The `*` character lets you match instances of zero or more occurrences. For example:
+```js
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+let chewieRegex = /Aa*/;
+let result = chewieQuote.match(chewieRegex);
+console.log(result); // "Aaaaaaaaaaaaaaaa"
+```
+
 ##### Consecutive characters
 To group characters that appear consecutively you can use the `+` character. For example:
 ```js
