@@ -214,7 +214,7 @@ So to break this example down, `pwRegex` checks that `sampleWord` has both of th
 - `(?=\w{5,})`: At least 5 characters long.
 - `(?=\D*\d{2})`: Two consecutive digits (`\D*` zero or more instances of non-digits, and `\d{2}` for two or more digits).
 
-### Reusing patterns
+### Capture groups
 Instead of manually repeating regex multiple times, you can reuse it with *capture groups*. The regex of any pattern you want repeated goes inside a `()`. Every time you want to repeat that pattern, use a `\1` (and if there is a second `(capture group)` you'd use `\2`, etc.).
 
 For example, to test for any number that is repeated only three times:
@@ -228,3 +228,20 @@ To break `reRegex` down:
 - `\s`: Each of these represents whitespace.
 - `\1`: Each of these represents another `(\d+)`.
 - `^` and `$` specify the start and end.
+
+### Search and replace
+If we want to search through and replace some of the characters in a string, we can use `.replace()`.
+
+Here's a simple example, replacing the word `"wrong"` with `"awesome"`:
+```js
+let wrongText = "This is just wrong!"
+let wrongRegex = /wrong/;
+console.log(wrongText.replace(wrongRegex, "awesome")); // Logs "This is just awesome!"
+```
+To use regex with `.replace()` and *capture groups*:
+```js
+console.log("Okey Dokey".replace(/(\w+)\s(\w+)/, "$2 $1")); // Logs Dokey Okey
+```
+To break this down, we're searching for characters that match the regex:
+- `(\w+)\s(\w+)`: Capture group 1 (a word), whitespace, capture group 2 (a word).
+Then the `$` can apparently also be used to specify where you want the capture groups to be placed. In this case, we're swapping the order, so: - capture group 2, then capture group 1 (`"$2 $1"`).
