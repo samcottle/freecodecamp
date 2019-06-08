@@ -141,6 +141,24 @@ let myRegex = /s+/ig; // Change this line
 let result = difficultSpelling.match(myRegex);
 console.log(result); // "ss", "ss", not "s", "s", "s", "s",
 ```
+This can also be used to match across entire words, instead of individual characters. For example:
+```js
+let quoteSample = "The five boxing wizards jump quickly.";
+let regexLetters = /[A-Za-z]/gi;
+let result = quoteSample.match(regexLetters); // "T", "h", "e", "f", "i", "v", "e", "b", "o", "x", …
+
+let regexWords = /[A-Za-z]+/gi;
+let result = quoteSample.match(regexWords); // "The", "five", "boxing", "wizards", "jump", "quickly"
+```
 
 ##### Lazy matching
 This can be used when you want to find the shortest possible match. So let's say you were to use the regex `/t[a-z]*i/` on the string `"titanic`. By default, this regex would return `"titani"`. But if you wanted the shortest possible match (i.e. `"ti"`) instead, you'd use a `?` to indicate you want to use lazy matching: `/t[a-z]*?i/`.
+
+### Shorthand character classes
+Because some regex are used commonly, some nice people came up with *shorthand character classes* to save us all some time. An example of this is the regex `\w`, which is shorthand for all letters and numbers (much easier than writing out `[A-Za-z0-9_]`!).
+
+Here are some:
+- `\w`: All letters and numbers.
+- `\W`: No letters or numbers (but various other cahracters, like `@`, `%`, or `?`).
+- `\d`: Digits (this is shorthand for `[0-9]`).
+- `\D`: Non-digits (shorthand for `[^0-9]`).
