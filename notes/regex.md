@@ -181,3 +181,13 @@ let ohStr = "Ohhhh no";
 let ohRegex = /Oh{3,6} no/;
 let result = ohRegex.test(ohStr); // true
 ```
+
+### Checking for characters that may not exist
+Sometimes you may want to check a string for a character that may or may not exist. In this case, you'd use a `?`. For example:
+```js
+let american = "color";
+let british = "colour";
+let englishRegex= /colou?r/;
+rainbowRegex.test(american); // Returns true
+rainbowRegex.test(british); // Returns true
+```
