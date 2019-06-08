@@ -105,7 +105,7 @@ If you, instead, want to exclude characters, you can use *negated character sets
 ```
 
 ##### Searching for patterns at the beginning of a string
-Negated character sets can also be used to search for patterns at the beginning of strings. So for example:
+The caret (`^`) can also be used to search for patterns at the beginning of strings. So for example:
 ```js
 let firstString = "Ricky is first and can be found.";
 let firstRegex = /^Ricky/;
@@ -162,3 +162,14 @@ Here are some:
 - `\W`: No letters or numbers (but various other cahracters, like `@`, `%`, or `?`).
 - `\d`: Digits (this is shorthand for `[0-9]`).
 - `\D`: Non-digits (shorthand for `[^0-9]`).
+
+### Specifying the number of characters
+Curly braces `{}` can be used control the number of occurrences in regex. There are several ways you can achieve this:
+- `{3}`: Exactly 3 occurrences.
+- `{3,}`: At least 3 occurrences.
+- `{3,6}`: Between 3 and 6 occurrences.
+
+For example, for the first 4 or more occurrences of alphabetical characters you would use:
+```js
+/^[A-Za-z]{4,}/
+```
