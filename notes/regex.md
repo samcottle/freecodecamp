@@ -21,7 +21,7 @@ This returns either `true` or `false`.
 ### Matching possibilities
 To search a string for multiple patterns you can use the `|` operator. So if you wanted to search a string for either `yes` or `no` you could use `/yes|no/`, or for `yes` or `no` or `maybe` with `/yes|no|maybe/`.
 
-## Matching non-literal strings
+### Matching non-literal strings
 When using `test()` to match part of a string, it will only work when there is a literal match (so `code` would not match for `Code` or `CODE`).
 
 You can match these using a *flag*. There are several regex flags, but to ignore the case you would use the `i` flag. Here's an example:
@@ -33,8 +33,8 @@ let result = testRegex.test(testStr);
 console.log(result); // true. As would "Code" or "coDE"
 ```
 
-### Extracting matches
-If you need more than a simple `true` or `false`, you can `extract()` the match too. For example:
+## Extracting matches
+If you need more than a simple `true` or `false`, you can *extract* the match too. For example:
 ```js
 let extractStr = "Extract the word 'coding' from this string.";
 let codingRegex = /coding/;
@@ -99,9 +99,17 @@ matStr.match(regEx); // null
 ```
 
 ##### Excluding characters
-If you, instead, want to exclude characters, you can use *negated character sets*. Any characters placed inside `[^squarebrackets]` would be excluded. For example, if you wanted to find all characters except vowels you could use:
+If you, instead, want to exclude characters, you can use *negated character sets*. Any characters placed inside `[^squarebrackets]` (with a caret, `^`, at the start) would be excluded. For example, if you wanted to find all characters except vowels you could use:
 ```js
 /[^aeiou]/
+```
+Negated character sets can also be used to search for patterns at the beginning of strings (but only the beginning of a string). So for example:
+```js
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString); // Returns true
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst); // Returns false
 ```
 
 ##### Matching characters that do not occur
@@ -120,4 +128,12 @@ let difficultSpelling = "Mississippi";
 let myRegex = /s+/ig; // Change this line
 let result = difficultSpelling.match(myRegex);
 console.log(result); // "ss", "ss", not "s", "s", "s", "s",
+```
+
+##### Lazy matching
+This can be used when you want to find the shortest possible match. So let's say you were to use the regex `/t[a-z]*i/` on the string `"titanic`. By default, this regex would return `"titani"`. But if you wanted the shortest possible match (i.e. `"ti"`) instead, you'd use a `?` to indicate you want to use lazy matching: `/t[a-z]*?i/`.
+
+Here's another example:
+```js
+
 ```
