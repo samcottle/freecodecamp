@@ -33,7 +33,7 @@ let result = testRegex.test(testStr);
 console.log(result); // true. As would "Code" or "coDE"
 ```
 
-## Extracting matches
+### Extracting matches
 If you need more than a simple `true` or `false`, you can *extract* the match too. For example:
 ```js
 let extractStr = "Extract the word 'coding' from this string.";
@@ -103,13 +103,25 @@ If you, instead, want to exclude characters, you can use *negated character sets
 ```js
 /[^aeiou]/
 ```
-Negated character sets can also be used to search for patterns at the beginning of strings (but only the beginning of a string). So for example:
+
+##### Searching for patterns at the beginning of a string
+Negated character sets can also be used to search for patterns at the beginning of strings. So for example:
 ```js
 let firstString = "Ricky is first and can be found.";
 let firstRegex = /^Ricky/;
 firstRegex.test(firstString); // Returns true
 let notFirst = "You can't find Ricky now.";
 firstRegex.test(notFirst); // Returns false
+```
+
+##### Searching for patterns at the end of a string
+A `$` can be used to search for patterns at the end of a string. So for example:
+```js
+let theEnding = "This is a never ending story";
+let storyRegex = /story$/;
+storyRegex.test(theEnding); // Returns true
+let noEnding = "Sometimes a story will have to end";
+storyRegex.test(noEnding); // Returns false
 ```
 
 ##### Matching characters that do not occur
@@ -132,8 +144,3 @@ console.log(result); // "ss", "ss", not "s", "s", "s", "s",
 
 ##### Lazy matching
 This can be used when you want to find the shortest possible match. So let's say you were to use the regex `/t[a-z]*i/` on the string `"titanic`. By default, this regex would return `"titani"`. But if you wanted the shortest possible match (i.e. `"ti"`) instead, you'd use a `?` to indicate you want to use lazy matching: `/t[a-z]*?i/`.
-
-Here's another example:
-```js
-
-```
