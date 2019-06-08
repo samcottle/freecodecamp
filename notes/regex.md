@@ -244,4 +244,20 @@ console.log("Okey Dokey".replace(/(\w+)\s(\w+)/, "$2 $1")); // Logs Dokey Okey
 ```
 To break this down, we're searching for characters that match the regex:
 - `(\w+)\s(\w+)`: Capture group 1 (a word), whitespace, capture group 2 (a word).
-Then the `$` can apparently also be used to specify where you want the capture groups to be placed. In this case, we're swapping the order, so: - capture group 2, then capture group 1 (`"$2 $1"`).
+Then the `$` can apparently also be used to specify where you want the capture groups to be placed. In this case, we're swapping the order, so:
+- capture group 2, then capture group 1 (`"$2 $1"`).
+
+### Removing whitespace from the start and the end
+Sometimes you have whitespace at the start or end of a string, but don't want it. Here's how to get rid of it:
+```js
+let hello = "  Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g;
+let result = hello.replace(wsRegex, "");
+console.log(result); // "Hello, World!" (without whitespace at the start or end)
+```
+Breaking down `wsRegex`:
+- `^\s+` and `\s+$` finds all of the whitespace at the start and end of the string.
+- `|` operator separates them, because we are looking for multiple patterns (both whitespace at beginning or whitespace at the end).
+- `g` flag, just because (honest answer, I don't understand this, and freeCodeCamp's explaination is "and I'm going to add a `g` here...").
+
+**Note:** You could also use `.trim()` to achieve this.
