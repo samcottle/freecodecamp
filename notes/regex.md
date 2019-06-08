@@ -155,16 +155,18 @@ let result = quoteSample.match(regexWords); // "The", "five", "boxing", "wizards
 This can be used when you want to find the shortest possible match. So let's say you were to use the regex `/t[a-z]*i/` on the string `"titanic`. By default, this regex would return `"titani"`. But if you wanted the shortest possible match (i.e. `"ti"`) instead, you'd use a `?` to indicate you want to use lazy matching: `/t[a-z]*?i/`.
 
 ### Shorthand character classes
-Because some regex are used commonly, some nice people came up with *shorthand character classes* to save us all some time. An example of this is the regex `\w`, which is shorthand for all letters and numbers (much easier than writing out `[A-Za-z0-9_]`!).
+Because some regex are used commonly, some nice people came up with *shorthand character classes* to save us all some time. An example of this is the regex `\w`, which is shorthand for all letters and numbers (much easier than writing out `[A-Za-z0-9_]`).
 
 Here are some:
 - `\w`: All letters and numbers.
 - `\W`: No letters or numbers (but various other cahracters, like `@`, `%`, or `?`).
 - `\d`: Digits (this is shorthand for `[0-9]`).
 - `\D`: Non-digits (shorthand for `[^0-9]`).
+- `\s`: Whitespace, carriage return, tab, and new line characters (this is shorthand for `[ \r\t\f\n\v]`).
+- `\S`: Non-whitespace (this is shorthand for `[^ \r\t\f\n\v]`).
 
 ### Specifying the number of characters
-Curly braces `{}` can be used control the number of occurrences in regex. There are several ways you can achieve this:
+To control the number of occurrences in regex, you can use *quantity specifiers* (with curly braces `{}`). There are several variations:
 - `{3}`: Exactly 3 occurrences.
 - `{3,}`: At least 3 occurrences.
 - `{3,6}`: Between 3 and 6 occurrences.
@@ -172,4 +174,10 @@ Curly braces `{}` can be used control the number of occurrences in regex. There 
 For example, for the first 4 or more occurrences of alphabetical characters you would use:
 ```js
 /^[A-Za-z]{4,}/
+```
+Or to match the strings `"Ohhh no"`, `"Ohhhh no"`, `"Ohhhhh no"`, and `"Ohhhhhh no"` (in other words, with between 3 and 6 `h`s):
+```js
+let ohStr = "Ohhhh no";
+let ohRegex = /Oh{3,6} no/;
+let result = ohRegex.test(ohStr); // true
 ```
