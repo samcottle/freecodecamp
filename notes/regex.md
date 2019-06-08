@@ -212,4 +212,4 @@ let result = pwRegex.test(sampleWord); // false, because there aren't two consec
 ```
 So to break this example down, `pwRegex` checks that `sampleWord` has both of the following conditions:
 - `(?=\w{5,})`: At least 5 characters long.
-- `(?=\D*\d{2})`: Two consecutive digits.
+- `(?=\D*\d{2})`: Two consecutive digits (`\D*` zero or more instances of non-digits, and `\d{2}` for two or more digits).
