@@ -191,3 +191,25 @@ let englishRegex= /colou?r/;
 rainbowRegex.test(american); // Returns true
 rainbowRegex.test(british); // Returns true
 ```
+
+### Lookaheads
+*Lookaheads* are patterns that tell JavaScript to look ahead in a string to check for patterns later on, and are often used for checking for multiple patterns in the same string. There are two types of *lookaheads*:
+- `(?=...)`: Positive lookahead - Looks to make sure a pattern is there (the `...` is the part that is not matched).
+- `(?!...)`: Negative lookahead - Looks to make sure a pattern is **not** there (the `...` is the part that you do not want to be there).
+
+For example:
+```js
+let quit = "qu";
+let quRegex= /q(?=u)/; // First checks for the `q`, then looks ahead and also checks for the presence of the `u`. If `true` it returns the q.
+quit.match(quRegex); // Returns ["q"]
+```
+
+Here's a more complex example, using two lookaheads to check password criteria:
+```js
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{5,})(?=\D*\d{2})/;
+let result = pwRegex.test(sampleWord); // false, because there aren't two consecutive characters
+```
+So to break this example down, `pwRegex` checks that `sampleWord` has both of the following conditions:
+- `(?=\w{5,})`: At least 5 characters long.
+- `(?=\D*\d{2})`: Two consecutive digits.
