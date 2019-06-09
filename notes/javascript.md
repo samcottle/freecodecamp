@@ -10,6 +10,10 @@ Put `//` before text to make it a comment.
 For multi-line comments, put the text like this `/* This is a
 multi-line comment */`.
 
+## Working with the console
+- `console.log()`: Logs data to the console.
+- `console.clear()`: Clears the console.
+
 ## Values and types
 JavaScript has the following types of values:
 - string (`"hello"`)
