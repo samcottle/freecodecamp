@@ -49,5 +49,21 @@ romanNumerals.push(twentyThree);
 console.log(romanNumerals); // Logs ["XIX", "XX", "XXI", "XXII", "XXIII"]
 ```
 
+### Removing items from an array
+Two methods often used to remove items from an array are:
+- `.pop()`: Removes items from the end of the array.
+- `.shift()`: Removes items from the beginning of the array.
+
+Here's an example of how you can use both to remove items from an array, `greetings`, and assign one of them to a variable, `dutchGreeting`:
+```js
+let greetings = ["What's up?", "Hello!", "Hoi!"];
+
+let dutchGreeting = greetings.pop(); // Removes "Doei" from the end of the array, and assigns it to `dutchGreeting`
+
+greetings.shift();
+console.log(greetings); // Logs ["Hello!"]
+```
+
+
 ## Using objects
 Placeholder text for upcoming notes.
