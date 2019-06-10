@@ -49,7 +49,7 @@ romanNumerals.push(twentyThree);
 console.log(romanNumerals); // Logs ["XIX", "XX", "XXI", "XXII", "XXIII"]
 ```
 
-### Removing items from an array
+### Removing an item from an array
 Two methods often used to remove items from an array are:
 - `.pop()`: Removes items from the end of the array.
 - `.shift()`: Removes items from the beginning of the array.
@@ -58,12 +58,33 @@ Here's an example of how you can use both to remove items from an array, `greeti
 ```js
 let greetings = ["What's up?", "Hello!", "Hoi!"];
 
-let dutchGreeting = greetings.pop(); // Removes "Doei" from end of array, and assigns it to `dutchGreeting`
+let dutchGreeting = greetings.pop(); // Remove "Doei" from end of array, and assign it to `dutchGreeting`
 
 greetings.shift();
 console.log(greetings); // Logs ["Hello!"]
 ```
 
+### Removing multiple items from an array
+Because removing multiple consecutive items from an array with `.pop()` and `.shift()` is inconvenient, JavaScript also has `.splice()`. This can be used to remove any number of consecutive items from an array, by specifying parameters that indicate the starting point, and the number of items to remove.
+
+For example, to start at index `4` and remove `3` items:
+```js
+let array = ["Well,", "this", "is", "a", "really", "really", "really", "long", "array!"];
+array.splice(4, 3);
+
+console.log(array); // ["Well,", "this", "is", "a", "long", "array!"]
+```
+
+You can also use `.splice()` to replace (or swap out) the items you removed. This is done by specifying the items you want to swap them out with as additional parameters for `.splice()`. For example:
+```js
+function htmlColourNames(arr) {
+  arr.splice(0, 2, 'DarkSalmon', 'BlanchedAlmond');
+  return arr;
+}
+
+console.log(htmlColourNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
+// Logs [ "DarkSalmon", "BlanchedAlmond", "LavenderBlush", "PaleTurqoise", "FireBrick" ]
+```
 
 ## Using objects
 Placeholder text for upcoming notes.
