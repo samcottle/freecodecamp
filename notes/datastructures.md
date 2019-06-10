@@ -123,5 +123,19 @@ function spreadOut() {
 console.log(spreadOut()); // Logs [ "learning", "to", "code", "is", "fun" ]
 ```
 
+### Checking for the presence of a value in an array
+If you want to check whether an array contains a certain value, use the `.indexOf()` method.
+
+When the value is successfully found, `.indexOf()` will return the index of that value (and if the value is not found, it will return an index of `-1`).
+
+Here's an example of a function that checks an array (`arr`) for the presence of an element (`elem`):
+```js
+function quickCheck (arr, elem) {
+  return arr.indexOf(elem);
+}
+
+console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms')); // Logs -1
+```
+
 ## Using objects
 Placeholder text for upcoming notes.
