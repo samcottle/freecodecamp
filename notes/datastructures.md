@@ -86,5 +86,18 @@ console.log(htmlColourNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'Pa
 // Logs [ "DarkSalmon", "BlanchedAlmond", "LavenderBlush", "PaleTurqoise", "FireBrick" ]
 ```
 
+### Copying array items
+If you want to access and use (in other words *extract*) multiple items from an array, use `.slice()`. This method leaves the original array unchanged.
+
+You can use this to create a new array from an existing array. For example, to get the values between index `2` and `4` of the `forecast` array:
+```js
+function forecast(arr) {
+  return arr.slice(2, 4);
+}
+console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms'])); // Logs ['warm', 'sunny']
+```
+
+**Note:** Extraction occurs up to, but not including, the second parameter. This is why it's not `arr.slice(2, 3)`.
+
 ## Using objects
 Placeholder text for upcoming notes.
