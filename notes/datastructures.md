@@ -131,10 +131,32 @@ When the value is successfully found, `.indexOf()` will return the index of that
 Here's an example of a function that checks an array (`arr`) for the presence of an element (`elem`):
 ```js
 function quickCheck (arr, elem) {
-  return arr.indexOf(elem);
+  if (arr.indexOf(elem) >= 0) {
+    return true;
+  }
+  return false;
 }
 
-console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms')); // Logs -1
+console.log(quickCheck(['squash', 'onions', 'shallots'], 'onions')); // Logs true
+```
+
+### Iterating through an array with a for loop
+The most versatile way to iterate over an array is the humble `for` loop. This lets you loop through an array and test each item in the array and against a condition.
+
+For example, to loop through an array (`arr`) so that any nested arrays containing the element (`elem`) are filtered and removed (in other words, nested arrays that do not have the element are added to a new array `newArr`):
+```js
+function filteredArray(arr, elem) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i].indexOf(elem) == -1) {
+      newArr.push(arr[i]);
+      }
+  }
+  return newArr;
+}
+
+console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3)); // Logs []
+console.log(filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18)); // Logs [[ 10, 8, 3 ], [ 14, 6, 23 ]]
 ```
 
 ## Using objects
