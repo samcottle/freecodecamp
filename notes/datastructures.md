@@ -99,5 +99,20 @@ console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']
 
 **Note:** Extraction occurs up to, but not including, the second parameter. This is why it's not `arr.slice(2, 3)`.
 
+With ES6, there's an easy way to copy all the contents of an array: the *spread operator*. The syntax for this is identical to a spread operator used anywhere else (`...`). For example, to get all the contents of the array `arr`, you'd use `[...arr]`:
+```js
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    newArr.push([...arr]);
+    num--;
+  }
+  return newArr;
+}
+
+console.log(copyMachine([true, false, true], 2));
+```
+
+
 ## Using objects
 Placeholder text for upcoming notes.
