@@ -112,7 +112,16 @@ function copyMachine(arr, num) {
 
 console.log(copyMachine([true, false, true], 2));
 ```
+You can use similar logic to concatenate and combine multiple arrays into one:
+```js
+function spreadOut() {
+  let fragment = ['to', 'code'];
+  let sentence = ['learning', ...fragment, 'is', 'fun']; // change this line
+  return sentence;
+}
 
+console.log(spreadOut()); // Logs [ "learning", "to", "code", "is", "fun" ]
+```
 
 ## Using objects
 Placeholder text for upcoming notes.
