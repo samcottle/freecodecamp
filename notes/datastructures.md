@@ -159,5 +159,30 @@ console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3)); 
 console.log(filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18)); // Logs [[ 10, 8, 3 ], [ 14, 6, 23 ]]
 ```
 
+### Working with multi-dimensional arrays
+Arrays can be nested inside arrays, creating a *multi-dimensional* array.
+
+For example, this array that goes 5 levels deep:
+```js
+let nestedArray = [
+  ['deep'],
+  [
+    ['deeper'], ['deeper']
+  ],
+  [
+    [
+      ['deepest'], ['deepest']
+    ],
+    [
+      [
+        ['deepest-est?']
+      ]
+    ]
+  ]
+];
+
+console.log(nestedArray[2][1][0][0][0]); // Logs the contents of the array nested five levels deep: 'deepest-est?'
+```
+
 ## Using objects
 Placeholder text for upcoming notes.
