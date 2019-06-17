@@ -182,6 +182,8 @@ let nestedArray = [
 ];
 
 console.log(nestedArray[2][1][0][0][0]); // Logs the contents of the array nested five levels deep: 'deepest-est?'
+nestedArray[2][1][0][0][0]) = 'deeper still'; // Changes the value of the datum from 'deepest-est?' to 'deeper still'
+console.log(nestedArray[2][1][0][0][0]); // Now logs 'deeper still'
 ```
 
 ## Using objects
