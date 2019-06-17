@@ -187,4 +187,37 @@ console.log(nestedArray[2][1][0][0][0]); // Now logs 'deeper still'
 ```
 
 ## Using objects
-Placeholder text for upcoming notes.
+JavaScript object are similar to arrays, but contain *key-value pairs*. These are pieces of data (*values*) that are mapped to specific identifiers (*keys*, or *properties*). Here's a very simple example of an object containing types of `foods` and their quantity:
+```js
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28
+};
+```
+
+Like an array, an object's data can be accessed using bracket notation:
+```js
+let numberOfApples = foods["apples"];
+console.log(numberOfApples);
+```
+But they can also be accessed using dot notation:
+```js
+let numberOfApples = foods.apples;
+```
+
+### Adding key-value pairs to an object
+Both dot and bracket notation can also be used to add data to an object.
+```js
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28
+};
+
+foods.bananas = 13; // dot notation
+foods.grapes = 35; // dot notation
+console.log(foods); // { apples: 25, oranges: 32, plums: 28, bananas: 13, grapes: 35 }
+foods["strawberries"] = 27;
+console.log(foods); // { apples: 25, oranges: 32, plums: 28, bananas: 13, grapes: 35, strawberries: 27 }
+```
