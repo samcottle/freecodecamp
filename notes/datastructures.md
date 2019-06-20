@@ -297,3 +297,40 @@ function areTheyReally(obj) {
 }
 console.log(areTheyReally(users)); // true
 ```
+
+### Iterating through an object
+To iterate through an object to check for certain values you can use a `for...in` statement.
+
+Here's an example of how you would loop through the object `users`, to check the number that are online:
+```js
+let users = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function countOnline(obj) {
+  let result = 0;
+  for (let user in obj) {
+    if (obj[user].online === true) {
+      result++;
+    }
+  }
+  return result;
+}
+
+console.log(countOnline(users)); // 2
+```
