@@ -221,3 +221,79 @@ console.log(foods); // { apples: 25, oranges: 32, plums: 28, bananas: 13, grapes
 foods["strawberries"] = 27;
 console.log(foods); // { apples: 25, oranges: 32, plums: 28, bananas: 13, grapes: 35, strawberries: 27 }
 ```
+
+### Accessing property names with bracket notation
+Bracket notation can be useful when you need to know the value associated with a key that exists within an object.
+
+For example, if we wanted to know how many apples were in the `foods` object, we could use:
+
+```js
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+function checkInventory(scannedItem) {
+  return foods[scannedItem];
+}
+
+console.log(checkInventory("apples")); // Logs 25, the number of apples
+```
+
+### Deleting a property in an object
+You can use the `delete` keyword to remove a property from an object. Here's an example:
+```js
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+delete foods.oranges;
+delete foods.plums;
+delete foods.strawberries;
+
+console.log(foods); // Logs { apples: 25, bananas: 13, grapes: 35 }
+```
+
+### Checking an object for a property
+You can use the `.hasOwnProperty()` to check for the presence of a particular property. You can also use the `in` keyword.
+
+Here's how you'd use both to test for the presence of the `users` Alan, and Jeff, and Sarah, and Ryan:
+```js
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function isEveryoneHere(obj) {
+  return obj.hasOwnProperty("Alan" && "Jeff" && "Sarah" && "Ryan");
+}
+console.log(isEveryoneHere(users)); // true
+
+function areTheyReally(obj) {
+  return "Alan" && "Jeff" && "Sarah" && "Ryan" in users;
+}
+console.log(areTheyReally(users)); // true
+```
