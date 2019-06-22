@@ -48,3 +48,15 @@ console.log(factorialize(5)); // Logs 120 (1 * 2 * 3 * 4 * 5)
 console.log(factorialize(0)); // Logs 1, as per the if statement
 ```
 **Note:** The reason that is to pass the test `factorialize(0) should return 1.`, which is apparently how factorializing works.
+
+This can also be solved using recursion:
+```js
+function factorialize(num) {
+  if (num === 0) { return 1; }
+  return num * factorialize(num-1);
+}
+
+factorialize(5);
+```
+
+### 
