@@ -334,3 +334,34 @@ function countOnline(obj) {
 
 console.log(countOnline(users)); // 2
 ```
+
+### Generating an array of object keys
+To get a an array of keys from an object you can use the `Object.keys()` method.
+
+For example:
+```js
+let users = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function getArrayOfUsers(obj) {
+  return Object.keys(obj);
+}
+
+console.log(getArrayOfUsers(users)); // [ "Alan", "Jeff", "Sarah", "Ryan" ]
+```
