@@ -1,5 +1,4 @@
 # Basic algorithm scripting
-
 An algorithm is a series of steps that are followed to achieve an outcome.
 
 This section of freeCodeCamp is a series of exercises, but uses concepts that haven't already been explained in the course. Therefore, I'm just dumping the exercises in here as examples of how to achieve certain outcomes.
@@ -21,7 +20,6 @@ console.log(reverseString("hello")); // Logs "olleh"
 ```
 
 ### Factorialize a Number
-
 Return the *factorial* of the provided integer. If the integer is represented with the letter `n`, a factorial is the product of all positive integers less than or equal to `n`.
 
 Factorials are often represented with the shorthand notation `n!`
@@ -59,4 +57,24 @@ function factorialize(num) {
 factorialize(5);
 ```
 
-### 
+### Find the Longest Word in a String
+Return the length of the longest word in the provided sentence.
+
+Your response should be a number.
+```js
+function findLongestWordLength(str) {
+  let wordsArr = str.split(" "); // Splits the string into an array of individual words.
+  let longest = 0;
+
+  // Loops through array, checking if a word in the array is longer than the value of `longest`
+  // If it is, `longest` is overwritten with the length of that word.
+  for (var i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i].length > longest) {
+      longest = wordsArr[i].length;
+    }
+  }
+  return longest;
+}
+
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog")); // 6 (number of characters in the longest word, "jumped")
+```
