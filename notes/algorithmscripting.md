@@ -17,5 +17,5 @@ function reverseString(str) {
   return arr.join("");
 }
 
-reverseString("hello");
+console.log(reverseString("hello")); // Logs "olleh"
 ```
