@@ -58,7 +58,7 @@ Here's an example of how you can use both to remove items from an array, `greeti
 ```js
 let greetings = ["What's up?", "Hello!", "Hoi!"];
 
-let dutchGreeting = greetings.pop(); // Remove "Doei" from end of array, and assign it to `dutchGreeting`
+let dutchGreeting = greetings.pop(); // Remove "Hoi" from end of array, and assign it to `dutchGreeting`
 
 greetings.shift();
 console.log(greetings); // Logs ["Hello!"]
