@@ -657,6 +657,18 @@ while(i < 5) {
 ```
 So here, a `while` loop will keep `push`ing the incremental values `0` through `4` into `myArray`. It stops at `4` because the loop is set to run until `i < 5`.
 
+While loops often contain two conditions. For example, to keep track of a result, and another as a counter:
+```js
+let result = 1;
+let counter = 0;
+while (counter < 10) {
+  result = result * 2;
+  counter = counter + 1;
+}
+
+console.log(result); // 1024
+```
+
 ### For loops
 These run the same code `for` a specified number of times, and consist of three semicolon-separated statements:
 `for(initialization; condition; final-expression)`
