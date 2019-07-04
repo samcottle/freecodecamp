@@ -750,7 +750,7 @@ You can also pass a radix into `parseInt` (for example `parseInt(string, radix)`
 **Note:** If `parseInt` returns `NaN` (not a number) it means that the string contains values that couldn't be converted, for example `parseInt("hello");`.
 
 ## Ternary Operators
-Also known as a Conditional Operator, the Ternary Operator is a single line `if`/`else` expression with the following syntax:
+Also known as a *Conditional Operator*, the Ternary Operator is a single line `if`/`else` expression. It runs an operation on three values, using the following syntax:
 ```js
 condition ? statement-if-true : statement-if-false
 ```
