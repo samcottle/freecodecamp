@@ -100,6 +100,10 @@ Can be used for `+`, `-`, `*`, and `/`.
 ## Strings
 A *literal string* is another name for your bog standard string.
 
+A *template literal* is a string surrounded in backticks. This can be useful if you need to span multiple lines, and also if you want to compute a value within a string (using `${}`). For example:
+```js
+console.log(`half of 100 is ${100 / 2}`) // Logs `half of 100 is 50`
+
 ### Using quotes in strings
 The simplest way to do this is to use both single quotes (`'`) and double quotes (`"`). If you use `"`s for the string then use `'`s for the quotes within it.
 
