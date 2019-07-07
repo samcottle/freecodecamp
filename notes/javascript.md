@@ -175,6 +175,8 @@ Functions follow a standard structure:
 3. Parentheses `()`, that define the parameters that will be used in the function.
 4. Curly brackets, `{}`, that wrap around the code that will be run. Whatever is stored here is *called* (or *invoked*) when the function is used.
 
+**Note**: Functions can access any variables (`var`, `let`, `const`) declared in the scope outside it, but any variables that you declare inside a function won't be available outside that function (i.e. they are *local*).
+
 Basic example for defining (or *storing*) a function:
 ```js
 function functionName() {
@@ -212,8 +214,7 @@ Without *returning* a value you'll end up with *undefined* in the `console.log`.
 
 ### Defining the scope for functions
 *Scope* is basically the visibility of variables. Variables defined outside of a function, with `var`, have *global scope* (are visible everywhere in the JavaScript code). Variables defined within a `function` have *local* scope (are only visible to that function).
-Can have local and global variables with the same name, and the local variable will take precedence in this scenario.
-Example:
+Can have local and global variables with the same name, and the local variable will take precedence in this scenario. For example, :
 ```js
 var outerWear = "T-Shirt";
 function myOutfit() {
@@ -222,14 +223,15 @@ function myOutfit() {
 }
 myOutfit();
 ```
+
 ### Queues
 A `queue` is a data structure (i.e. array) where items are kept in order. Can add new items to the back of the queue, and remove old items from the front of the queue.
 
 #### Shifting items in a queue
-Removes the first item from the queue and returns it.
+To remove the first item from the queue and return it, use `.shift()`.
 
 #### Pushing items in a queue
-Adds a new item to the back of the queue. Here's an example of both:
+To add a new item to the back of the queue, us `.push()`. Here's an example of both `.shift` and `.push()`:
 ```js
 function nextInLine(arr, item) {
   arr.push(item);
