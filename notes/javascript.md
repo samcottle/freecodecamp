@@ -201,6 +201,23 @@ functionWithArgs(3, 7); //Prints 21 in the console.
 ```
 **Note:** If you don't have a parameter/argument, `undefined` will be returned.
 
+#### Default parameters
+You can write an`=` operator after a parameter, followed by an expression. The value of this expression will be the default parameter, used in situations where a parameter is not specified. For example, to make `2` the default `exponent` (in case it is not specified) you would use:
+```js
+function power(base, exponent = 2) {
+  let result = 1;
+  for (let count = 0; count < exponent; count++) {
+    result *= base;
+  }
+  return result;
+}
+
+console.log(power(4));
+// 16
+console.log(power(2, 6));
+// 64
+```
+
 ### Returning a value from a function
 Basically a reverse-argument, `return` sends a value back out of a function (instead of passing it in).
 Example:
