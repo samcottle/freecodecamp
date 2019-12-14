@@ -79,7 +79,7 @@ function findLongestWordLength(str) {
 console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog")); // 6 (number of characters in the longest word, "jumped")
 ```
 
-### Basic Algorithm Scripting: Repeat a String Repeat a String
+### Repeat a String Repeat a String
 Repeat a given string `str` (first argument) for `num` times (second argument). Return an empty string if `num` is not a positive number.
 
 ```js
