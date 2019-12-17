@@ -109,3 +109,9 @@ anotherDuck.name // "Barry"
 anotherDuck.color // "White"
 anotherDuck.numLegs // 2
 ```
+
+To check whether an object was created with a constructor, you can use `instanceof`. For example, to check whether `anotherDuck` was created with the contructor `Duck`:
+
+```js
+anotherDuck instanceof Duck; // true
+```
