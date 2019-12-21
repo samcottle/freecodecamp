@@ -136,7 +136,7 @@ let anotherDuck = new Duck("Barry", "White");
 let duckProps = [];
 
 for (let property in anotherDuck) {
-  if(anotherDuck.hasOwnProperty(property)) {
+  if (anotherDuck.hasOwnProperty(property)) {
     duckProps.push(property);
   }
 }
@@ -192,6 +192,6 @@ for (let property in anotherDuck) {
   }
 }
 
-console.log("The own properties are " + ownProps + ". The prototype properties are " + prototypeProps + "."); 
+console.log("The own properties are " + ownProps + ". The prototype properties are " + prototypeProps + ".");
 // "The own properties are name,color. The prototype properties are numLegs."
 ```
