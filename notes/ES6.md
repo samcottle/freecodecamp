@@ -368,14 +368,6 @@ function getMaxOfTmrw(forecast) {
 }
 ```
 
-#### Reassigning array elements
-
-In some situations involving array destructuring, you may want to collect remaining elements and put them in a separate array. For this, you can combine destructuring assignment and the Rest Operator (`...`)
-
-```js
-console.log(getMaxOfTmrw(LOCAL_FORECAST)); // 84.6
-```
-
 ### Destructuring assignment with arrays
 
 Destructuring can also be used for arrays. This is similar to using a spread operator, but unlike a spread operator (which only lets you unpack an array as a bunch of comma separated values) you can choose which elements you want to assign to variables.
