@@ -114,7 +114,7 @@ anotherDuck.color // "White"
 anotherDuck.numLegs // 2
 ```
 
-`name`, `color`, and `numLegs` are called `own` properties, because they were defined directly in `Duck`. Every instance of `Duck` will have these properties.
+`name`, `color`, and `numLegs` are called *own* properties, because they were defined directly in `Duck`. Every instance of `Duck` will have these properties.
 
 To check whether an object was created with a constructor, you can use `instanceof`. For example, to check whether `anotherDuck` was created with the contructor `Duck`:
 
@@ -148,7 +148,7 @@ console.log(duckProps); // ["name", "color", "numLegs"]
 
 Every instance of `Duck` will have the same `numLegs` (they will all have **2**). This is not a problem when you only have several `Duck`s, but once you start accumulating hundreds, thousands, or millions of `Duck`s it becomes innefficient to have all of those duplicated variables being stored.
 
-What you can do instead is use a *prototype*. The properties stored in a prototype for `Duck` will be shared in **all** instances of `Duck`. Here's what this prototype would look like:
+What you can do instead is use a *prototype* (which is effectively the opposite of an *own* property; own properties are defined by the object instance, and prototype properties are defined by the prototype). The properties stored in a prototype for `Duck` will be shared in **all** instances of `Duck`. Here's what this prototype would look like:
 
 ```js
 Duck.prototype.numLegs = 2;
@@ -167,4 +167,30 @@ Duck.prototype.numLegs = 2;
 let anotherDuck = new Duck("Barry", "White");
 
 console.log(anotherDuck); // Object {color: "White", name: "Barry", numLegs: 2}
+```
+
+To loop through the properties in `anotherDuck`, and separate these into *own* and *prototype* properties you would use:
+
+```js
+function Duck(name, color) {
+  this.name = name;
+  this.color = color;
+}
+
+Duck.prototype.numLegs = 2;
+
+let anotherDuck = new Duck("Barry", "White");
+
+let ownProps = [];
+let prototypeProps = [];
+
+for (let property in anotherDuck) {
+  if (anotherDuck.hasOwnProperty(property)) {
+    ownProps.push(property);
+  } else {
+    prototypeProps.push(property)
+  }
+}
+
+console.log("The own properties are " + ownProps + ". The prototype properties are " + prototypeProps + "."); // "The own properties are name,color. The prototype properties are numLegs."
 ```
