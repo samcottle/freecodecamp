@@ -38,6 +38,7 @@ duck.sayLegs();
 When `duck.sayLegs` is called, the string `"This duck has 2 legs."` is returned.
 
 ### Using `this`
+
 While the above example works as expected for now, if the variable name was to change from `duck` to something else this code would no longer work (until it is updated, at least). To avoid these situations, this can be avoided with the `this` keyword.
 
 This is how this method can be expressed with the `this` keyword:
@@ -53,6 +54,7 @@ duck.sayLegs();
 ```
 
 ## Using constructors
+
 A *constructor* is a function that creates new objects. They are like a template or blueprint, defining which properties and behaviours will belong to the new object.
 
 Here is an example of a contructor:
@@ -68,11 +70,13 @@ function Duck() {
 This defines the `Duck` object as having the properties `name`, `color`, and `numLegs`, which are set to `Dave`, `brown`, and `2`.
 
 Note that constructors:
+
 - Are functions that define properties and behaviours, rather than returning a value.
 - Should use `this` to set the properties of the object they will create (making them more scalable).
 - Are declared with a capitalised name. This makes them more distinguishable from other functions.
 
 ### Calling a constructor
+
 When you want to call a constructor, use the `new` operator. For example, to create a new instance of `Duck` you would use:
 
 ```js
