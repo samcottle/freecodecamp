@@ -105,6 +105,7 @@ bogStr.match(regEx); // null
 ```
 
 You can also match a range of characters, with a hyphen. Such as `[a-z]`, `[0-9]`, or `[a-r3-7]`. For example:
+
 ```js
 let catStr = "cat";
 let catStr = "bat";
@@ -116,13 +117,17 @@ matStr.match(regEx); // null
 ```
 
 ##### Excluding characters
+
 If you, instead, want to exclude characters, you can use *negated character sets*. Any characters placed inside `[^squarebrackets]` (with a caret, `^`, at the start) would be excluded. For example, if you wanted to find all characters except vowels you could use:
+
 ```js
 /[^aeiou]/
 ```
 
 ##### Searching for patterns at the beginning of a string
+
 The caret (`^`) can also be used to search for patterns at the beginning of strings. So for example:
+
 ```js
 let firstString = "Ricky is first and can be found.";
 let firstRegex = /^Ricky/;
@@ -132,7 +137,9 @@ firstRegex.test(notFirst); // Returns false
 ```
 
 ##### Searching for patterns at the end of a string
+
 A `$` can be used to search for patterns at the end of a string. So for example:
+
 ```js
 let theEnding = "This is a never ending story";
 let storyRegex = /story$/;
@@ -142,7 +149,9 @@ storyRegex.test(noEnding); // Returns false
 ```
 
 ##### Matching characters that do not occur
+
 The `*` character lets you match instances of zero or more occurrences. For example:
+
 ```js
 let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
 let chewieRegex = /Aa*/;
@@ -151,14 +160,18 @@ console.log(result); // "Aaaaaaaaaaaaaaaa"
 ```
 
 ##### Consecutive characters
+
 To group characters that appear consecutively you can use the `+` character. For example:
+
 ```js
 let difficultSpelling = "Mississippi";
 let myRegex = /s+/ig; // Change this line
 let result = difficultSpelling.match(myRegex);
 console.log(result); // "ss", "ss", not "s", "s", "s", "s",
 ```
+
 This can also be used to match across entire words, instead of individual characters. For example:
+
 ```js
 let quoteSample = "The five boxing wizards jump quickly.";
 let regexLetters = /[A-Za-z]/gi;
@@ -169,12 +182,15 @@ let result = quoteSample.match(regexWords); // "The", "five", "boxing", "wizards
 ```
 
 ##### Lazy matching
+
 This can be used when you want to find the shortest possible match. So let's say you were to use the regex `/t[a-z]*i/` on the string `"titanic`. By default, this regex would return `"titani"`. But if you wanted the shortest possible match (i.e. `"ti"`) instead, you'd use a `?` to indicate you want to use lazy matching: `/t[a-z]*?i/`.
 
 ### Shorthand character classes
+
 Because some regex are used commonly, some nice people came up with *shorthand character classes* to save us all some time. An example of this is the regex `\w`, which is shorthand for all letters and numbers (much easier than writing out `[A-Za-z0-9_]`).
 
 Here are some:
+
 - `\w`: All letters and numbers.
 - `\W`: No letters or numbers (but various other cahracters, like `@`, `%`, or `?`).
 - `\d`: Digits (this is shorthand for `[0-9]`).
@@ -183,16 +199,21 @@ Here are some:
 - `\S`: Non-whitespace (this is shorthand for `[^ \r\t\f\n\v]`).
 
 ### Specifying the number of characters
+
 To control the number of occurrences in regex, you can use *quantity specifiers* (with curly braces `{}`). There are several variations:
+
 - `{3}`: Exactly 3 occurrences.
 - `{3,}`: At least 3 occurrences.
 - `{3,6}`: Between 3 and 6 occurrences.
 
 For example, for the first 4 or more occurrences of alphabetical characters you would use:
+
 ```js
 /^[A-Za-z]{4,}/
 ```
+
 Or to match the strings `"Ohhh no"`, `"Ohhhh no"`, `"Ohhhhh no"`, and `"Ohhhhhh no"` (in other words, with between 3 and 6 `h`s):
+
 ```js
 let ohStr = "Ohhhh no";
 let ohRegex = /Oh{3,6} no/;
@@ -200,7 +221,9 @@ let result = ohRegex.test(ohStr); // true
 ```
 
 ### Checking for characters that may not exist
+
 Sometimes you may want to check a string for a character that may or may not exist. In this case, you'd use a `?`. For example:
+
 ```js
 let american = "color";
 let british = "colour";
@@ -210,11 +233,14 @@ rainbowRegex.test(british); // Returns true
 ```
 
 ### Lookaheads
+
 *Lookaheads* are patterns that tell JavaScript to look ahead in a string to check for patterns later on, and are often used for checking for multiple patterns in the same string. There are two types of *lookaheads*:
+
 - `(?=...)`: Positive lookahead - Looks to make sure a pattern is there (the `...` is the part that is not matched).
 - `(?!...)`: Negative lookahead - Looks to make sure a pattern is **not** there (the `...` is the part that you do not want to be there).
 
 For example:
+
 ```js
 let quit = "qu";
 let quRegex= /q(?=u)/; // First checks for the `q`, then looks ahead and also checks for the presence of the `u`. If `true` it returns the q.
@@ -222,57 +248,74 @@ quit.match(quRegex); // Returns ["q"]
 ```
 
 Here's a more complex example, using two lookaheads to check password criteria:
+
 ```js
 let sampleWord = "astronaut";
 let pwRegex = /(?=\w{5,})(?=\D*\d{2})/;
 let result = pwRegex.test(sampleWord); // false, because there aren't two consecutive characters
 ```
+
 So to break this example down, `pwRegex` checks that `sampleWord` has both of the following conditions:
+
 - `(?=\w{5,})`: At least 5 characters long.
 - `(?=\D*\d{2})`: Two consecutive digits (`\D*` zero or more instances of non-digits, and `\d{2}` for two or more digits).
 
 ### Capture groups
+
 Instead of manually repeating regex multiple times, you can reuse it with *capture groups*. The regex of any pattern you want repeated goes inside a `()`. Every time you want to repeat that pattern, use a `\1` (and if there is a second `(capture group)` you'd use `\2`, etc.).
 
 For example, to test for any number that is repeated only three times:
+
 ```js
 let repeatNum = "42 42 42";
 let reRegex = /^(\d+)\s\1\s\1$/;
 let result = reRegex.test(repeatNum); // true
 ```
+
 To break `reRegex` down:
+
 - `(\d+)`: This is the capture group (`()`), and it's a number that appears with any number of digits, i.e. consecutively (`\d+`).
 - `\s`: Each of these represents whitespace.
 - `\1`: Each of these represents another `(\d+)`.
 - `^` and `$` specify the start and end.
 
 ### Search and replace
+
 If we want to search through and replace some of the characters in a string, we can use `.replace()`.
 
 Here's a simple example, replacing the word `"wrong"` with `"awesome"`:
+
 ```js
 let wrongText = "This is just wrong!"
 let wrongRegex = /wrong/;
 console.log(wrongText.replace(wrongRegex, "awesome")); // Logs "This is just awesome!"
 ```
+
 To use regex with `.replace()` and *capture groups*:
+
 ```js
 console.log("Okey Dokey".replace(/(\w+)\s(\w+)/, "$2 $1")); // Logs Dokey Okey
 ```
+
 To break this down, we're searching for characters that match the regex:
+
 - `(\w+)\s(\w+)`: Capture group 1 (a word), whitespace, capture group 2 (a word).
 Then the `$` can apparently also be used to specify where you want the capture groups to be placed. In this case, we're swapping the order, so:
 - capture group 2, then capture group 1 (`"$2 $1"`).
 
 ### Removing whitespace from the start and the end
+
 Sometimes you have whitespace at the start or end of a string, but don't want it. Here's how to get rid of it:
+
 ```js
 let hello = "  Hello, World!  ";
 let wsRegex = /^\s+|\s+$/g;
 let result = hello.replace(wsRegex, "");
 console.log(result); // "Hello, World!" (without whitespace at the start or end)
 ```
+
 Breaking down `wsRegex`:
+
 - `^\s+` and `\s+$` finds all of the whitespace at the start and end of the string.
 - `|` operator separates them, because we are looking for multiple patterns (both whitespace at beginning or whitespace at the end).
 - `g` flag, just because (honest answer, I don't understand this, and freeCodeCamp's explaination is "and I'm going to add a `g` here...").
