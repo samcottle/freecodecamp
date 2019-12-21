@@ -192,5 +192,6 @@ for (let property in anotherDuck) {
   }
 }
 
-console.log("The own properties are " + ownProps + ". The prototype properties are " + prototypeProps + "."); // "The own properties are name,color. The prototype properties are numLegs."
+console.log("The own properties are " + ownProps + ". The prototype properties are " + prototypeProps + "."); 
+// "The own properties are name,color. The prototype properties are numLegs."
 ```
