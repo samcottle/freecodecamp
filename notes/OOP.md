@@ -114,8 +114,57 @@ anotherDuck.color // "White"
 anotherDuck.numLegs // 2
 ```
 
+`name`, `color`, and `numLegs` are called `own` properties, because they were defined directly in `Duck`. Every instance of `Duck` will have these properties.
+
 To check whether an object was created with a constructor, you can use `instanceof`. For example, to check whether `anotherDuck` was created with the contructor `Duck`:
 
 ```js
 anotherDuck instanceof Duck; // true
+```
+
+To loop through the properties in `Duck` and store them in an array called `duckProps`, you would use:
+
+```js
+function Duck(name, color) {
+  this.name = name;
+  this.color = color;
+  this.numLegs = 2;
+}
+
+let anotherDuck = new Duck("Barry", "White");
+
+let duckProps = [];
+
+for (let property in anotherDuck) {
+  if(anotherDuck.hasOwnProperty(property)) {
+    duckProps.push(property);
+  }
+}
+
+console.log(duckProps); // ["name", "color", "numLegs"]
+```
+
+### Using prototypes
+
+Every instance of `Duck` will have the same `numLegs` (they will all have **2**). This is not a problem when you only have several `Duck`s, but once you start accumulating hundreds, thousands, or millions of `Duck`s it becomes innefficient to have all of those duplicated variables being stored.
+
+What you can do instead is use a *prototype*. The properties stored in a prototype for `Duck` will be shared in **all** instances of `Duck`. Here's what this prototype would look like:
+
+```js
+Duck.prototype.numLegs = 2;
+```
+
+All instances of `Duck` will now have the `numLegs` property with a value of **2**:
+
+```js
+function Duck(name, color) {
+  this.name = name;
+  this.color = color;
+}
+
+Duck.prototype.numLegs = 2;
+
+let anotherDuck = new Duck("Barry", "White");
+
+console.log(anotherDuck); // Object {color: "White", name: "Barry", numLegs: 2}
 ```
