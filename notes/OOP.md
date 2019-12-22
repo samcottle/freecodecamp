@@ -389,3 +389,21 @@ flyMixin(plane);
 bird.fly(); // "Woosh!"
 plane.fly(); // "Woosh!"
 ```
+
+The problem here, though, is that `bird` is available globally. In other words, any part of your code can change the name of the `bird` from `"Barry"` to `"Gary"`. And this may not be a problem for the name of a hypothetical bird, but when it comes to passwords or other credentials this can be a major problem. To get around this problem, you can use *closure*. In this case, you can create a variable within the contructor function that is only accessible within the scope of that function:
+
+```js
+function Bird() {
+  let hatchedEgg = 10; // Private variable.
+  
+  /* Publicly available method. */
+  this.getHatchedEggCount = function() {
+    return hatchedEgg;
+  };
+}
+
+let ducky = new Bird();
+ducky.getHacthedEggCount(); // 10
+```
+
+So in this example, `getHatchedEggCount` is a privileged method, that can access the privately variable `hatchedEgg`. This is because `hatchedEgg` is declared in the same context as `getHatchedEggCount`.
