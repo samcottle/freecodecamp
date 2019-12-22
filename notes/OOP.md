@@ -211,6 +211,7 @@ function Duck(name, color) {
 }
 
 Duck.prototype = {
+  constructor: Duck, // defines the constructor property
   numLegs: 2,
   eat: function() {
     console.log("Om nom nom.");
@@ -228,3 +229,5 @@ let newDuck = new Duck("Barry", "white");
 newDuck.noise(); // "Quack."
 newDuck.describe(); // "My name is Barry, and I am a white duck."
 ```
+
+**Note:** In the above example, the `constructor.Duck` has been added to the object so that the code knows which constructor the object relates to. Otherwise, `newDuck.constructor === Duck;` would result in `false`. On the other hand, `newDuck instanceof Duck;` would be **true** either way.
