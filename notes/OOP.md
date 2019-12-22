@@ -285,7 +285,6 @@ function Animal() { }
 let Cat = Object.create(Animal.prototype);
 let Dog = Object.create(Animal.prototype);
 
-Cat.eat(); //
-Dog.eat(); //
+Cat.eat(); // "Om nom nom."
+Dog.eat(); // "Om nom nom."
 ```
-
