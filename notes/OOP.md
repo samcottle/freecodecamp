@@ -231,3 +231,61 @@ newDuck.describe(); // "My name is Barry, and I am a white duck."
 ```
 
 **Note:** In the above example, the `constructor: Duck` has been added and defined in this object so that the code knows which constructor the object relates to. Otherwise, `newDuck.constructor === Duck;` would result in `false`. On the other hand, `newDuck instanceof Duck;` would be **true** regardless of whether the `constructor` is defined.
+
+The `isPrototypeOf` method can be used to check where an object's prototype comes from. For example, to test whether `newDuck` inherits its prototype from `Duck` you would use:
+
+```js
+Duck.prototype.isPrototypeOf(newDuck); // true
+```
+
+#### Prototypes of prototypes
+
+Most objects in JavaScript are prototypes. And prototypes are often objects. Which means prototypes can have their own prototypes.
+
+In other words:
+
+```js
+Object.prototype.isPrototypeOf(Bird.prototype); // true
+```
+
+This is referred to as the *prototype chain*, where `Bird` could be a *supertype* of `duck`, and `duck` is a *subtype* of `Bird`.
+
+#### Don't Repeat Yourself
+
+Repeated code is a problem, because one change can require fixes in multiple places (and a higher chance of errors). A good policy around this is *Don't Repeat Yourself (DRY)*.
+
+Here we have two `Animal`s, a `Cat` and a `Dog`:
+
+```js
+Cat.prototype = {
+  constructor: Cat,
+  eat: function() {
+    console.log("Om nom nom.");
+  }
+};
+
+Dog.prototype = {
+  constructor: Dog,
+  eat: function() {
+    console.log("Om nom nom.");
+  }
+};
+```
+
+Both of these `Animal`s have an identical `describe` method. To follow the DRY principle, a supertype `Animal` could be created to remove this duplication.
+
+When doing this it's best to use `Object.create(obj)` (with `obj` in this case being the `Animal.prototype`) as the 'recipe' for creating this prototype:
+
+```js
+function Animal() { }
+ Animal.prototype.eat = function() {
+  console.log("Om nom nom.");
+};
+
+let Cat = Object.create(Animal.prototype);
+let Dog = Object.create(Animal.prototype);
+
+Cat.eat(); //
+Dog.eat(); //
+```
+
