@@ -470,6 +470,6 @@ let duck = {
   numLegs: 2
 }
 
-motionModule.glideMixin(duck);
-duck.glide();
+funModule.singMixin(duck);
+duck.sing(); // "Singing to an awesome tune"
 ```
