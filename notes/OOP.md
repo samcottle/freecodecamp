@@ -317,3 +317,48 @@ To ensure that the correct constructor is being specified, you need to declare i
 Bird.prototype.constructor = Bird;
 console.log(duck.constructor); // function Bird() {}
 ```
+
+Even though a constructor may inherit its `prototype` from a supertype, it can still have its own unique methods too. For example, you might want to give every `Bird` a `fly()` function:
+
+```js
+function Animal() { }
+Animal.prototype.eat = function() {
+  console.log("Om nom nom.");
+};
+
+function Bird() { }
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+
+Bird.prototype.fly = function() {
+  console.log("I'm flying!");
+}
+
+// Instances of Bird will now have both eat() and fly().
+
+let duck = new Bird();
+
+duck.eat(); // "Om nom nom."
+duck.fly(); // "I'm flying!"
+```
+
+You can also override inherited methods. This is done by specifying a method with the same name in the subtype. For example, to override `Animal`'s `eat()` method for an instance of `Bird`:
+
+```js
+function Animal() { }
+Animal.prototype.eat = function() {
+  console.log("Om nom nom.");
+};
+
+function Bird() { }
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+
+Bird.prototype.eat = function() {
+  console.log("Munch munch.");
+}
+
+let duck = new Bird();
+
+duck.eat(); // "Munch munch."
+```
