@@ -278,7 +278,7 @@ When doing this it's best to use `Object.create(obj)` (with `obj` in this case b
 
 ```js
 function Animal() { }
- Animal.prototype.eat = function() {
+Animal.prototype.eat = function() {
   console.log("Om nom nom.");
 };
 
@@ -287,4 +287,33 @@ let Dog = Object.create(Animal.prototype);
 
 Cat.eat(); // "Om nom nom."
 Dog.eat(); // "Om nom nom."
+```
+
+Or if you wanted to create additional subtype prototypes, `Cat` and `Dog` that inherit properties from `Animal`:
+
+```js
+function Animal() { }
+Animal.prototype.eat = function() {
+  console.log("Om nom nom.");
+};
+
+function Bird() { }
+Bird.prototype = Object.create(Animal.prototype);
+
+let duck = new Bird();
+
+duck.eat(); // "Om nom nom."
+```
+
+When creating subtype prototypes, you will also need to specify their constructor. For example, even though `duck` was constructed using `Bird`:
+
+```js
+console.log(duck.constructor); // function Animal() {}
+```
+
+To ensure that the correct constructor is being specified, you need to declare it explicitly:
+
+```js
+Bird.prototype.constructor = Bird;
+console.log(duck.constructor); // function Bird() {}
 ```
