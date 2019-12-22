@@ -376,7 +376,7 @@ let flyMixin = function(obj) {
 let bird = {
   name: "Barry",
   numLegs: 2
-};
+}
 
 let plane = {
   name: "747",
@@ -407,3 +407,69 @@ ducky.getHacthedEggCount(); // 10
 ```
 
 So in this example, `getHatchedEggCount` is a privileged method, that can access the privately variable `hatchedEgg`. This is because `hatchedEgg` is declared in the same context as `getHatchedEggCount`.
+
+#### IIFEs
+
+An IIFE (*Immediately Invoked Function Expression*) is a function with no name, is not stored in a variable, and has `()` at the end (so it is immediately invoked). So instead of:
+
+```js
+function makeNest() {
+  console.log("A cozy nest is ready");
+}
+
+makeNest();
+```
+
+You would have:
+
+```js
+(function () {
+  console.log("A cozy nest is ready");
+})();
+```
+
+These are often used to group related functionlity into a single object or *module*. For example, instead of:
+
+```js
+let isCuteMixin = function(obj) {
+  obj.isCute = function() {
+    return true;
+  };
+};
+let singMixin = function(obj) {
+  obj.sing = function() {
+    console.log("Singing to an awesome tune");
+  };
+};
+```
+
+You can use:
+
+```js
+let funModule = (function () {
+  return {
+    isCuteMixin: function(obj) {
+      obj.isCute = function() {
+        return true;
+      };
+    },
+    singMixin: function(obj) {
+      obj.sing = function() {
+        console.log("Singing to an awesome tune");
+      }
+    }
+  }
+})();
+```
+
+The advantage of doing this is that all of the behaviours are packaged into a single module that can be used by other parts of your code. For example:
+
+```js
+let duck = {
+  name: "Barry",
+  numLegs: 2
+}
+
+motionModule.glideMixin(duck);
+duck.glide();
+```
