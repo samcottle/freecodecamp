@@ -230,4 +230,4 @@ newDuck.noise(); // "Quack."
 newDuck.describe(); // "My name is Barry, and I am a white duck."
 ```
 
-**Note:** In the above example, the `constructor.Duck` has been added to the object so that the code knows which constructor the object relates to. Otherwise, `newDuck.constructor === Duck;` would result in `false`. On the other hand, `newDuck instanceof Duck;` would be **true** either way.
+**Note:** In the above example, the `constructor: Duck` has been added and defined in this object so that the code knows which constructor the object relates to. Otherwise, `newDuck.constructor === Duck;` would result in `false`. On the other hand, `newDuck instanceof Duck;` would be **true** regardless of whether the `constructor` is defined.
