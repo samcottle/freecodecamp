@@ -353,7 +353,6 @@ Animal.prototype.eat = function() {
 function Bird() { }
 Bird.prototype = Object.create(Animal.prototype);
 Bird.prototype.constructor = Bird;
-
 Bird.prototype.eat = function() {
   console.log("Munch munch.");
 }
@@ -361,4 +360,32 @@ Bird.prototype.eat = function() {
 let duck = new Bird();
 
 duck.eat(); // "Munch munch."
+```
+
+While `Birds` and `Airplane`s are both capable of flying, they are not really related. You wouldn't want to instantiate `Animal` to create an `Airplane` for example.
+
+But for unrelated objects, like these, you can use *mixins*. These are good for scenarios when you have multiple objects that need to use a collection of functions. For example, to make a mixin for flying:
+
+```js
+let flyMixin = function(obj) {
+  obj.fly = function() {
+    console.log("Woosh!");
+  }
+}
+
+let bird = {
+  name: "Barry",
+  numLegs: 2
+};
+
+let plane = {
+  name: "747",
+  numPassengers: 524
+}
+
+flyMixin(bird);
+flyMixin(plane);
+
+bird.fly(); // "Woosh!"
+plane.fly(); // "Woosh!"
 ```
