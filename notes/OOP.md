@@ -122,6 +122,12 @@ To check whether an object was created with a constructor, you can use `instance
 anotherDuck instanceof Duck; // true
 ```
 
+You can also use the `constructor` property to do the same thing:
+
+```js
+console.log(anotherDuck.constructor === Duck); // true
+```
+
 To loop through the properties in `Duck` and store them in an array called `duckProps`, you would use:
 
 ```js
@@ -194,4 +200,31 @@ for (let property in anotherDuck) {
 
 console.log("The own properties are " + ownProps + ". The prototype properties are " + prototypeProps + ".");
 // "The own properties are name,color. The prototype properties are numLegs."
+```
+
+To add multiple properties to a prototype, it's often easier to add multiple properties using an object. For example to add the properties `numLegs`, `eat`, `describe`, and `noise` to the `Duck` prototype:
+
+```js
+function Duck(name, color) {
+  this.name = name;
+  this.color = color;
+}
+
+Duck.prototype = {
+  numLegs: 2,
+  eat: function() {
+    console.log("Om nom nom.");
+  },
+  describe: function() {
+    console.log("My name is " + this.name + ", and I am a " + this.color + " duck.");
+  },
+  noise: function() {
+    console.log("Quack.");
+  }
+};
+
+let newDuck = new Duck("Barry", "white");
+
+newDuck.noise(); // "Quack."
+newDuck.describe(); // "My name is Barry, and I am a white duck."
 ```
