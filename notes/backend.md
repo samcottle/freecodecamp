@@ -17,4 +17,3 @@ Standard node.js files and folders:
 The `package.json` file is the center of any node.js project or NPM package. It is analogous to the `<head>` of an HTML document, and how this describes the content of a webpage.
 
 It is a single JSON object, with key-value pairs. The only required fields are `"name"` and `"version"`, but including other information in here (such as additional information about your project) is standard practice.
-
