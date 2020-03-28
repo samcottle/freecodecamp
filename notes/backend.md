@@ -27,7 +27,7 @@ It is also where you list all the `dependencies` for your project (in an object)
 }
 ```
 
-#### Versioning
+#### Package versioning
 
 Packages use semantic versioning, with the version format: `"package": "MAJOR.MINOR.PATCH"`. **MAJOR** versions increment when changes are made that cause API incompatibilities. **MINOR** are for when functionality is added in a backwards-compatible manner. **PATCH**es are generally for bugfixes.
 
@@ -45,3 +45,63 @@ Similarly, you can use the `^` to allow a package to update to the latest **MINO
 
 ## Basic Node and Express
 
+Node allows developers to build server-side programs using JavaScript. It comes with a bunch of built-in modules that can help do this. For example:
+
+- HTTP: Module that acts as a server.
+- File system: Reads and modifies files.
+- Path: Navigating directories and file paths.
+- Assertion testing: Checks code against prescribed constraints.
+
+Express is a module that is often used with Node. It runs between the Node.js server and the frontend pages of a web application. It also handles an application's routing, directing users to the correct page of a web application.
+
+### Starting an Express server
+
+A fundamental Express method is `app.listen(port)`, which tells your server to listen on a given port (putting it in a running state). For example, `app.listen(process.env.PORT || 3000);` would listen on any port or (`||`) port `3000`.
+
+#### Routing and handling
+
+In Express, routes take the structure `app.METHOD(PATH, HANDLER)`, where **METHOD** is an http method (e.g. `get`), **PATH** is a relative server path (can be a string or RegEx), **HANDLER** is a function that Express will call when the route is matched.
+
+Handlers take the format `function(req, res) {...}`, where `req` is the request object and `res` is the response object. For example, the following handler will serve `"Response string"`:
+
+```js
+function(req, res) {
+    res.send("Response string");
+}
+```
+
+So to serve the string `"Hello Express"` to any GET requests to the root path (`/`) of a website, for example, you would use:
+
+```js
+app.get("/", function(req, res) {
+  res.send("Hello Express");
+});
+```
+
+#### Serving files
+
+You can respond to requests with a file using the `res.sendFile(path)` method. You can specify the file you want to respond with in the `app.get("/", ...)` route handler.
+
+This method needs to have an absolute path, and it's recommended you use the Node global variable `__dirname` to calculate this, in this format: `__dirname + "relativePath/file.ext"`
+
+For example, to serve the file at `/views/index.html` in response to GET requests to the root path (`/`) you would use:
+
+```js
+app.get("/", function(req, res) {
+  res.sendFile(__dirname + "/views/index.html");
+});
+```
+
+#### Serving static assets
+
+Static assets (such as stylesheets, scripts, and images) can use the Express `static` middleware: `express.static(path)`
+
+**Note**: *Middleware* are functions that intercept route handlers, and add some functionality.
+
+But before middleware like this can be used it needs to be mounted using the method `app.use(path, middlewareName)`. The `path` argument is optional, but if you don't the middleware will be passed for all requests.
+
+So to mount the `static` middleware, and serve static assets in the folder `/public` to the root path, you would use:
+
+```js
+app.use("/", express.static(__dirname + "/public"));
+```
