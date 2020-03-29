@@ -27,7 +27,7 @@ It is also where you list all the `dependencies` for your project (in an object)
 }
 ```
 
-#### Package versioning
+#### Dependency versioning
 
 Packages use semantic versioning, with the version format: `"package": "MAJOR.MINOR.PATCH"`. **MAJOR** versions increment when changes are made that cause API incompatibilities. **MINOR** are for when functionality is added in a backwards-compatible manner. **PATCH**es are generally for bugfixes.
 
@@ -104,4 +104,14 @@ So to mount the `static` middleware, and serve static assets in the folder `/pub
 
 ```js
 app.use("/", express.static(__dirname + "/public"));
+```
+
+#### Serving JSON
+
+Serving JSON is similar to serving files, but you use the `res.json()` method as the route handler (passing in the JSON object you want to serve as the handler). Here's an example showing how you would serve a basic JSON object at the path (i.e. endpoint) `/json`:
+
+```js
+app.get("/json", function(req, res) {
+  res.json({"message": "Hello json"})
+});
 ```
