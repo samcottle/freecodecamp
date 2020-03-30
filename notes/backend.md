@@ -6,11 +6,15 @@ Node.js uses a command line tool called NPM to manage packages.
 
 Standard node.js files and folders:
 
-- `package.json`: When building a new project, NPM generates a `package.json` file. This lists all the dependencies for the project.
+- `package.json` file: When building a new project, NPM generates a `package.json` file. This lists all the dependencies for the project.
 
-- `node_modules`: Packages are saved in a folder called `node_modules`. This folder is either located in a root `node_modules` folder (if the modules are globally accessible), or a project's own `node_modules` folder (if accessible only to that project).
+- `node_modules` folder: Packages are saved in a folder called `node_modules`. This folder is either located in a root `node_modules` folder (if the modules are globally accessible), or a project's own `node_modules` folder (if accessible only to that project).
 
-    Usually, packages are only made available on a per project basis. This creates separation between dependencies for different projects.
+  Usually, packages are only made available on a per project basis. This creates separation between dependencies for different projects.
+
+- `.env` file: A hidden file (i.e. should *only* be accessible by you - so add it to your `.gitignore` file!), that is used to pass environment variables (API keys, your database URI, etc) to your application. It can also be used to store configuration options, so you can change your application's behaviour without needing to rewrite a lot of code.
+
+  Environment variables are accessable from the app as `process.env.VAR_NAME`.
 
 ### package.json
 
@@ -113,5 +117,25 @@ Serving JSON is similar to serving files, but you use the `res.json()` method as
 ```js
 app.get("/json", function(req, res) {
   res.json({"message": "Hello json"})
+});
+```
+
+#### Adding environment variables
+
+To use environment variables, you first need to store these in the `.env` file of your project. This is done using the format `VAR_NAME=value` (note the lack of spaces around the `=`). For example, to set the `MESSAGE_STYLE` of **uppercase**:
+
+```bash
+MESSAGE_STYLE=uppercase
+```
+
+This environment variable can be loaded and used in your app using `process.env.VAR_NAME`. For example, to serve uppercase `"Hello JSON"` messages (from the previous section) in uppercase when `process.env.MESSAGE_STYLE` is **uppercase**:
+
+```js
+app.get("/json", function(req, res) {
+  if (process.env.MESSAGE_STYLE === "uppercase") {
+    res.json({"message": "HELLO JSON"});
+  } else {
+    res.json({"message": "Hello json"});
+  }  
 });
 ```
