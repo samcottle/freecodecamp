@@ -128,7 +128,7 @@ To use environment variables, you first need to store these in the `.env` file o
 MESSAGE_STYLE=uppercase
 ```
 
-An environment variable can be loaded and used in your app using `process.env.VAR_NAME`. For example, to serve `"Hello JSON"` messages (from the previous section) in uppercase when a `MESSAGE_STYLE` environment variable is set to **uppercase**:
+An environment variable can be loaded and used in your app using `process.env.VAR_NAME`. For example, to serve `"Hello JSON"` messages (from the previous section) in uppercase when this `MESSAGE_STYLE` environment variable is set to **uppercase**:
 
 ```js
 app.get("/json", function(req, res) {
