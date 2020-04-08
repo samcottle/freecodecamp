@@ -151,9 +151,9 @@ If you mounted this on a route, when a request matches its route it:
 
 To mount a middleware function at the root level, use the `app.use(MIDDLEWARE_FUNCTION)` method. This would execute the middleware for all requests. If you only wanted to execute it for POST requests, for example, you would use `app.post(MIDDLEWARE_FUNCTION)` instead (ditto GET, DELETE, PUT, etc.).
 
-#### Building a simple logger
+So let's say you wanted to build a root level logger. This would log a string with the format `method path - ip` to the console, when someone accessed any path on your server.
 
-To build a simple logger, which logs a string with the format `method path - ip` to the console, you would first mount the logger:
+First you would mount the logger:
 
 ```js
 function logger(req, res, next) {
@@ -173,6 +173,25 @@ This logs the following message in the console:
 ```js
 GET /json - ::ffff:127.0.0.1
 ```
+
+#### Using middleware at a specific path
+
+To use middleware at a specific path, you can mount it a specific route (i.e. `app.METHOD(path, middlewareName)`).
+
+Middleware can also be chained togther inside a route definition. For example, to respond to requests at `/now` with a JSON object containing the time, you could chain the following together:
+
+```js
+app.get('/now', (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+  },
+  (req, res) => {
+    res.send({"time": req.time});
+  }
+);
+```
+
+In practice, the main reason for using chaining is that you can have functions perform validation on some data, handle errors, or handle other conditions or special cases.
 
 #### Serving static assets
 
