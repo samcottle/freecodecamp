@@ -96,20 +96,6 @@ app.get("/", function(req, res) {
 });
 ```
 
-#### Serving static assets
-
-Static assets (such as stylesheets, scripts, and images) can use the Express `static` middleware: `express.static(path)`
-
-**Note**: *Middleware* are functions that intercept route handlers, and add some functionality.
-
-But before middleware like this can be used it needs to be mounted using the method `app.use(path, middlewareName)`. The `path` argument is optional, but if you don't the middleware will be passed for all requests.
-
-So to mount the `static` middleware, and serve static assets in the folder `/public` to the root path, you would use:
-
-```js
-app.use("/", express.static(__dirname + "/public"));
-```
-
 #### Serving JSON
 
 Serving JSON is similar to serving files, but you use the `res.json()` method as the route handler (passing in the JSON object you want to serve as the handler). Here's an example showing how you would serve a basic JSON object at the path (i.e. endpoint) `/json`:
@@ -138,4 +124,64 @@ app.get("/json", function(req, res) {
     res.json({"message": "Hello json"});
   }  
 });
+```
+
+### Serving middleware
+
+*Middleware* functions are functions that intercept route handlers, and add some functionality. They take three arguments: a request object, a response object, and the next function in your application's request-response cycle. These execute some code that has some 'side effect' on the app (usually adding information to the request or response object/s).
+
+They can also be used to end the cycle by sending a response when a condition is met. If they don't send the response when they're done, they start the execution of the next function in the stack (by calling `next()`).
+
+So with the following example:
+
+```js
+function(req, res, next) {
+  console.log("Hello middleware");
+  next();
+}
+```
+
+If you mounted this on a route, when a request matches its route it:
+
+1. Displays the `"Hello middleware"`.
+
+2. Executes the next function in the stack.
+
+#### Using middleware at the root level
+
+To mount a middleware function at the root level, use the `app.use(MIDDLEWARE_FUNCTION)` method. This would execute the middleware for all requests. If you only wanted to execute it for POST requests, for example, you would use `app.post(MIDDLEWARE_FUNCTION)` instead (ditto GET, DELETE, PUT, etc.).
+
+#### Building a simple logger
+
+To build a simple logger, which logs a string with the format `method path - ip` to the console, you would first mount the logger:
+
+```js
+function logger(req, res, next) {
+  console.log(req.method + " " + req.path + " - " + req.ip);
+  next();
+}
+```
+
+Then to use it:
+
+```js
+app.use(logger);
+```
+
+This logs the following message in the console:
+
+```js
+GET /json - ::ffff:127.0.0.1
+```
+
+#### Serving static assets
+
+Static assets (such as stylesheets, scripts, and images) can use the Express `static` middleware: `express.static(path)`
+
+This needs to be mounted first, using the method `app.use(path, middlewareName)`. The `path` argument is optional, but if you don't the middleware will be passed for all requests.
+
+So to mount the `static` middleware, and serve static assets in the folder `/public` to the root path, you would use:
+
+```js
+app.use("/", express.static(__dirname + "/public"));
 ```
