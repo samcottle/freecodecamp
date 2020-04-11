@@ -47,6 +47,16 @@ Similarly, you can use the `^` to allow a package to update to the latest **MINO
 "package": "^1.3.8"
 ```
 
+#### Using a dependency
+
+To use a dependency in your app declare it as a variable. For example, to use `express` and `body-parser`:
+
+```js
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser')
+```
+
 ## Basic Node and Express
 
 Node allows developers to build server-side programs using JavaScript. It comes with a bunch of built-in modules that can help do this. For example:
@@ -232,5 +242,38 @@ For example, to take a query string with a `firstName` and a `lastName`, and ret
 ```js
 app.get('/name', (req, res) => {
   res.send({"name": req.query.first + " " + req.query.last});
+});
+```
+
+#### Parsing POST requests
+
+POST is a common HTTP method, and is used to send data and create a new item in a database (such as client data from within an HTML form).
+
+For these requests the data you want to POST doesn't appear in the URL, but instead is hidden in the request body (often referred to as a *payload*). The request body looks a bit like this:
+
+```html
+POST /path/subpath HTTP/1.0
+From: john@example.com
+User-Agent: someBrowser/1.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 20
+name=John+Doe&age=25
+```
+
+Using the `body-parser` package, you can decode the data in the request body.
+
+```js
+// Include body-parser in app
+const bodyParser = require("body-parser")
+
+// Mount body-parser
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Parse JSON sent in the POST request
+app.use(bodyParser.json());
+
+// Return an object with an object containing the name
+app.post('/name', (req, res) => {
+  res.send({"name": req.body.first + " " + req.body.last});
 });
 ```
