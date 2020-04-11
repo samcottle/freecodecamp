@@ -218,5 +218,19 @@ Here's a really simple example, showing what they look like. In this example, th
 ```js
 app.get('/:word/echo', (req, res) => {
   res.send({echo: req.params.word});
-})
+});
+```
+
+#### Using query strings
+
+A common way to get input from a client is by encoding this data after the route path, using a query string. These are delimited by a `?`, with keys-values separated by a `=`. Each key-value pair is separated by a `&`. Here's an example of `/user` with a query string: `/user?firstName=Sam&lastName=Cottle`.
+
+Express will parse the data provided in this string, and populate an object called `req.query` (i.e. `{"firstName": "Sam", "lastName": "Cottle"}`).
+
+For example, to take a query string with a `firstName` and a `lastName`, and return an object in the format `{"name": "firstName lastName"}`:
+
+```js
+app.get('/name', (req, res) => {
+  res.send({"name": req.query.first + " " + req.query.last});
+});
 ```
