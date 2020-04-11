@@ -204,3 +204,19 @@ So to mount the `static` middleware, and serve static assets in the folder `/pub
 ```js
 app.use("/", express.static(__dirname + "/public"));
 ```
+
+#### Using route parameters
+
+When building an API, we have to let users let us know what they want to get from our service. For example, if they want to get information on a `user` they've stored, they need a way to specify which user they're interested in.
+
+Instead of building a static response for each user, you can use *route parameters* to make dynamic responses.  So instead of a building a static response for each user ID, you could use the dynamic response `/user/:id` (so in this case the route parameter is `:id`).
+
+Can then access this using `req.params.PARAMETER_ID` (so for the above example, this would be `req.params.id`).
+
+Here's a really simple example, showing what they look like. In this example, the server will take a word specified in a GET request URL, and respond by echoing it in a JSON object. For example, `/awesome/echo` responds with `{"echo": "awesome"}`:
+
+```js
+app.get('/:word/echo', (req, res) => {
+  res.send({echo: req.params.word});
+})
+```
