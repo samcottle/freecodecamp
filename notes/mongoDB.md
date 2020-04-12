@@ -48,9 +48,9 @@ const Schema = mongoose.Schema;
 
 // Define the Schema
 const personSchema = new Schema({
-  name: { type: String, required: true },
-  age: Number,
-  favoriteFoods: [String]
+    name: { type: String, required: true },
+    age: Number,
+    favoriteFoods: [String]
 });
 
 // Create a Person using the Schema
@@ -70,17 +70,17 @@ Here's an example of creating and saving a new person, using the schema we defin
 ```js
 var createAndSavePerson = function(done) {
 
-  // Create new person
-  let sam = new Person({
-    name: "Sam",
-    age: 37,
-    favoriteFoods: ["pizza", "halloumi"]
-  });
+    // Create new person
+    let sam = new Person({
+        name: "Sam",
+        age: 37,
+        favoriteFoods: ["pizza", "halloumi"]
+    });
   
-  // Save new person to database
-  sam.save(function(err, data) {
-    if(err) return console.err(err);
-    done(null, data);
-  });
+    // Save new person to database
+    sam.save(function(err, data) {
+        if(err) return console.err(err);
+        done(null, data);
+    });
 };
 ```
