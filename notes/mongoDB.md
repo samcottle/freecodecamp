@@ -13,7 +13,7 @@ To use MongoDB and Mongoose in your app:
 3. Require `mongoose` in you app, with `const mongoose = require('mongoose');`.
 4. Add `mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });` to your app to connect it.
 
-## Creating a model
+## Creating a schema
 
 To create a model, you first need a schema. These are like building blocks for your model. They define the shape of the documents in a collection. Basically, you create instances of your objects, and these are called documents.
 
@@ -84,3 +84,7 @@ var createAndSavePerson = function(done) {
     });
 };
 ```
+
+## Creating models
+
+Models are compiled using `Schema` definitions.
