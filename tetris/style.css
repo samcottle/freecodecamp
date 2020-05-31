@@ -8,6 +8,8 @@
 
 .grid div {
   width: 20px;
-  height: 20px;
-  background-color: red;
+  height: 20px;}
+
+.shape {
+  background-color: blue;
 }
