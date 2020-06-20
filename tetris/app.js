@@ -64,6 +64,26 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  // Up to https://www.youtube.com/watch?v=rAUn1Lom6dw&t=2732s
+  // Set interval by which shapes move
+  timerId = setInterval(moveDown, 600)
 
+  function moveDown() {
+    undraw()
+    currentPosition += Width
+    draw()
+    freeze()
+  }
+
+  // Freeze shapes when they reach bottom of grid
+  function freeze() {
+    if(current.some(index => squares[currentPosition + index + Width].classList.contains('taken'))) {
+      current.forEach(index => squares[currentPosition + index].classList.add('taken'))
+      // Get new shape
+      random = Math.floor(Math.random() * TetrisShapes.length)
+      current = TetrisShapes[random][currentRotation]
+      currentPosition = 4
+      draw()
+    }
+  }
+/// Up to https://youtu.be/rAUn1Lom6dw?t=3091
 })
