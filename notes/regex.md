@@ -260,7 +260,7 @@ So to break this example down, `pwRegex` checks that `sampleWord` has both of th
 - `(?=\w{5,})`: At least 5 characters long.
 - `(?=\D*\d{2})`: Two consecutive digits (`\D*` zero or more instances of non-digits, and `\d{2}` for two or more digits).
 
-### Mixed character groupings
+### Mixed character groupings (either/or)
 
 Sometimes we might want to check for more than one group of characters. For example, if we want to check whether a string is either `Franklin Roosevelt` or `Eleanor Roosevelt`, we could use:
 
