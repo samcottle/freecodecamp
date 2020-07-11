@@ -260,6 +260,18 @@ So to break this example down, `pwRegex` checks that `sampleWord` has both of th
 - `(?=\w{5,})`: At least 5 characters long.
 - `(?=\D*\d{2})`: Two consecutive digits (`\D*` zero or more instances of non-digits, and `\d{2}` for two or more digits).
 
+### Mixed character groupings
+
+Sometimes we might want to check for more than one group of characters. For example, if we want to check whether a string is either `Franklin Roosevelt` or `Eleanor Roosevelt`, we could use:
+
+```js
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Eleanor.*|Franklin.*) Roosevelt/;
+let result = myRegex.test(myString);
+```
+
+**Note:** The `.*` used above picks up the presence of a middle name or initial/s (for example: `Franklin Roosevelt` or `Franklin D. Roosevelt`).
+
 ### Capture groups
 
 Instead of manually repeating regex multiple times, you can reuse it with *capture groups*. The regex of any pattern you want repeated goes inside a `()`. Every time you want to repeat that pattern, use a `\1` (and if there is a second `(capture group)` you'd use `\2`, etc.).
