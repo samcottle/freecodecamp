@@ -4,9 +4,9 @@
 
 Node.js uses a command line tool called NPM to manage packages.
 
-The quickest way to get started with a new Node project is by using the `npm init` command. This walks through the creation of the standard Node files.
+The quickest way to get started with a new Node project is by using the `npm init` command. This walks through the creation of the standard Node files, such as `package.json` and an entry point file (usually `index.js`).
 
-### Standard files and folders:
+## Standard files and folders
 
 - `package.json` file: When building a new project, NPM generates a `package.json` file. This lists all the dependencies for the project.
 
@@ -18,13 +18,13 @@ The quickest way to get started with a new Node project is by using the `npm ini
 
   Environment variables are accessable from the app as `process.env.VAR_NAME`.
 
-#### package.json
+### package.json
 
-The `package.json` file is the center of any node.js project or NPM package. It is analogous to the `<head>` of an HTML document, and how this describes the content of a webpage.
+The `package.json` file is the center of any node.js project or NPM package. It is analogous to the `<head>` of an HTML document (which describes the content of a webpage).
 
 It is a single JSON object, with key-value pairs. The only required fields are `"name"` and `"version"`, but including other information in here (such as additional information about your project, like a `description` or `keywords`) is standard practice.
 
-It is also where you list all the `dependencies` for your project (in an object). This ensures that NPM gets the correct dependencies for your project when the project is set up on a computer. Here's an example, containing the popular `express` package:
+It is also where you list all the `dependencies` for your project (in an object). This ensures that NPM gets the correct dependencies for your project when the project is set up. Here's an example, containing the `express` package:
 
 ```json
 "dependencies": {
@@ -33,7 +33,9 @@ It is also where you list all the `dependencies` for your project (in an object)
 }
 ```
 
-##### Dependency versioning
+Once the dependencies have been added, run `npm install` to install them into your project.
+
+#### Dependency versioning
 
 Packages use semantic versioning, with the version format: `"package": "MAJOR.MINOR.PATCH"`. **MAJOR** versions increment when changes are made that cause API incompatibilities. **MINOR** are for when functionality is added in a backwards-compatible manner. **PATCH**es are generally for bugfixes.
 
@@ -49,16 +51,6 @@ Similarly, you can use the `^` to allow a package to update to the latest **MINO
 "package": "^1.3.8"
 ```
 
-##### Using a dependency
-
-To use a dependency in your app declare it as a variable. For example, to use `express` and `body-parser`:
-
-```js
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser')
-```
-
 ## Basic Node and Express
 
 Node allows developers to build server-side programs using JavaScript. It comes with a bunch of built-in modules that can help do this. For example:
@@ -70,9 +62,27 @@ Node allows developers to build server-side programs using JavaScript. It comes 
 
 Express is a module that is often used with Node. It runs between the Node.js server and the frontend pages of a web application. It also handles an application's routing, directing users to the correct page of a web application.
 
+### Using dependencies
+
+To use a dependency in your app (generally in a file called `index.js`) declare it as a variable. For example, to use `express` and `body-parser` in the app:
+
+```js
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser')
+```
+
 ### Starting an Express server
 
-A fundamental Express method is `app.listen(port)`, which tells your server to listen on a given port (putting it in a running state). For example, `app.listen(process.env.PORT || 3000);` would listen on any port or (`||`) port `3000`.
+To run your app, you can use either:
+- `npm start`
+- `node index.js` (or replace `index.js` with the name of your app entry point)
+
+But before doing this, you will need to create the app.
+
+#### Setting a port
+
+A fundamental Express method is `app.listen(port)`. This tells your server to listen on a given port (putting it in a running state). For example, by specifying `app.listen(process.env.PORT || 3000);` in your app, it would set up a server to listen on any port or (`||`) port `3000`.
 
 #### Routing and handling
 
@@ -118,7 +128,7 @@ app.get("/json", function(req, res) {
 });
 ```
 
-#### Adding environment variables
+#### Adding environment variables to an app
 
 To use environment variables, you first need to store these in the `.env` file of your project. This is done using the format `VAR_NAME=value` (note the lack of spaces around the `=`). For example, to set the `MESSAGE_STYLE` of **uppercase**:
 
