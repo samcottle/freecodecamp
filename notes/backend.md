@@ -4,7 +4,9 @@
 
 Node.js uses a command line tool called NPM to manage packages.
 
-Standard node.js files and folders:
+The quickest way to get started with a new Node project is by using the `npm init` command. This walks through the creation of the standard Node files.
+
+### Standard files and folders:
 
 - `package.json` file: When building a new project, NPM generates a `package.json` file. This lists all the dependencies for the project.
 
@@ -16,7 +18,7 @@ Standard node.js files and folders:
 
   Environment variables are accessable from the app as `process.env.VAR_NAME`.
 
-### package.json
+#### package.json
 
 The `package.json` file is the center of any node.js project or NPM package. It is analogous to the `<head>` of an HTML document, and how this describes the content of a webpage.
 
@@ -31,7 +33,7 @@ It is also where you list all the `dependencies` for your project (in an object)
 }
 ```
 
-#### Dependency versioning
+##### Dependency versioning
 
 Packages use semantic versioning, with the version format: `"package": "MAJOR.MINOR.PATCH"`. **MAJOR** versions increment when changes are made that cause API incompatibilities. **MINOR** are for when functionality is added in a backwards-compatible manner. **PATCH**es are generally for bugfixes.
 
@@ -47,7 +49,7 @@ Similarly, you can use the `^` to allow a package to update to the latest **MINO
 "package": "^1.3.8"
 ```
 
-#### Using a dependency
+##### Using a dependency
 
 To use a dependency in your app declare it as a variable. For example, to use `express` and `body-parser`:
 
