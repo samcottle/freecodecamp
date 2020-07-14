@@ -8,9 +8,7 @@ In addition to your entry point file (typically `index.js`), a node project will
 
 - `package.json` file: When initializing a new project, NPM generates a `package.json` file. This is where you list all the dependencies for your project.
 
-- `node_modules` folder: This is where packages for your project are installed. This folder is either located in a root `node_modules` folder (if the modules are globally accessible), or a project's own `node_modules` folder (if accessible only to that project).
-
-  Usually, packages are only made available on a per project basis. This creates separation between dependencies for different projects.
+- `node_modules` folder: This is where packages for your project are installed.
 
 - `.env` file: Used to pass environment variables (API keys, your database URI, etc) to your application. It can also be used to store configuration options, so you can change your application's behaviour without needing to rewrite a lot of code.
 
@@ -49,11 +47,13 @@ Similarly, you can use the `^` to allow a package to update to the latest **MINO
 
 ### node_modules
 
-A command line tool called Node Package Manager (NPM) is used to manage packages. Run `npm install` to install all the dependencies for your project (as specified in `package.json`).
+This folder is either located in a root `node_modules` folder (if the modules are globally accessible), or a project's own `node_modules` folder (if accessible only to that project). This is because packages are generally made available on a per project basis (creating separation between dependencies for different projects).
+
+The `npm` (Node Package Manager) command line tool is used to manage packages. After adding dependencies to your project (to `package.json`), run `npm install` to install these packages.
 
 ### .env
 
-This is a hidden file, stored in the root of your application. It is hidden because it should *only* be accessible by you (so don't forget to add it to your `.gitignore` file!).
+This is a hidden file, stored in the root of your application. It is hidden because it should *only* be accessible by you (don't forget to add it to `.gitignore`!).
 
 A basic `.env` file looks like this:
 
