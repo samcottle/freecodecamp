@@ -8,7 +8,7 @@ In addition to your entry point file (typically `index.js`), a node project will
 
 - `package.json` file: When initializing a new project, NPM generates a `package.json` file. This is where you list all the dependencies for your project.
 
-- `node_modules` folder: This is where packages for your project are installed.
+- `node_modules` folder: This is where packages for your project are installed. This folder is automatically generated when you run `npm install` (based on any listed dependencies).
 
 - `.env` file: Used to pass environment variables (API keys, your database URI, etc) to your application. It can also be used to store configuration options, so you can change your application's behaviour without needing to rewrite a lot of code.
 
@@ -21,9 +21,13 @@ It is a single JSON object, with key-value pairs. The only required fields are `
 It is also where you list all the `dependencies` for your project (in an object). This ensures that NPM gets the correct dependencies for your project when the project is set up. Here's an example, containing the `express` package:
 
 ```json
-"dependencies": {
-  "package-name": "version",
-  "express": "4.14.0"
+{
+  "name": "Node project",
+  ...
+  "dependencies": {
+    "package-name": "version",
+    "express": "^4.14.0"
+  }
 }
 ```
 
@@ -31,7 +35,7 @@ Once the dependencies have been added, run `npm install` to install them into yo
 
 #### Dependency versioning
 
-Packages use semantic versioning, with the version format: `"package": "MAJOR.MINOR.PATCH"`. **MAJOR** versions increment when changes are made that cause API incompatibilities. **MINOR** are for when functionality is added in a backwards-compatible manner. **PATCH**es are generally for bugfixes.
+Packages use semantic versioning, with the version format: `"package": "MAJOR.MINOR.PATCH"`. **MAJOR** versions increment when changes are made that cause API incompatibilities. **MINOR** are for when functionality is added in a backwards-compatible manner. A **PATCH** is generally for bugfixes.
 
 You would often want to allow an NPM dependency to update to the latest **PATCH** version (i.e. bugfixes). You can do this by using a `~` character before the version number. For example, to allow for any 1.3.x version of `package` you would use:
 
@@ -45,7 +49,13 @@ Similarly, you can use the `^` to allow a package to update to the latest **MINO
 "package": "^1.3.8"
 ```
 
-### node_modules
+To go for broke, you can use the absolute latest version of a `package` with:
+
+```json
+"package": "*"
+```
+
+### /node_modules
 
 This folder is either located in a root `node_modules` folder (if the modules are globally accessible), or a project's own `node_modules` folder (if accessible only to that project). This is because packages are generally made available on a per project basis (creating separation between dependencies for different projects).
 
@@ -78,12 +88,12 @@ The module often used with Node is *Express*. It runs between the Node server an
 
 ### Using dependencies
 
-To use a dependency in your app, declare it as a variable (in an entry point file, typically called `index.js`). For example, to use `express` and `body-parser` in the app:
+To use a dependency in your app, declare it as a variable (in an entry point file, typically called `index.js`). For example, to use `express` and `body-parser` in the app, and instantiate `express`:
 
 ```js
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 ```
 
 ### Starting your server
@@ -96,7 +106,15 @@ But before doing this, you will need to create the app.
 
 ### Setting a port
 
-A fundamental Express method is `app.listen(port)`. This tells your server to listen on a given port (putting it in a running state). For example, by specifying `app.listen(process.env.PORT || 3000);` in your app, it would set up a server to listen on any port or (`||`) port `3000`.
+A fundamental Express method is `app.listen(port)`. This tells your server to listen on a given port (putting it in a running state). For example, by specifying `app.listen(3000);` in your app, it would set up a server to listen on port `8080`:
+
+```js
+app.listen(8080, () => {
+   console.log("Server running on port 8080");
+});
+```
+
+You can also use `app.listen(process.env.PORT || 8080);` to set up a server to listen on *any* port or (`||`) port `8080`.
 
 ### Routing and handling
 
