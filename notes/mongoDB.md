@@ -87,4 +87,4 @@ var createAndSavePerson = function(done) {
 
 ## Creating models
 
-Models are compiled using `Schema` definitions.
+Models can be compiled using `Schema` definitions.
