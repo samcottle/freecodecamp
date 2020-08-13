@@ -80,8 +80,11 @@ Easy way to do this is to put a `style` block at the top of the code, if you wan
 
 ### Color
 
-`<h2 style="color: blue;">CatPhotoApp</h2>`
-Can also use hexidecimals or RGB values for more fine-tuned color, for example: `#000000` is the hexidecimal for `black`; `rgb(255, 255, 255)` is RGB for `white`.
+```css
+<h2 style="color: blue;">CatPhotoApp</h2>
+```
+
+Can also use hexadecimals or RGB values for more fine-tuned color, for example: `#000000` is the hexadecimal for `black`; `rgb(255, 255, 255)` is RGB for `white`.
 Can add color to a background with `background-color`, then your choice of color picker. Recommended to use `rgba()` though, as the `a` is used to adjust the opacity.
 Can also adjust the opacity with `opacity` property. For the opacity, `1` is opaque and `0` is transparent.
 Can also use HSL values (hue, saturation, lightness), with `hsl()`. Example: `hsl(0, 100%, 50%)` is red. Using HSL values makes it easier to change shades.
@@ -90,12 +93,16 @@ If feeling like a 90s flashback, can also use `repeating-linear-gradient()`. I w
 
 ### Fonts
 
+```css
 `<h2 style="font-family: sans-serif;">CatPhotoApp</h2>`
-}`Can make it **bold** with`<strong>`in-line, or to an element with`font-weight: bold;`. For more control, can also use`font-weight`(specifying a value for how thick you want it, like`100`). Can underline it with <u>, or to an element with`text-decoration: underline;`. Can make it italic with <em> tag, or to an element with`font-style: italic;`. Can make a strikethrough with <s>, or to an element with`font-style: strikethrough;`. Choose the size with`font-size`, and then choose a size in`px`. To give the font a nice 90s look, can add a drop shadow with`box-shadow`, specifying:
+```
+
+Can make it **bold** with`<strong>`in-line, or to an element with`font-weight: bold;`. For more control, can also use`font-weight`(specifying a value for how thick you want it, like`100`). Can underline it with `<u>`, or to an element with`text-decoration: underline;`. Can make it italic with `<em>` tag, or to an element with`font-style: italic;`. Can make a strike-through with `<s>`, or to an element with`font-style: strike-through;`. Choose the size with`font-size`, and then choose a size in`px`. To give the font a nice 90s look, can add a drop shadow with`box-shadow`, specifying:
 
 - `offset-x`, how far to push the shadow horizontally from the element.
 - `offset-y`, how far to push the shadow vertically from the element.
 - `blur-radius`, `spread-radius` and a color value, in that order.
+
   **Note:** The blur-radius and spread-radius values are optional.
 
 ### Text alignment
@@ -113,11 +120,11 @@ Use text-align, then:
 
 Changes the appearance of text:
 
-- uppercase "TRANSFORM ME"
-- capitalize "Transform Me"
-- initial Use the default value
-- inherit Use the text-transform value from the parent element
-- none Default: Use the original text
+- `uppercase`: "TRANSFORM ME".
+- `capitalize`: "Transform Me".
+- `initial`: Use the default value.
+- `inherit`: Use the text-transform value from the parent element.
+- `none`: Use the original text.
 
 ### Transforming elements
 
@@ -130,6 +137,7 @@ Can make this occur when the use hovers over it, with `:hover` pseudo-class:
 
 Along the x-axis with `skewX()`, and specifying the degrees in the brackets:
 `p { transform: skewX(-32deg); }`
+
 Along the y-axis with, you guessed it, `skewY()`.
 
 ### Width
@@ -138,22 +146,68 @@ Specifies the `width` of an element in pixels (`px`). Ditto for the `height`.
 
 ### Borders
 
-`<style> .thin-red-border { border-color: red; border-width: 5px; border-style: solid; } </style>`
+```css
+<style> .thin-red-border { border-color: red; border-width: 5px; border-style: solid; } </style>`
+```
 
 ### Animating properties
 
 Set the name of the animation with `animation-name`. Set the length of time with `animation-duration`. Then, `@keyframes` is what is used to specify what happens during the animation using percentages (`0%` is the very start, and `100%` is the end). Example:
-`#anim { animation-name: colorful; animation-duration: 3s; } @keyframes colorful { 0% { background-color: blue; } 100% { background-color: yellow; } }`
+
+```css
+#anim {
+  animation-name: colorful;
+  animation-duration: 3s;
+}
+@keyframes colorful {
+  0% {
+    background-color: blue;
+  }
+  100% {
+    background-color: yellow;
+  }
+}
+```
+
 Can also add other values in-between, such as `50%`, too.
 
 Can also use animations to do gnarly stuff with the buttons:
-`button:hover { animation-name: background-color; animation-duration: 500ms; animation-fill-mode: forwards; } @keyframes background-color { 100% { background-color: #4791d0; } }`
-Note: The `animation-fill-mode: forwards;` stops the animation reverting back to its original state after 500ms.
+
+```css
+`button:hover {
+  animation-name: background-color;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+@keyframes background-color {
+  100% {
+    background-color: #4791d0;
+  }
+}
+```
+
+**Note:** The `animation-fill-mode: forwards;` stops the animation reverting back to its original state after 500ms.
 
 #### Animating movement
 
 When elements have a `position` you can create movement with `right`, `left`, `top`, `bottom`. Example, which would move the element down 50px, then up to it's starting point... as well as changing color:
-`@keyframes rainbow { 0% { background-color: blue; top: 0px; } 50% { background-color: green; top: 50px; } 100% { background-color: yellow; top: 0px; } }`
+
+```css
+@keyframes rainbow {
+  0% {
+    background-color: blue;
+    top: 0px;
+  }
+  50% {
+    background-color: green;
+    top: 50px;
+  }
+  100% {
+    background-color: yellow;
+    top: 0px;
+  }
+}
+```
 
 #### Animating opacity
 
@@ -165,26 +219,35 @@ Use, for example, `animation-iteration-count: 3;` to loop through an animation t
 
 #### Accelerating animation
 
-Can use `animation-timing-function` to make an animation accelerate with `ease-in` or deccelerate with `ease-out`. To make it stay the same speed, use `linear`.
+Can use `animation-timing-function` to make an animation accelerate with `ease-in` or decelerate with `ease-out`. To make it stay the same speed, use `linear`.
 Can also control this in a fine-tuned way using the `cubic-bezier` function. This creates four points which you can define the speed at each point. So, for example:
 `animation-timing-function: cubic-bezier(0.1, 0.25, 0.75, 1);`
 Would continue to accelerate through the animation.
 
 ### IDs
 
-Often used for JavaScript stuff, but can be used to idetify any specific part of the HTML page. In a `style` element, it starts with a `#` instead of a `.`. Should be unique. Example:
+Often used for JavaScript stuff, but can be used to identify any specific part of the HTML page. In a `style` element, it starts with a `#` instead of a `.`. Should be unique. Example:
+
+```css
 `<h2 id="cat-photo-app">`
+```
 
 #### Importing custom fonts
 
 For example, add the following from Google Fonts, to the top of the code:
 `<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">`
-Then use it on the page by using `font-family: Lobster`
+
+Then use it on the page by using `font-family: Lobster`.
 
 #### Degrading fonts
 
 This is when you specify more than one font, so that it will 'degrade' to the backup if the first isn't available. For example:
-`p { font-family: Helvetica, sans-serif; }`
+
+```css
+p {
+  font-family: Helvetica, sans-serif;
+}
+```
 
 ### Padding and margin
 
@@ -196,7 +259,13 @@ For padding, obviously you'd use `padding`.
 ### Relative, absolute, and fixed positions / offsets
 
 Can move a particular element relative to where it should sit with `position: relative;`, followed by what you want to move it by: `top`, `bottom`, `left`, `right`, then the number of pixels:
-`<style> h2 { position: relative; top: 20px; }`
+
+```css
+<style > h2 {
+  position: relative;
+  top: 20px;
+}
+```
 
 This would move each h2 20px lower from where it would usually be.
 Absolute is locked relative to parent container. Use `position: absolute`, and the top, right, bottom, left values.
@@ -205,7 +274,14 @@ Fixed position is basically the same as absolute, but it won't move when the use
 
 ### Float values
 
-These are removed from the normal flow of a document and pushed to either the `left` or `right` of their containing parent element. Can be used with the `width` property to specify how much horizontal space the floated element requires. Example: `#right { float: right; width: 40%; }`
+These are removed from the normal flow of a document and pushed to either the `left` or `right` of their containing parent element. Can be used with the `width` property to specify how much horizontal space the floated element requires. Example:
+
+```css
+#right {
+  float: right;
+  width: 40%;
+}
+```
 
 If they overlap, you can use `z-index` to choose which goes on top. Assign each element a`z-index` with an integer (`z-index: 1;`), and the highest integer will appear on top.
 
@@ -214,13 +290,20 @@ To center an element horizontally, use `margin: auto;`.
 ### Using classes
 
 Classes are reusable styles. Class names start with a `.`, for example:
-`<style> .blue-text { color: blue; } </style>`
+
+```css
+<style> .blue-text { color: blue; } </style>
+```
 
 When using classes, you don't need to add a `;` to the end of each style element.
 To apply this to an element, you would use:
+
+```css
 `<h2 class="blue-text">Example header</h2>`
+```
+
 Can also use multiple classes for one element with:
-`<img class="class1 class2">` (and if there are more than one that defines the same element, the last one will override the previous). Similarly, inline `style` declarations > `id` decalarations > `class` declarations. The nuclear option is to use `!important` after a declaration, for example `color: red !important;`.
+`<img class="class1 class2">` (and if there are more than one that defines the same element, the last one will override the previous). Similarly, inline `style` declarations > `id` declarations > `class` declarations. The nuclear option is to use `!important` after a declaration, for example `color: red !important;`.
 
 ### Attributes
 
@@ -245,12 +328,18 @@ This is kinda a mystery TBH. Something something `media query`...
 ### Psuedo-classes
 
 Added to give a class when an element is in a specific state. For example, to make anchor/link text red when you hover over it you'd use:
-`a:hover { color: red; }`
+
+```css
+a:hover { color: red; }`
+```
 
 ### Pseudo-elements
 
 Not sure about these either, but `::before` and `::after` pseudo-elements are used to add somethng before and after a specific element. For these to work, they must have a `content` property:
-`.heart::before { content: ""; background-color: yellow; border-radius: 25%; position: absolute; height: 50px; width: 70px; top: -50px; left: 5px; }`
+
+```css
+.heart::before { content: ""; background-color: yellow; border-radius: 25%; position: absolute; height: 50px; width: 70px; top: -50px; left: 5px; }`
+```
 
 ## Accessibility
 
@@ -263,7 +352,12 @@ It's a good idea to keep the following in mind when building a website:
 ### Alt tags
 
 The `alt` tags are added to images to render text in their place. Example: `<img src="importantLogo.jpeg" alt="Company logo">`. Good alt text is short but descriptive, and meant to briefly convey the meaning of the image. Also good for SEO.
-If there's no need for an `alt` tag, you can leave it empty: `<img src="visualDecoration.jpeg" alt="">`.
+
+If there's no need for an `alt` tag, you can leave it empty:
+
+```html
+<img src="visualDecoration.jpeg" alt="" />`
+```
 
 ### Element tags
 
@@ -285,80 +379,106 @@ Can think of it hierarchically as:
 #### Audio
 
 Use `<audio>` to add an audio player to the page. The browser automatically renders the play/pause/seek controls when you add a `controls` attribute. Also specify the `type`.For example:
-`<audio id="meowClip" controls>
 
+```html
+<audio id="meowClip" controls>
   <source src="audio/meow.mp3" type="audio/mpeg" />
   <source src="audio/meow.ogg" type="audio/ogg" />
-</audio>`
+</audio>
+```
 
 #### Figures
 
 If you use a `figure` in your page, also include a `figcaption`, which should be a text alternative explaining what it is. Basically, a brief summary:
-`<figure>
-<img src="roundhouseDestruction.jpeg" alt="Photo of Camper Cat executing a roundhouse kick">
-<br>
 
+```html
+<figure>
+  <img
+    src="roundhouseDestruction.jpeg"
+    alt="Photo of Camper Cat executing a roundhouse kick"
+  />
+  <br />
   <figcaption>
     Master Camper Cat demonstrates proper form of a roundhouse kick.
   </figcaption>
-</figure>`
+</figure>
+```
 
 #### Labels
 
-When building a form, make the `labels` more accessable with `for` attribute:
-`<form>
-<label for="name">Name:</label>
-<input type="text" id="name" name="name">
+When building a form, make the `labels` more accessible with `for` attribute:
 
-</form>`
-Note: This should usually match the `id` tag.
+```html
+<form>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" />
+</form>
+```
+
+**Note:** This should usually match the `id` tag.
 
 For radio buttons, where there are a set of choices, can additionally use a `fieldset` (indicates where the section is) and a `legend` (indicates where the question/statement is):
 
-`<form>
-
+```html
+<form>
   <fieldset>
     <legend>Choose one of these three items:</legend>
-    <input id="one" type="radio" name="items" value="one">
-    <label for="one">Choice One</label><br>
-    <input id="two" type="radio" name="items" value="two">
-    <label for="two">Choice Two</label><br>
-    <input id="three" type="radio" name="items" value="three">
+    <input id="one" type="radio" name="items" value="one" />
+    <label for="one">Choice One</label><br />
+    <input id="two" type="radio" name="items" value="two" />
+    <label for="two">Choice Two</label><br />
+    <input id="three" type="radio" name="items" value="three" />
     <label for="three">Choice Three</label>
   </fieldset>
-</form>`
-Note: not really necessary for very self-explanatory choices, like gender.
+</form>
+```
 
 #### The date
 
 For newer browsers, you can add a `date` field to add a date picker. For older browsers, this will default to a text input field. So makes sense to show what format you want for the text input:
-`<label for="input1">Enter a date:</label> <input type="date" id="input1" name="input1">`
+
+```html
+<label for="input1">Enter a date:</label>
+<input type="date" id="input1" name="input1" />
+```
 
 #### The time
 
-A standardised accessable format will be used when `time` and `datetime` are added to a page:
+A standardized accessible format will be used when `time` and `datetime` are added to a page:
 `The best day to host the vaunted Mortal Kombat tournament is <time datetime="2016-09-15">Thursday, September 15<sup>th</sup></time>.`
 
 ### Using CSS to make pages more accessible
 
-Basically, when you want to hide accessable (screen reader) content from the 'default' user, use `sr-only` class:
-`.sr-only { position: absolute; left: -10000px; width: 1px; height: 1px; top: auto; overflow: hidden; }`
-Note: The `left` position fires this **way** off to the side, out of view of the average user.
+Basically, when you want to hide accessible (screen reader) content from the 'default' user, use `sr-only` class:
+
+```html
+.sr-only { position: absolute; left: -10000px; width: 1px; height: 1px; top:
+auto; overflow: hidden; }`
+```
+
+**Note:** The `left` position fires this **way** off to the side, out of view of the average user.
 
 ### Contrast
 
-Text to background contrast ratio (relative luminance) should be 4.5:1. This also applies to the greyscale versions of colors, so that colourblind people (particularly with shades of green) can see them too. Easier to do these if using `hsl()` color values. If in doubt, use an online tool to check these.
+Text to background contrast ratio (relative luminance) should be 4.5:1. This also applies to the grey scale versions of colors, so that colour-blind people (particularly with shades of green) can see them too. Easier to do these if using `hsl()` color values. If in doubt, use an online tool to check these.
 
 ### Using accesskeys to make links more accessible
 
 Better for keyboard only users. Example:
-`<button accesskey="b">Important Button</button>`
+
+```html
+<button accesskey="b">Important Button</button>
+```
+
 The, when people hit the b key on their keyboard they get directed to this button.
 
 There's also the `tabindex`, which you assign to page elements, allowing the user to tab through them in a specific order (and then moves on to the other, non-assigned elements - or `tabindex` elements with the integer `0`). Each is assigned an integer, indicating the order 'within' the index:
-`<div tabindex="1">I get keyboard focus, and I get it first!</div>
 
-<div tabindex="2">I get keyboard focus, and I get it second!</div>`
+```html
+<div tabindex="1">I get keyboard focus, and I get it first!</div>
+
+<div tabindex="2">I get keyboard focus, and I get it second!</div>
+```
 
 ## Responsive web design
 
@@ -370,28 +490,42 @@ Displays specific content when a devices screen size is less or more than a cert
 Less (or equal to) a width of `100px`: `@media (max-width: 100px) { /* CSS Rules */ }`.
 More (or equal to) a height of `350px`: `@media (min-height: 350px) { /* CSS Rules */ }`.
 So if you want to use a `font-size` of `20px`, except for devices less than `800px` high, you'd use:
-`<style>
-p {
-font-size: 20px;
-}
 
-/_ Add media query below _/
-@media (max-height: 800px) {
-p {
-font-size:10px;
-}
-}
-</style>`
+```html
+<style>
+  p {
+    font-size: 20px;
+  }
+
+  /_ Add media query below _/ @media (max-height: 800px) {
+    p {
+      font-size: 10px;
+    }
+  }
+</style>
+```
 
 ### Responsive images
 
 Can scale images to fit a certain percentage of the screen (although the image won't go wider than its original width). By specifying the `display` the image will appear as it's own line, and the `height` keeps the size ratio from going weird:
-`img { max-width: 100%; display: block; height: auto; }`
+
+```html
+img { max-width: 100%; display: block; height: auto; }
+```
 
 #### Optimizing for high res (i.e. retina)
 
-Basically set the image to half it's original res so it doesn't look like arse:
-`<style> img { height: 250px; width: 250px; } </style> <img src="coolPic500x500" alt="A most excellent picture">`
+Basically set the image to half it's original res so it doesn't look blurry:
+
+```html
+<style>
+  img {
+    height: 250px;
+    width: 250px;
+  }
+</style>
+<img src="coolPic500x500" alt="A most excellent picture" />
+```
 
 ### Responsive typography
 
@@ -405,7 +539,7 @@ Can use viewport units to scale text size.
 
 ### Flex boxes
 
-Make content behave in predicatble way across different browsers, screens, etc. Done by placing the CSS property `display: flex;` on an element.
+Make content behave in predictable way across different browsers, screens, etc. Done by placing the CSS property `display: flex;` on an element.
 Adding `display: flex` to an element turns it into a flex container. This makes it possible to align children of that element into rows or columns. You do this by adding the `flex-direction` property to the parent item and setting it to `row` (this is the default) or `column`.
 Other options for `flex-direction` are `row-reverse` and `column-reverse`.
 
@@ -432,19 +566,12 @@ This is similar to `justify-content`, but for the opposite axis.
 #### align-self
 
 Can use `align-self` to adjust each item's alignment individually, instead of setting them all at once. Useful since other common adjustment techniques using the CSS properties `float`, `clear`, and `vertical-align` do not work on `flex` items:
-`#box-1 {
-background-color: dodgerblue;
-align-self: center;
-height: 200px;
-width: 200px;
-}
 
-#box-2 {
-background-color: orangered;
-align-self: flex-end;
-height: 200px;
-width: 200px;
-}`
+```html
+#box-1 { background-color: dodgerblue; align-self: center; height: 200px; width:
+200px; } #box-2 { background-color: orangered; align-self: flex-end; height:
+200px; width: 200px; }
+```
 
 #### Flex wrapping
 
@@ -458,19 +585,22 @@ CSS also has options for the direction of the wrap:
 #### Flex shrinking
 
 The `flex-shrink` property allows an item to shrink if the flex container is too small. Items shrink when the width of the parent container is smaller than the combined widths of all the flex items within it. Then allocate an integer to each, to determine size. So in this case, `box-2` would be twice the size of `box-1`:
-` #box-1 {
-background-color: dodgerblue;
-width: 100%;
-height: 200px;
-flex-shrink: 1;
+
+```css
+#box-1 {
+  background-color: dodgerblue;
+  width: 100%;
+  height: 200px;
+  flex-shrink: 1;
 }
 
 #box-2 {
-background-color: orangered;
-width: 100%;
-height: 200px;
-flex-shrink: 2;  
- }`
+  background-color: orangered;
+  width: 100%;
+  height: 200px;
+  flex-shrink: 2;
+}
+```
 
 #### Flex grow
 
@@ -495,23 +625,25 @@ The `order` property is used to tell CSS the order of how `flex` items appear in
 
 The following will cause `#box-1` to grow to fill the extra space at twice the rate of `#box-2` when the container is greater than `300px` and shrink at twice the rate of `#box-2` when the container is less than `300px`. `300px` is the combined size of the flex-basis values of the two boxes:
 
-`<style>
-#box-container {
-display: flex;
-height: 500px;
-}
-#box-1 {
-background-color: dodgerblue;
-flex: 2 2 150px;
-height: 200px;
-}
+```html
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    flex: 2 2 150px;
+    height: 200px;
+  }
 
-#box-2 {
-background-color: orangered;
-flex: 1 1 150px;
-height: 200px;
-}
-</style>`
+  #box-2 {
+    background-color: orangered;
+    flex: 1 1 150px;
+    height: 200px;
+  }
+</style>
+```
 
 ## CSS grids
 
@@ -574,4 +706,4 @@ Fills as many rows or columns as possible until it's full. Can be used in combin
 
 ### Grids within grids (with grids...)
 
-This is also an option. Baiscally create `grid-template-columns` with `grid-template-columns`.
+This is also an option. Basically create `grid-template-columns` with `grid-template-columns`.
