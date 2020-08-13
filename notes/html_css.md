@@ -259,7 +259,6 @@ For example, add the following from Google Fonts, to the top of the code:
 
 ```html
 <link
-  a
   href="https://fonts.googleapis.com/css?family=Lobster"
   rel="stylesheet"
   type="text/css"
