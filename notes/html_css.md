@@ -12,7 +12,9 @@ The `<body>` is where the actual page content goes.
 
 ### Comments
 
-`<!-- Comments follow this format -->`
+```html
+<!-- Comments follow this format -->
+```
 
 ### Anchors
 
@@ -46,7 +48,13 @@ To make a button checked by default, use `<input type="radio" name="test-name" c
 #### Checkboxes
 
 Similar as radio buttons in nearly every way. Create with `<input type="checkbox">`. Each checkbox should be nested inside a `<label>` element. For example:
-`<label for="loving"><input id="loving" type="checkbox" name="personality"> Loving</label>`
+
+```html
+<label for="loving"
+  ><input id="loving" type="checkbox" name="personality" /> Loving</label
+>
+```
+
 To make a checkbox checked by default, use `<input type="checkbox" name="test-name" checked>`
 
 #### Customizing with attributes
@@ -76,11 +84,18 @@ The CSS can be added:
   Should end `style` declarations with a `;`.
 
 Easy way to do this is to put a `style` block at the top of the code, if you want all elements of the same type to look the same. Need to have curly brackets around each element's rules, and add a `;` to each of them. For example:
-`<style> h2 {color: red;} </style>`
+
+```html
+<style>
+  h2 {
+    color: red;
+  }
+</style>
+```
 
 ### Color
 
-```css
+```html
 <h2 style="color: blue;">CatPhotoApp</h2>
 ```
 
@@ -93,8 +108,10 @@ If feeling like a 90s flashback, can also use `repeating-linear-gradient()`. I w
 
 ### Fonts
 
-```css
-`<h2 style="font-family: sans-serif;">CatPhotoApp</h2>`
+```html
+`
+<h2 style="font-family: sans-serif;">CatPhotoApp</h2>
+`
 ```
 
 Can make it **bold** with`<strong>`in-line, or to an element with`font-weight: bold;`. For more control, can also use`font-weight`(specifying a value for how thick you want it, like`100`). Can underline it with `<u>`, or to an element with`text-decoration: underline;`. Can make it italic with `<em>` tag, or to an element with`font-style: italic;`. Can make a strike-through with `<s>`, or to an element with`font-style: strike-through;`. Choose the size with`font-size`, and then choose a size in`px`. To give the font a nice 90s look, can add a drop shadow with`box-shadow`, specifying:
@@ -146,8 +163,14 @@ Specifies the `width` of an element in pixels (`px`). Ditto for the `height`.
 
 ### Borders
 
-```css
-<style> .thin-red-border { border-color: red; border-width: 5px; border-style: solid; } </style>`
+```html
+<style>
+  .thin-red-border {
+    border-color: red;
+    border-width: 5px;
+    border-style: solid;
+  }</style
+>`
 ```
 
 ### Animating properties
