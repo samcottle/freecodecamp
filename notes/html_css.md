@@ -109,9 +109,7 @@ If feeling like a 90s flashback, can also use `repeating-linear-gradient()`. I w
 ### Fonts
 
 ```html
-`
 <h2 style="font-family: sans-serif;">CatPhotoApp</h2>
-`
 ```
 
 Can make it **bold** with`<strong>`in-line, or to an element with`font-weight: bold;`. For more control, can also use`font-weight`(specifying a value for how thick you want it, like`100`). Can underline it with `<u>`, or to an element with`text-decoration: underline;`. Can make it italic with `<em>` tag, or to an element with`font-style: italic;`. Can make a strike-through with `<s>`, or to an element with`font-style: strike-through;`. Choose the size with`font-size`, and then choose a size in`px`. To give the font a nice 90s look, can add a drop shadow with`box-shadow`, specifying:
@@ -169,8 +167,8 @@ Specifies the `width` of an element in pixels (`px`). Ditto for the `height`.
     border-color: red;
     border-width: 5px;
     border-style: solid;
-  }</style
->`
+  }
+</style>
 ```
 
 ### Animating properties
@@ -261,6 +259,7 @@ For example, add the following from Google Fonts, to the top of the code:
 
 ```html
 <link
+  a
   href="https://fonts.googleapis.com/css?family=Lobster"
   rel="stylesheet"
   type="text/css"
@@ -361,16 +360,14 @@ If you wanted to assign a backup for the variable (an older browser doesn't supp
 Variables are available to use within the element that you create it. It also cascades to any variables within that one, hence **Cascading** Style Sheets. To apply a style to an entire HTML page, apply it to `:root`, for example `<style> :root { --penguin-belly: pink; }`
 Root values can be overwritten if you set a different one in a specific element.
 
-### Media query
-
-This is kinda a mystery TBH. Something something `media query`...
-
 ### Psuedo-classes
 
 Added to give a class when an element is in a specific state. For example, to make anchor/link text red when you hover over it you'd use:
 
 ```css
-a:hover { color: red; }`
+a:hover {
+  color: red;
+}
 ```
 
 ### Pseudo-elements
@@ -378,7 +375,16 @@ a:hover { color: red; }`
 Not sure about these either, but `::before` and `::after` pseudo-elements are used to add somethng before and after a specific element. For these to work, they must have a `content` property:
 
 ```css
-.heart::before { content: ""; background-color: yellow; border-radius: 25%; position: absolute; height: 50px; width: 70px; top: -50px; left: 5px; }`
+.heart::before {
+  content: "";
+  background-color: yellow;
+  border-radius: 25%;
+  position: absolute;
+  height: 50px;
+  width: 70px;
+  top: -50px;
+  left: 5px;
+}
 ```
 
 ## Accessibility
@@ -485,15 +491,26 @@ For newer browsers, you can add a `date` field to add a date picker. For older b
 #### The time
 
 A standardized accessible format will be used when `time` and `datetime` are added to a page:
-`The best day to host the vaunted Mortal Kombat tournament is <time datetime="2016-09-15">Thursday, September 15<sup>th</sup></time>.`
+
+```html
+The best day to host the vaunted Mortal Kombat tournament is
+<time datetime="2016-09-15">Thursday, September 15<sup>th</sup></time
+>.
+```
 
 ### Using CSS to make pages more accessible
 
 Basically, when you want to hide accessible (screen reader) content from the 'default' user, use `sr-only` class:
 
 ```css
-.sr-only { position: absolute; left: -10000px; width: 1px; height: 1px; top:
-auto; overflow: hidden; }`
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
 ```
 
 **Note:** The `left` position fires this **way** off to the side, out of view of the average user.
