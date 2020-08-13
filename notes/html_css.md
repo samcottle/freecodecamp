@@ -174,7 +174,7 @@ Can also add other values in-between, such as `50%`, too.
 Can also use animations to do gnarly stuff with the buttons:
 
 ```css
-`button:hover {
+button:hover {
   animation-name: background-color;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
@@ -228,14 +228,21 @@ Would continue to accelerate through the animation.
 
 Often used for JavaScript stuff, but can be used to identify any specific part of the HTML page. In a `style` element, it starts with a `#` instead of a `.`. Should be unique. Example:
 
-```css
-`<h2 id="cat-photo-app">`
+```html
+<h2 id="cat-photo-app"></h2>
 ```
 
 #### Importing custom fonts
 
 For example, add the following from Google Fonts, to the top of the code:
-`<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">`
+
+```html
+<link
+  href="https://fonts.googleapis.com/css?family=Lobster"
+  rel="stylesheet"
+  type="text/css"
+/>
+```
 
 Then use it on the page by using `font-family: Lobster`.
 
@@ -260,8 +267,8 @@ For padding, obviously you'd use `padding`.
 
 Can move a particular element relative to where it should sit with `position: relative;`, followed by what you want to move it by: `top`, `bottom`, `left`, `right`, then the number of pixels:
 
-```css
-<style > h2 {
+```html
+<style> h2 {
   position: relative;
   top: 20px;
 }
@@ -291,15 +298,19 @@ To center an element horizontally, use `margin: auto;`.
 
 Classes are reusable styles. Class names start with a `.`, for example:
 
-```css
-<style> .blue-text { color: blue; } </style>
+```html
+<style>
+  .blue-text {
+    color: blue;
+  }
+</style>
 ```
 
 When using classes, you don't need to add a `;` to the end of each style element.
 To apply this to an element, you would use:
 
-```css
-`<h2 class="blue-text">Example header</h2>`
+```html
+<h2 class="blue-text">Example header</h2>
 ```
 
 Can also use multiple classes for one element with:
@@ -308,7 +319,13 @@ Can also use multiple classes for one element with:
 ### Attributes
 
 This is when you use `[att=value]` to style all attributes on the page.
-For example, for radio boxes `[type='radio'] { margin: 20px 0px 20px 0px; }`
+For example, for radio boxes:
+
+```css
+[type="radio"] {
+  margin: 20px 0px 20px 0px;
+}
+```
 
 ### Using absolute or relative values
 
@@ -356,7 +373,7 @@ The `alt` tags are added to images to render text in their place. Example: `<img
 If there's no need for an `alt` tag, you can leave it empty:
 
 ```html
-<img src="visualDecoration.jpeg" alt="" />`
+<img src="visualDecoration.jpeg" alt="" />
 ```
 
 ### Element tags
@@ -451,7 +468,7 @@ A standardized accessible format will be used when `time` and `datetime` are add
 
 Basically, when you want to hide accessible (screen reader) content from the 'default' user, use `sr-only` class:
 
-```html
+```css
 .sr-only { position: absolute; left: -10000px; width: 1px; height: 1px; top:
 auto; overflow: hidden; }`
 ```
@@ -476,7 +493,6 @@ There's also the `tabindex`, which you assign to page elements, allowing the use
 
 ```html
 <div tabindex="1">I get keyboard focus, and I get it first!</div>
-
 <div tabindex="2">I get keyboard focus, and I get it second!</div>
 ```
 
@@ -509,8 +525,12 @@ So if you want to use a `font-size` of `20px`, except for devices less than `800
 
 Can scale images to fit a certain percentage of the screen (although the image won't go wider than its original width). By specifying the `display` the image will appear as it's own line, and the `height` keeps the size ratio from going weird:
 
-```html
-img { max-width: 100%; display: block; height: auto; }
+```css
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
 ```
 
 #### Optimizing for high res (i.e. retina)
