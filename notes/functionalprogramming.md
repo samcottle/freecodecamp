@@ -4,7 +4,7 @@ This is a programming approach where the program is broken down into small, test
 
 - Simple and isolated
 - Without any side effects happening outside the scope of the function (i.e. functions should be _pure functions_ - Google it)
-- Don't alter a variable or object - instead create new variables and objects and return these from a function.
+- Don't alter a variable or object - instead create new variables and objects and return these from a function (for example, use `.slice` instead of `.splice`).
 - Declare dependencies explicitly (if a function depends on a variable or object being present, then pass that variable or object directly into the function as an argument.)
 
 In other words:
