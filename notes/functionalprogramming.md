@@ -3,7 +3,7 @@
 This is a programming approach where the program is broken down into small, testable parts (i.e. functions). Each functional solution should be:
 
 - Simple and isolated
-- Without any side effects happening outside the scope of the function (i.e. functions should be _pure functions_ - Google it)
+- Without any side effects happening outside the scope of the function (i.e. functions should be _pure functions_)
 - Don't alter a variable or object - instead create new variables and objects and return these from a function (for example, use `.slice` instead of `.splice`).
 - Declare dependencies explicitly (if a function depends on a variable or object being present, then pass that variable or object directly into the function as an argument.)
 
@@ -16,6 +16,29 @@ Some key terms for functional programming:
 - _Callbacks_: Functions that are passed into another function, to decide whether that function should be invoked. For example, `filter` is a callback that tells a function how to filter an array.
 - _First class functions_: These can be assigned to a variable, passed into another function, or returned from another function like any other value can be. In JavaScript, all functions are first class functions.
 - _Higher order functions_: Functions that take a function as an argument, or return a function as a return value. The functions that are are passed or returned are called a _lambda_.
+
+## Functional programming methods
+
+The common methods are commonly used to achieve this are:
+
+- `map`: Iterates over each element in an array, and returns a new array containing the result of calling the callback function on each element. For example, take an array of numbers, and double the value of each.
+- `filter`: Iterates over each element in an array, and runs a conditional statement over them. If the condition returns true, it gets added to the new array. For example, filtering out the odd numbers from an array.
+- `reduce`: Iterates over the array and reduces them down to an array with just one value. For example, adding every number together in the array.
+
+The reason these methods fit in with the concept of functional programming is that none of them mutate the original array.
+
+Below is some pseudo-pseudo code demonstrating how these methods can be used, in combination with a function, on an array of agricultural raw materials. By `map`ping these using the function `cook()`, they are converted to a new array of edible foods. This array is then `filter`ed with the function `isVegetarian()`, creating a new array of edible foods that are vegetarian-friendly. The method `reduce` is used with the function `eat()`, to convert
+
+```js
+map([🌽, 🐮, 🐔], cook())
+// [🍿, 🍔, 🍳]
+
+filter([🍿, 🍔, 🍳], isVegetarian())
+// [🍿, 🍳]
+
+reduce([🍿, 🍳], eat())
+// 💩
+```
 
 ## Examples
 
