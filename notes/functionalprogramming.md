@@ -129,7 +129,6 @@ console.log(newerBookList); // Returns ["The Hound of the Baskervilles", "Philos
 This example shows how to use `.map` instead of a `for` loop, to log the `Title` and `imdbRating` of movies in an IMDB `watchList` object:
 
 ```js
-// The global variable
 var watchList = [
   {
     Title: "Inception",
