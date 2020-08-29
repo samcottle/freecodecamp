@@ -27,7 +27,7 @@ The common methods are commonly used to achieve this are:
 
 The reason these methods fit in with the concept of functional programming is that none of them mutate the original array.
 
-Below is some pseudo-pseudo code demonstrating how these methods can be used, in combination with a function, on an array of agricultural raw materials. By `map`ping these using the function `cook()`, they are converted to a new array of edible foods. This array is then `filter`ed with the function `isVegetarian()`, creating a new array of edible foods that are vegetarian-friendly. The method `reduce` is used with the function `eat()`, to convert
+Below is some pseudo-pseudo code demonstrating how these methods can be used, in combination with a function, on an array of agricultural raw materials. By `map`ping these using the function `cook()`, they are converted to a new array of edible foods. This array is then `filter`ed with the function `isVegetarian()`, creating a new array of edible foods that are vegetarian-friendly. The method `reduce` is used with the function `eat()`, to convert the food into... human waste.
 
 ```js
 map([🌽, 🐮, 🐔], cook())
@@ -122,4 +122,80 @@ var newestBookList = remove(
 console.log(bookList); // Returns ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"]
 
 console.log(newerBookList); // Returns ["The Hound of the Baskervilles", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"]
+```
+
+### Map method
+
+This example shows how to use `.map` instead of a `for` loop, to log the `Title` and `imdbRating` of movies in an IMDB `watchList` object:
+
+```js
+// The global variable
+var watchList = [
+  {
+    Title: "Inception",
+    Year: "2010",
+    Rated: "PG-13",
+    Released: "16 Jul 2010",
+    Runtime: "148 min",
+    Genre: "Action, Adventure, Crime",
+    Director: "Christopher Nolan",
+    Writer: "Christopher Nolan",
+    Actors: "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy",
+    Plot:
+      "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+    Language: "English, Japanese, French",
+    Country: "USA, UK",
+    Awards: "Won 4 Oscars. Another 143 wins & 198 nominations.",
+    Poster:
+      "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    Metascore: "74",
+    imdbRating: "8.8",
+    imdbVotes: "1,446,708",
+    imdbID: "tt1375666",
+    Type: "movie",
+    Response: "True",
+  },
+  {
+    Title: "Interstellar",
+    Year: "2014",
+    Rated: "PG-13",
+    Released: "07 Nov 2014",
+    Runtime: "169 min",
+    Genre: "Adventure, Drama, Sci-Fi",
+    Director: "Christopher Nolan",
+    Writer: "Jonathan Nolan, Christopher Nolan",
+    Actors: "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+    Plot:
+      "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    Language: "English",
+    Country: "USA, UK",
+    Awards: "Won 1 Oscar. Another 39 wins & 132 nominations.",
+    Poster:
+      "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+    Metascore: "74",
+    imdbRating: "8.6",
+    imdbVotes: "910,366",
+    imdbID: "tt0816692",
+    Type: "movie",
+    Response: "True",
+  },
+];
+
+// For loop
+var ratings = [];
+for (var i = 0; i < watchList.length; i++) {
+  ratings.push({
+    title: watchList[i]["Title"],
+    rating: watchList[i]["imdbRating"],
+  });
+}
+
+// The same result, but using map
+const ratings = watchList.map((item) => ({
+  title: item["Title"],
+  rating: item["imdbRating"],
+}));
+
+console.log(JSON.stringify(ratings));
+// Logs "[{'title':'Inception','rating':'8.8'},{'title':'Interstellar','rating':'8.6'}]"
 ```
